@@ -19,3 +19,4 @@
 * Detect data types for each column using all the rows.
 * Detect wraper character (double quotes, single quotes etc.)
 * Detect quotes fields and allow the user to change field names on the destination
+* Allow removing Columns when converting.

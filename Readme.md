@@ -15,3 +15,6 @@ This will check for files to remove on a daily basis...
 Integrate test every tool with small, medium, big and huge files. Create a compressed format so that we can import and export bige and huge files.
 
 While importing to and from to a database allow defining page size or with no page size, in the latter case stream the data and do not sort (this helps very much on impala)
+
+Detect file encoding if possible and allow user to choose.
+Datetime fields when detected allow the user to set the timezone.

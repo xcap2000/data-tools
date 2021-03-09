@@ -18,3 +18,5 @@ While importing to and from to a database allow defining page size or with no pa
 
 Detect file encoding if possible and allow user to choose.
 Datetime fields when detected allow the user to set the timezone.
+
+Allow the users to pause the process or slow them down to save resources, warn about possible changes in the source data while pausing or paging etc.

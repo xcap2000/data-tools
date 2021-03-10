@@ -25,3 +25,5 @@ Tool to remove lines from a file based on a criteria, field A >= '2019-01-01' an
 Tool to edit a line
 Tool to replace text, replace by regex
 Tool to count, average etc values from text
+
+For impala it is better to filter on a specific date than to do limit and offset, limit and offset is very poor in performance. That is why I got the application stuck. Make the application able to stream all the data or configure it to calculate date intervals like day by day, weekly, two weeks, month by month, the application can calculate that automatically based on the amount of records found in a day by day basis and the time taken.

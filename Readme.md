@@ -20,3 +20,8 @@ Detect file encoding if possible and allow user to choose.
 Datetime fields when detected allow the user to set the timezone.
 
 Allow the users to pause the process or slow them down to save resources, warn about possible changes in the source data while pausing or paging etc.
+
+Tool to remove lines from a file based on a criteria, field A >= '2019-01-01' and A <= '2019-01-31'
+Tool to edit a line
+Tool to replace text, replace by regex
+Tool to count, average etc values from text

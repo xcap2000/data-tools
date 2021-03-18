@@ -31,4 +31,4 @@ For impala it is better to filter on a specific date than to do limit and offset
 Make a tool to compare columns of data in excel, print yellow the differences, or make data-tools able to do the comparison, allow similar comparison and show the percentage of how equals the texts are, some descriptions have encoding issues.
 
 
-Create tool to synchronize different databases.
+Create tool to synchronize different databases. Allow the tool to identify the relations and synchronize just a subset of the data based on a date criteria for example.

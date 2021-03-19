@@ -34,4 +34,4 @@ Make a tool to compare columns of data in excel, print yellow the differences, o
 Create tool to synchronize different databases. Allow the tool to identify the relations and synchronize just a subset of the data based on a date criteria for example.
 
 
-When comparing the files allow ignoring columns, configure case comparison etc.
+When comparing the files allow ignoring columns, configure case comparison etc. Allow the user to select what they want 'Exists in first', 'Exists in second', 'Field values don't match', 'Equals'.

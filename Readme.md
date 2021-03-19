@@ -39,3 +39,5 @@ When comparing the files allow ignoring columns, configure case comparison etc. 
 When analysing allow the user to use or define TQT rules.
 
 Implement a way to do standard deviation.
+
+Get some user info and send to me like username, e-mail, machine name.

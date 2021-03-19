@@ -35,3 +35,5 @@ Create tool to synchronize different databases. Allow the tool to identify the r
 
 
 When comparing the files allow ignoring columns, configure case comparison etc. Allow the user to select what they want 'Exists in first', 'Exists in second', 'Field values don't match', 'Equals'.
+
+When analysing allow the user to use or define TQT rules.

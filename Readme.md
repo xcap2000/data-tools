@@ -41,3 +41,5 @@ When analysing allow the user to use or define TQT rules.
 Implement a way to do standard deviation.
 
 Get some user info and send to me like username, e-mail, machine name.
+
+Create own format to "export to sql" but instead creating sql create a small file with description of fields and types and allow import into different databases.

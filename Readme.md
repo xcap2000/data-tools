@@ -46,3 +46,7 @@ Implement a way to do standard deviation.
 Get some user info and send to me like username, e-mail, machine name.
 
 Create own format to "export to sql" but instead creating sql create a small file with description of fields and types and allow import into different databases.
+
+Test with different database technologies in different versions, document every supported database.
+
+Implement log, allow. Maybe use sqlite with compressed database to hold data and/or to hold configuration, job information.

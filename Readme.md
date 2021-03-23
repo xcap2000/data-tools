@@ -50,3 +50,5 @@ Create own format to "export to sql" but instead creating sql create a small fil
 Test with different database technologies in different versions, document every supported database.
 
 Implement log, allow. Maybe use sqlite with compressed database to hold data and/or to hold configuration, job information.
+
+Add command line interface and Console UI support like ncurses. 

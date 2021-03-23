@@ -20,7 +20,9 @@ While importing to and from to a database allow defining page size or with no pa
 Detect file encoding if possible and allow user to choose.
 Datetime fields when detected allow the user to set the timezone.
 
-Allow the users to pause the process or slow them down to save resources, warn about possible changes in the source data while pausing or paging etc.
+Allow the users to pause the process or slow them down to save resources, warn about possible changes in the source data while pausing or paging etc. Allow pause and resume even after restart.
+
+Allow backup for destructive actions and or patch creation, examples when regexing a file.
 
 Tool to remove lines from a file based on a criteria, field A >= '2019-01-01' and A <= '2019-01-31'
 Tool to edit a line

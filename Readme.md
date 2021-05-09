@@ -56,3 +56,8 @@ Add command line interface and Console UI support like ncurses.
 Detect when OS is going to restart, resume all jobs, restart jobs if applications is setup to start with windows/user logon.
 
 Allow users to define how many jobs run at the same time as well allow the user to reorder, i.e. If we allow 3 tasks at the same time if we exchange order 4 to 3, 3 job is paused and 4 job is resumed.
+
+
+All operations can be resumed in:
+
+Getting data from a data source (or multiple data sources) optionally change the data (enrich, remove columns, filter etc) and send to a destination or multiple destinations

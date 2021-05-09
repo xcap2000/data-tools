@@ -3,7 +3,7 @@
 The aim of this project is to create data related tools to import, export and convert data to and from diverse source and destinations.
 
 Tool to remove columns from origin to destination.
-File To Distinct, merge equal lines
+Tool To Distinct, merge equal lines
 Tool to split files by line using delimiter(s) or size
 Tool to join files
 When adding to database allow to add timestamp or transaction column so that we can delete if needed.

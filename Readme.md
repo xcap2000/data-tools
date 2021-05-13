@@ -8,6 +8,7 @@ Tool to split files by line using delimiter(s) or size
 Tool to join files
 When adding to database allow to add timestamp or transaction column so that we can delete if needed.
 Allow the user to select transaction mode for resources that support it, per record, per block (each 10,000 records for instance), everything.
+Collect data usage and metrics from end user in order to improve application.
 
 
 ---

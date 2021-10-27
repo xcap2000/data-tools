@@ -62,4 +62,6 @@ Allow users to define how many jobs run at the same time as well allow the user 
 
 All operations can be resumed in:
 
-Getting data from a data source (or multiple data sources) optionally change the data (enrich, remove columns, filter etc) and send to a destination or multiple destinations
+Getting data from a data source (or multiple data sources) optionally change the data (data cleansing, data enriching, remove columns, filter etc) and send to a destination or multiple destinations
+
+Allow data appending, add incremental data, choose to replace intersection with new or keep old by primary key.

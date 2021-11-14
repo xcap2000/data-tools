@@ -64,7 +64,7 @@ All operations can be resumed in:
 
 Getting data from a data source (or multiple data sources) optionally change the data (enrich, remove columns, filter etc) and send to a destination or multiple destinations
 
-Add a tool to execute sql scripts like the ones generated from sql server management studio/export scripts, make showing progress optional but if it is selected show progress based on the counts of existing creates, inserts, updates etc. in the file.
+Add a tool to execute sql scripts like the ones generated from sql server management studio/generate scripts, make showing progress optional but if it is selected show progress based on the counts of existing creates, inserts, updates etc. in the file.
 Getting data from a data source (or multiple data sources) optionally change the data (data cleansing, data enriching, remove columns, filter etc) and send to a destination or multiple destinations
 
 Allow data appending, add incremental data, choose to replace intersection with new or keep old by primary key.

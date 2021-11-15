@@ -68,3 +68,5 @@ Add a tool to execute sql scripts like the ones generated from sql server manage
 Getting data from a data source (or multiple data sources) optionally change the data (data cleansing, data enriching, remove columns, filter etc) and send to a destination or multiple destinations
 
 Allow data appending, add incremental data, choose to replace intersection with new or keep old by primary key.
+
+When converting streaming, show the source and destination velocity like very slow, slow, normal, fast, very fast. Calculate based on time and or relative to the other side. Throtle the read and/or write queue to avoid big memory consumption. Allow queuing on disk if the data source is too slow or not stable like impala.

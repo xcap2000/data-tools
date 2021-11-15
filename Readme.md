@@ -72,3 +72,5 @@ Allow data appending, add incremental data, choose to replace intersection with 
 When converting streaming, show the source and destination velocity like very slow, slow, normal, fast, very fast. Calculate based on time and or relative to the other side. Throtle the read and/or write queue to avoid big memory consumption. Allow queuing on disk if the data source is too slow or not stable like impala.
 
 Create a tool to copy data from one machine to another using onedrive etc
+
+Create tool to allow import of files using the database and shared driver like bulk insert from sql server, this way is much faster.

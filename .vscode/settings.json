@@ -14,6 +14,7 @@
         "**/*.ruleset": true,
         "**/StrykerOutput": true,
         "**/.config": true,
-        "**/sqltools*": true
+        "**/sqltools*": true,
+        "**/*.glade~": true
     }
 }

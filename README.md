@@ -314,7 +314,6 @@ Create a file named settings.json in the .vscode folder with the following conte
         "**/*.ruleset": true,
         "**/StrykerOutput": true,
         "**/.config": true,
-        "**/stryker-config.json": true,
         "**/sqltools*": true
     }
 }

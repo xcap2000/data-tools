@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "ms-dotnettools.csharp",
+        "ryanluker.vscode-coverage-gutters",
+        "eamodio.gitlens",
+        "ow.vscode-subword-navigation",
+        "Gruntfuggly.todo-tree",
+        "amodio.toggle-excluded-files",
+        "pflannery.vscode-versionlens",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "redhat.vscode-xml",
+        "ms-mssql.mssql",
+        "ms-azuretools.vscode-docker",
+        "oderwat.indent-rainbow",
+        "alefragnani.Bookmarks"
+    ]
+}

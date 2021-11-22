@@ -34,8 +34,7 @@ namespace DataTools
 
         private void Button1_Clicked(object? sender, EventArgs a)
         {
-            counter++;
-            greetingLabel!.Text = "Hello World! This button has been clicked " + counter + " time(s).";
+            greetingLabel!.Text = $"Hello World! This button has been clicked {++counter} time(s).";
         }
     }
 }

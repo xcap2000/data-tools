@@ -10,6 +10,8 @@ namespace DataTools
         {
             Application.Init();
 
+            // Gtk.Settings.Default.ThemeName = "MS-Windows";
+
             var app = new Application("org.DataTools.DataTools", GLib.ApplicationFlags.None);
             app.Register(GLib.Cancellable.Current);
 

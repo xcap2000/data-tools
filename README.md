@@ -493,13 +493,13 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput -Recurse } ; dotnet tool run dotnet-stryker ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput -Recurse } ; dotnet stryker ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests.Unit/"
                 }
             },
             "linux": {
-                "command": "rm -rf ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput && dotnet-stryker --reporter \"html\" && firefox ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/`\"/reports/mutation-report.html || wslview ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/`\"/reports/mutation-report.html",
+                "command": "rm -rf ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput && dotnet stryker --reporter \"html\" && firefox ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/`\"/reports/mutation-report.html || wslview ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/`\"/reports/mutation-report.html",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests.Unit/"
                 }
@@ -580,7 +580,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput -Recurse } ; dotnet tool run dotnet-stryker ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput -Recurse } ; dotnet stryker ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests.Integration/"
                 }
@@ -636,6 +636,8 @@ To run Stryker:
 
 ```bash
 $ dotnet tool run dotnet-stryker # in the unit test project folder
+# or 
+$ dotnet stryker
 ```
 
 To remove Stryker:

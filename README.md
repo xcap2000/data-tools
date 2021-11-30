@@ -601,10 +601,10 @@ Create a file named tasks.json in the .vscode folder with the following contents
             },
             "problemMatcher": "$msCompile",
             "windows": {
-                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Release -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\netcoreapp3.1\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true /p:PublishTrimmed=true"
+                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Release -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\net6.0\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true /p:PublishTrimmed=true"
             },
             "linux": {
-                "command": "dotnet publish src/DataTools/DataTools.csproj -c Release -r linux-x64 --self-contained -o src/DataTools/bin/Release/netcoreapp3.1/linux-x64/ /p:UseAppHost=true /p:PublishSingleFile=true /p:PublishTrimmed=true"
+                "command": "dotnet publish src/DataTools/DataTools.csproj -c Release -r linux-x64 --self-contained -o src/DataTools/bin/Release/net6.0/linux-x64/ /p:UseAppHost=true /p:PublishSingleFile=true /p:PublishTrimmed=true"
             }
         }
     ]

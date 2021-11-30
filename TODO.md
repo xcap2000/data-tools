@@ -1,0 +1,1 @@
+Create specific tasks for Windows and Linux like publish.

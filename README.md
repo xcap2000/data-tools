@@ -493,7 +493,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput -Recurse } ; dotnet stryker ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput -Recurse } ; dotnet stryker --reporter \"html\" ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests.Unit/"
                 }
@@ -580,7 +580,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput -Recurse } ; dotnet stryker ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput -Recurse } ; dotnet stryker --reporter \"html\" ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests.Integration/"
                 }
@@ -601,10 +601,10 @@ Create a file named tasks.json in the .vscode folder with the following contents
             },
             "problemMatcher": "$msCompile",
             "windows": {
-                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Release -r win10-x64 -o src\\DataTools\\bin\\Release\\netcoreapp3.1\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true /p:PublishTrimmed=true"
+                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Release -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\netcoreapp3.1\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true /p:PublishTrimmed=true"
             },
             "linux": {
-                "command": "dotnet publish src/DataTools/DataTools.csproj -c Release -r linux-x64 -o src/DataTools/bin/Release/netcoreapp3.1/linux-x64/ /p:UseAppHost=true /p:PublishSingleFile=true /p:PublishTrimmed=true"
+                "command": "dotnet publish src/DataTools/DataTools.csproj -c Release -r linux-x64 --self-contained -o src/DataTools/bin/Release/netcoreapp3.1/linux-x64/ /p:UseAppHost=true /p:PublishSingleFile=true /p:PublishTrimmed=true"
             }
         }
     ]

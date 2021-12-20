@@ -1,7 +1,7 @@
 using System;
 using Gtk;
 
-namespace DataTools
+namespace CarpeDiem.DataTools
 {
     public static class Program
     {

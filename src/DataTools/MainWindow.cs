@@ -2,7 +2,7 @@ using System;
 using Gtk;
 using UI = Gtk.Builder.ObjectAttribute;
 
-namespace DataTools
+namespace CarpeDiem.DataTools
 {
     public class MainWindow : Window
     {

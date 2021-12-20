@@ -20,7 +20,7 @@
     <PackageTags></PackageTags>
     <PackageReleaseNotes>Release</PackageReleaseNotes>
     <IsPackable>false</IsPackable>
-    <RootNamespace>DataTools.Tests.Unit</RootNamespace>
+    <RootNamespace>CarpeDiem.DataTools</RootNamespace>
     <Nullable>enable</Nullable>
     <CodeAnalysisRuleSet>DataTools.Tests.Unit.ruleset</CodeAnalysisRuleSet>
     <GenerateFullPaths>true</GenerateFullPaths>

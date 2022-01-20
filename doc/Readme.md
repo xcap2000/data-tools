@@ -77,3 +77,5 @@ Create tool to allow import of files using the database and shared driver like b
 
 Allow concurrent operations, for example when importing a csv count the lines while importing and adjusting the progress accordingly.
 Or before importing when counting records and analysing the fields and 
+
+Copy/Paste/Duplicate table.

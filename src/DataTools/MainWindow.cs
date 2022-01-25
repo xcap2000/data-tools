@@ -25,6 +25,12 @@ namespace CarpeDiem.DataTools
 
             DeleteEvent += Window_DeleteEvent;
             clickMeButton!.Clicked += Button1_Clicked;
+            Shown += Window_Shown;
+        }
+
+        private void Window_Shown(object? sender, EventArgs a)
+        {
+            greetingLabel!.Text = "Hello World!!!";
         }
 
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)

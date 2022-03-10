@@ -692,4 +692,5 @@ $ dotnet-trace collect --format SpeedScope -p `pidof data-tools` # Open on Speed
 ```
 https://www.gtk.org/docs/installations/windows#using-gtk-from-msys2-packages
 https://www.msys2.org/
+https://github.com/GtkSharp/GtkSharp/issues/167
 ```

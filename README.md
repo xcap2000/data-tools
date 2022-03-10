@@ -687,6 +687,86 @@ $ dotnet-trace collect --format SpeedScope -p `pidof data-tools` # Open on Speed
 </PropertyGroup>
 ```
 
+#### Installing Gtk From MSYS2
+
+```bash
+$ pacman -Ss gtk | grep i686 # Find x86
+$ pacman -Ss gtk | grep x86_64 # Find x64
+$ pacman -S mingw-w64-x86_64-gtk3 # x64
+$ pacman -S mingw-w64-i686-gtk3 # x86
+$ pacman -Ql mingw-w64-x86_64-gtk3 | grep bin # show installed dll's
+$ pacman -Ql mingw-w64-i686-gtk3 | grep bin # show installed dll's
+$ pacman -Si mingw-w64-x86_64-gtk3
+# Package dependencies: mingw-w64-x86_64-gcc-libs mingw-w64-x86_64-adwaita-icon-theme mingw-w64-x86_64-atk mingw-w64-x86_64-cairo mingw-w64-x86_64-gdk-pixbuf2 mingw-w64-x86_64-glib2 mingw-w64-x86_64-json-glib mingw-w64-x86_64-libepoxy mingw-w64-x86_64-pango mingw-w64-x86_64-shared-mime-info mingw-w64-x86_64-gtk-update-icon-cache
+$ pacman -Si mingw-w64-x86_64-gtk3
+# Package dependencies: mingw-w64-i686-gcc-libs mingw-w64-i686-adwaita-icon-theme mingw-w64-i686-atk mingw-w64-i686-cairo mingw-w64-i686-gdk-pixbuf2 mingw-w64-i686-glib2 mingw-w64-i686-json-glib mingw-w64-i686-libepoxy mingw-w64-i686-pango mingw-w64-i686-shared-mime-info mingw-w64-i686-gtk-update-icon-cache
+```
+
+Needed files (from https://github.com/miegir/GTK-for-Windows-Runtime-Environment-Installer-32/blob/master/gtk-nsis-pack/gtk3-runtime.ts.nsi):
+
+```ini
+libatk-1.0-0.dll
+libbrotlicommon.dll
+libbrotlidec.dll
+libbz2-1.dll
+libcairo-2.dll
+libcairo-gobject-2.dll
+libcairo-script-interpreter-2.dll
+libdatrie-1.dll
+libepoxy-0.dll
+libexpat-1.dll
+libffi-7.dll
+libfontconfig-1.dll
+libfreetype-6.dll
+libfribidi-0.dll
+libgailutil-3-0.dll
+libgcc_s_dw2-1.dll
+libgdk_pixbuf-2.0-0.dll
+libgdk-3-0.dll
+libgio-2.0-0.dll
+libglib-2.0-0.dll
+libgmodule-2.0-0.dll
+libgmp-10.dll
+libgobject-2.0-0.dll
+libgraphite2.dll
+libgthread-2.0-0.dll
+libgtk-3-0.dll
+libharfbuzz-0.dll
+libiconv-2.dll
+libintl-8.dll
+libjpeg-8.dll
+libjson-glib-1.0-0.dll
+liblzma-5.dll
+libp11-kit-0.dll
+libpango-1.0-0.dll
+libpangocairo-1.0-0.dll
+libpangoft2-1.0-0.dll
+libpangowin32-1.0-0.dll
+libpcre-1.dll
+libpixman-1-0.dll
+libpng16-16.dll
+librsvg-2-2.dll
+libssp-0.dll
+libstdc++-6.dll
+libtasn1-6.dll
+libthai-0.dll
+libtiff-5.dll
+libwinpthread-1.dll
+libxml2-2.dll
+zlib1.dll
+```
+
+#### Zip Gtk Dependencies
+
+```bash
+$ pacman -S zip
+$ pacman -S mingw-w64-x86_64-tar
+$ cd mingw32/bin
+$ zip -9 -y -r -q gtk-3.24.31-x86.zip libatk-1.0-0.dll libbrotlicommon.dll libbrotlidec.dll libbz2-1.dll libcairo-2.dll libcairo-gobject-2.dll libcairo-script-interpreter-2.dll libdatrie-1.dll libepoxy-0.dll libexpat-1.dll libffi-7.dll libfontconfig-1.dll libfreetype-6.dll libfribidi-0.dll libgailutil-3-0.dll libgcc_s_dw2-1.dll libgdk_pixbuf-2.0-0.dll libgdk-3-0.dll libgio-2.0-0.dll libglib-2.0-0.dll libgmodule-2.0-0.dll libgmp-10.dll libgobject-2.0-0.dll libgraphite2.dll libgthread-2.0-0.dll libgtk-3-0.dll libharfbuzz-0.dll libiconv-2.dll libintl-8.dll libjpeg-8.dll libjson-glib-1.0-0.dll liblzma-5.dll libp11-kit-0.dll libpango-1.0-0.dll libpangocairo-1.0-0.dll libpangoft2-1.0-0.dll libpangowin32-1.0-0.dll libpcre-1.dll libpixman-1-0.dll libpng16-16.dll librsvg-2-2.dll libssp-0.dll libstdc++-6.dll libtasn1-6.dll libthai-0.dll libtiff-5.dll libwinpthread-1.dll libxml2-2.dll zlib1.dll
+$ cd mingw64/bin
+$ zip -9 -y -r -q gtk-3.24.31-x64.zip libatk-1.0-0.dll libbrotlicommon.dll libbrotlidec.dll libbz2-1.dll libcairo-2.dll libcairo-gobject-2.dll libcairo-script-interpreter-2.dll libdatrie-1.dll libepoxy-0.dll libexpat-1.dll libffi-7.dll libfontconfig-1.dll libfreetype-6.dll libfribidi-0.dll libgailutil-3-0.dll libgcc_s_dw2-1.dll libgdk_pixbuf-2.0-0.dll libgdk-3-0.dll libgio-2.0-0.dll libglib-2.0-0.dll libgmodule-2.0-0.dll libgmp-10.dll libgobject-2.0-0.dll libgraphite2.dll libgthread-2.0-0.dll libgtk-3-0.dll libharfbuzz-0.dll libiconv-2.dll libintl-8.dll libjpeg-8.dll libjson-glib-1.0-0.dll liblzma-5.dll libp11-kit-0.dll libpango-1.0-0.dll libpangocairo-1.0-0.dll libpangoft2-1.0-0.dll libpangowin32-1.0-0.dll libpcre-1.dll libpixman-1-0.dll libpng16-16.dll librsvg-2-2.dll libssp-0.dll libstdc++-6.dll libtasn1-6.dll libthai-0.dll libtiff-5.dll libwinpthread-1.dll libxml2-2.dll zlib1.dll
+```
+
 #### Links
 
 ```

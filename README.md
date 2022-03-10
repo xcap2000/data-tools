@@ -679,7 +679,17 @@ $ dotnet-trace collect --format Chromium -p `pidof data-tools` # Open on chrome 
 $ dotnet-trace collect --format SpeedScope -p `pidof data-tools` # Open on SpeedScope (https://www.speedscope.app/)
 ```
 
+#### Disabling Gtk Download
+
+```xml
+<PropertyGroup>
+    <SkipGtkInstall>true</SkipGtkInstall>
+</PropertyGroup>
+```
+
 #### Links
 
 ```
+https://www.gtk.org/docs/installations/windows#using-gtk-from-msys2-packages
+https://www.msys2.org/
 ```

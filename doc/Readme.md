@@ -79,3 +79,7 @@ Allow concurrent operations, for example when importing a csv count the lines wh
 Or before importing when counting records and analysing the fields and 
 
 Copy/Paste/Duplicate table.
+
+Create a tool to run queries with templates, where tables, fields and values could be provided from configuration
+
+Create a tool to create queries visually like ms access have.

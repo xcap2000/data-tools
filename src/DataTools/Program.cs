@@ -1,4 +1,6 @@
 using System;
+using Autofac;
+using CarpeDiem.DataTools.Workbench.Views;
 using Gtk;
 
 namespace CarpeDiem.DataTools
@@ -15,11 +17,23 @@ namespace CarpeDiem.DataTools
             var app = new Application("org.DataTools.DataTools", GLib.ApplicationFlags.None);
             app.Register(GLib.Cancellable.Current);
 
-            var win = new MainWindow();
-            app.AddWindow(win);
+            var mainWindow = Resolve();
 
-            win.Show();
+            app.AddWindow(mainWindow);
+
+            mainWindow.Show();
+
             Application.Run();
+        }
+
+        public static Window Resolve()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterModule<DataToolsModule>();
+
+            var container = builder.Build();
+
+            return (Window)container.Resolve<IWorkbenchView>();
         }
     }
 }

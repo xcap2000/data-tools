@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace DataTools.Tests.Unit;
+namespace CarpeDiem.DataTools.Tests.Unit;
 
 public class UnitTest1
 {

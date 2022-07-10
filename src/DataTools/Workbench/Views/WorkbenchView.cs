@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using CarpeDiem.DataTools.Workbench.Commands;
+using CarpeDiem.DataTools.Workbench.Presenters;
 using Gtk;
 
 namespace CarpeDiem.DataTools.Workbench.Views
@@ -8,10 +10,13 @@ namespace CarpeDiem.DataTools.Workbench.Views
     {
         [Builder.Object]
         private readonly MenuBar? menuBar = null;
+        private readonly IWorkbenchPresenter presenter;
 
-        public WorkbenchView()
+        public WorkbenchView(IWorkbenchPresenter presenter)
             : this(new Builder("WorkbenchView.glade"))
         {
+            this.presenter = presenter;
+            Shown += WorkbenchView_Shown;
         }
 
         private WorkbenchView(Builder builder)
@@ -26,10 +31,20 @@ namespace CarpeDiem.DataTools.Workbench.Views
             {
                 foreach (var command in value)
                 {
-                    var menuItem = new MenuItem("Close");
-                    menuBar.Add(menuItem);
+                    var menuItem = new MenuItem(command.Label);
+                    menuItem.Activated += delegate
+                    {
+                        command.Execute();
+                    };
+                    menuItem.Visible = true;
+                    menuBar!.Add(menuItem);
                 }
             }
+        }
+
+        private void WorkbenchView_Shown(object? sender, EventArgs a)
+        {
+            presenter.Initialize();
         }
     }
 }

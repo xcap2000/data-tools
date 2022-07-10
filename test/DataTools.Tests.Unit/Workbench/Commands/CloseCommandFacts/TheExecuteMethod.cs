@@ -8,7 +8,7 @@ public static partial class CloseCommandFacts
     public class TheExecuteMethod : BaseFacts
     {
         [Fact]
-        public void TestName()
+        public void QuitsApplication()
         {
             command.Execute();
 

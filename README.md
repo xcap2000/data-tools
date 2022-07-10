@@ -83,7 +83,7 @@ $ mkdir test
 $ mkdir src/DataTools
 $ dotnet new gtkapp -n DataTools -o src/DataTools
 $ dotnet add src/DataTools/DataTools.csproj package Microsoft.CodeAnalysis.CSharp.Workspaces --version 4.0.1
-$ dotnet add src/DataTools/DataTools.csproj package Unity --version 5.11.10
+$ dotnet add src/DataTools/DataTools.csproj package Autofac --version 6.3.0
 $ dotnet add src/DataTools/DataTools.csproj package Roslynator.Analyzers --version 3.2.2
 ```
 
@@ -179,7 +179,7 @@ $ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj
 $ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package Microsoft.CodeAnalysis.CSharp.Workspaces --version 4.0.1
 $ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package coverlet.msbuild --version 3.1.0
 $ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package Roslynator.Analyzers --version 3.2.2
-$ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package Unity --version 5.11.10
+$ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package Autofac --version 6.3.0
 $ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package NSubstitute --version 4.2.2
 $ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package NSubstitute.Analyzers.CSharp --version 1.0.15
 ```

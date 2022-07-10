@@ -11,6 +11,8 @@ public class CloseCommand : IWorkbenchCommand
         this.adapter = adapter;
     }
 
+    public string Label => "Close";
+
     public void Execute()
     {
         adapter.Quit();

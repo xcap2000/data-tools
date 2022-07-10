@@ -4,6 +4,14 @@
 
 ### Creating The Projects
 
+### Install GtkSharp Templates
+
+```bash
+$ dotnet new --install GtkSharp.Template.CSharp # To install
+$ dotnet new --uninstall GtkSharp.Template.CSharp # To uninstall
+$ dotnet new gtkapp # To create a new GtkSharp application
+```
+
 ### Setting Up Git
 
 ```bash

@@ -13,6 +13,8 @@ public class CloseCommand : IWorkbenchCommand
 
     public string Label => "Close";
 
+    public string[] Hierarchy => new[] { "File" };
+
     public void Execute()
     {
         adapter.Quit();

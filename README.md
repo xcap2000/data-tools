@@ -85,6 +85,7 @@ $ dotnet new gtkapp -n DataTools -o src/DataTools
 $ dotnet add src/DataTools/DataTools.csproj package Microsoft.CodeAnalysis.CSharp.Workspaces --version 4.0.1
 $ dotnet add src/DataTools/DataTools.csproj package Autofac --version 6.3.0
 $ dotnet add src/DataTools/DataTools.csproj package Roslynator.Analyzers --version 3.2.2
+$ dotnet add src/DataTools/DataTools.csproj package Prism.Core --version 8.1.97
 ```
 
 Edit src/DataTools/DataTools.csproj to configure it as following:

@@ -17,7 +17,8 @@ public static partial class WorkbenchPresenterFacts
         {
             view = For<IWorkbenchView>();
             commands = For<IEnumerable<IWorkbenchCommand>>();
-            presenter = new WorkbenchPresenter(view, commands);
+            // TODO - Fix test.
+            presenter = new WorkbenchPresenter(view, commands, null);
         }
     }
 }

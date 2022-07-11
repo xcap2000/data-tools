@@ -15,19 +15,28 @@ namespace CarpeDiem.DataTools.Calculator.Views
 
         [UI]
         private readonly Label? resultLabel = null;
+
+        [UI]
+        private readonly Button? sumButton = null;
+
         private readonly IMiniCalcPresenter presenter;
 
         public MiniCalcView(IMiniCalcPresenter presenter)
-            : this(new Builder("MiniCalcView.glade"))
+            : this(new Builder(nameof(MiniCalcView) + ".glade"), presenter)
         {
-            this.presenter = presenter;
             Shown += MiniCalcView_Shown;
+            sumButton.Clicked += SumButton_Clicked;
         }
 
-        private MiniCalcView(Builder builder)
-            : base(builder.GetRawOwnedObject("MiniCalcView"))
+        private MiniCalcView
+        (
+            Builder builder,
+            IMiniCalcPresenter presenter
+        )
+            : base(builder.GetRawOwnedObject(nameof(MiniCalcView)))
         {
             builder.Autoconnect(this);
+            this.presenter = presenter;
         }
 
         public string Value1
@@ -45,6 +54,11 @@ namespace CarpeDiem.DataTools.Calculator.Views
         private void MiniCalcView_Shown(object? sender, EventArgs a)
         {
             presenter.Initialize();
+        }
+
+        private void SumButton_Clicked(object? sender, EventArgs a)
+        {
+            presenter.Sum();
         }
     }
 }

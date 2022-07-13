@@ -1,19 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using CarpeDiem.DataTools.Workbench.Commands;
 using CarpeDiem.DataTools.Workbench.Presenters;
 using Gtk;
+using UI = Gtk.Builder.ObjectAttribute;
 
 namespace CarpeDiem.DataTools.Workbench.Views
 {
     public class WorkbenchView : Window, IWorkbenchView
     {
-        [Builder.Object]
-        private readonly MenuBar? menuBar = null;
+        [UI] private readonly MenuBar menuBar = null!;
 
-        [Builder.Object]
-        private readonly Box? box = null;
+        [UI] private readonly Box box = null!;
+
         private readonly IWorkbenchPresenter presenter;
 
         public WorkbenchView(IWorkbenchPresenter presenter)
@@ -22,11 +21,7 @@ namespace CarpeDiem.DataTools.Workbench.Views
             Shown += WorkbenchView_Shown;
         }
 
-        private WorkbenchView
-        (
-            Builder builder,
-            IWorkbenchPresenter presenter
-        )
+        private WorkbenchView(Builder builder, IWorkbenchPresenter presenter)
             : base(builder.GetRawOwnedObject(nameof(WorkbenchView)))
         {
             builder.Autoconnect(this);
@@ -37,8 +32,10 @@ namespace CarpeDiem.DataTools.Workbench.Views
         {
             set
             {
-                Menu fileMenu = new();
-                fileMenu.Visible = true;
+                Menu fileMenu = new()
+                {
+                    Visible = true
+                };
 
                 MenuItem fileMenuItem = new("File")
                 {
@@ -57,17 +54,17 @@ namespace CarpeDiem.DataTools.Workbench.Views
                     fileMenu.Append(menuItem);
                 }
 
-                menuBar!.Append(fileMenuItem);
+                menuBar.Append(fileMenuItem);
             }
         }
 
         public void Activate(object o)
         {
-            foreach (var widget in box!.Children)
+            foreach (var widget in box.Children)
             {
                 box.Remove(widget);
             }
-            box!.PackStart((Widget)o, true, true, 0);
+            box.PackStart((Widget)o, true, true, 0);
         }
 
         private void WorkbenchView_Shown(object? sender, EventArgs a)

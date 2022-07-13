@@ -1,6 +1,5 @@
 using Autofac;
 using CarpeDiem.DataTools.Calculator.Views;
-using CarpeDiem.DataTools.Workbench.Adapters;
 using CarpeDiem.DataTools.Workbench.Commands;
 using CarpeDiem.DataTools.Workbench.Events;
 using Prism.Events;

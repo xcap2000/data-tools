@@ -27,7 +27,7 @@ namespace CarpeDiem.DataTools.Workbench.Presenters
         public void Initialize()
         {
             view.Commands = commands;
-            eventAggregator.GetEvent<ActivatedEvent>().Subscribe(o => view.Activate(o));
+            eventAggregator?.GetEvent<ActivatedEvent>().Subscribe(o => view.Activate(o));
         }
     }
 }

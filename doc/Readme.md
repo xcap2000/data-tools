@@ -83,3 +83,5 @@ Copy/Paste/Duplicate table.
 Create a tool to run queries with templates, where tables, fields and values could be provided from configuration
 
 Create a tool to create queries visually like ms access have.
+
+Make it possible for not using prepared statements, for simba spark driver for example it is must have as I was not able to use prepared statements.

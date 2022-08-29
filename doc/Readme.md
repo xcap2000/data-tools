@@ -76,7 +76,7 @@ Create a tool to copy data from one machine to another using onedrive etc
 Create tool to allow import of files using the database and shared driver like bulk insert from sql server, this way is much faster.
 
 Allow concurrent operations, for example when importing a csv count the lines while importing and adjusting the progress accordingly.
-Or before importing when counting records and analysing the fields and 
+Or before importing when counting records and analysing the fields or count records during import but with a timeout.
 
 Copy/Paste/Duplicate table.
 

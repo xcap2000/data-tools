@@ -87,3 +87,5 @@ Create a tool to create queries visually like ms access have.
 Make it possible for not using prepared statements, for simba spark driver for example it is must have as I was not able to use prepared statements at least for azure cloud version.
 
 Query execution may take more time than retrieval and we should be able to report that the system is working on running the query so that the user does not think it is frozen or has crashed.
+
+Create a tool to test connections, probably the connection manager will do it.

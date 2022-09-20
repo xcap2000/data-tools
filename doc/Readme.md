@@ -89,3 +89,5 @@ Make it possible for not using prepared statements, for simba spark driver for e
 Query execution may take more time than retrieval and we should be able to report that the system is working on running the query so that the user does not think it is frozen or has crashed.
 
 Create a tool to test connections, probably the connection manager will do it.
+
+Save results to a temporary database when exporting to excel/csv or save frequently and return partial results when a problem ocurrs.

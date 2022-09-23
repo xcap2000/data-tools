@@ -103,3 +103,8 @@ their own wrappers and have their own keywords
 
 Always be careful before deleting a file or table, maybe put them on the trash and/or schedule to remove
 (there is a comment for the feature, delete after some days etc)
+
+Create tools to do data analyses, identify source datatypes, granularity of values, percentage of values etc.
+
+Create a tools that identifies possible joins (inner, left etc) possible fields, multiplicity 1x1, 1xmany, many to many etc.
+Make it possible for SAP, maybe by column and table names previously mapped using sap table reference sites

@@ -95,3 +95,6 @@ Save results to a temporary database when exporting to excel/csv or save frequen
 Save results to a different sheet (in case of excel) and/or file according to the distinct value of a field.
 For example a query might return records from multiple "mandts" and each record will be saved to their own file, we can expand that
 to a datetime field or a part of it like year, year+month, year+month+day etc or other data types. Check granularity in order not to generate too many files.
+
+Allow users to define new columns names and use wrappers [] `` "" in case they use keywords as column names, each technology sql server, oracle etc use
+their own wrappers and have their own keywords

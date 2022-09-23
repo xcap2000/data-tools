@@ -52,6 +52,8 @@ Create own format to "export to sql" but instead creating sql create a small fil
 Test with different database technologies in different versions, document every supported database.
 
 Implement log, allow. Maybe use sqlite with compressed database to hold data and/or to hold configuration, job information.
+Log using utc datetime and show acccording to user/windows preferences. Logs maybe synchronized with we application for
+profiling, debugging etc.
 
 Add command line interface and Console UI support like ncurses. 
 
@@ -98,3 +100,6 @@ to a datetime field or a part of it like year, year+month, year+month+day etc or
 
 Allow users to define new columns names and use wrappers [] `` "" in case they use keywords as column names, each technology sql server, oracle etc use
 their own wrappers and have their own keywords
+
+Always be careful before deleting a file or table, maybe put them on the trash and/or schedule to remove
+(there is a comment for the feature, delete after some days etc)

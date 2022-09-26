@@ -114,3 +114,5 @@ When exporting to excel allow the user to choose:
 - Enable filter by default
 
 If the data source is stable and fast and we are getting records paged allow multiple pages to be retrieved at the same time.
+
+Allow the application to work offline, allow the user to create jobs and tasks, select connections, databases and themes offline and when back online allow the execution and test for database/tables changes. 

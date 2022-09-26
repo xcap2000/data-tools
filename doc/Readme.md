@@ -108,3 +108,7 @@ Create tools to do data analyses, identify source datatypes, granularity of valu
 
 Create a tools that identifies possible joins (inner, left etc) possible fields, multiplicity 1x1, 1xmany, many to many etc.
 Make it possible for SAP, maybe by column and table names previously mapped using sap table reference sites
+
+When exporting to excel allow the user to choose:
+- Autofit columns
+- Enable filter by default

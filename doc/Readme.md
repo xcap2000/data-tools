@@ -112,3 +112,5 @@ Make it possible for SAP, maybe by column and table names previously mapped usin
 When exporting to excel allow the user to choose:
 - Autofit columns
 - Enable filter by default
+
+If the data source is stable and fast and we are getting records paged allow multiple pages to be retrieved at the same time.

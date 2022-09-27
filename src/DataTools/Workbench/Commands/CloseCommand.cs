@@ -4,12 +4,14 @@ namespace CarpeDiem.DataTools.Workbench.Commands;
 
 public class CloseCommand : IWorkbenchCommand
 {
-    private readonly IApplicationAdapter adapter;
+    private readonly IApplicationAdapter application;
 
-    public CloseCommand(IApplicationAdapter adapter)
+    public CloseCommand(IApplicationAdapter application)
     {
-        this.adapter = adapter;
+        this.application = application;
     }
+
+    public int Priority { get; } = 0;
 
     public string Label => "Close";
 
@@ -17,6 +19,6 @@ public class CloseCommand : IWorkbenchCommand
 
     public void Execute()
     {
-        adapter.Quit();
+        application.Quit();
     }
 }

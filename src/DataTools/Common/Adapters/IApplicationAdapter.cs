@@ -1,17 +1,11 @@
-﻿using CarpeDiem.DataTools.Workbench.Views;
+﻿using CarpeDiem.DataTools.Common.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CarpeDiem.DataTools.Common.Adapters
+namespace CarpeDiem.DataTools.Common.Adapters;
+
+public interface IApplicationAdapter
 {
-    public interface IApplicationAdapter
-    {
-        // TODO - Configure container to accept (IView view), make IWorkbenchView a lazy object itself like the presenter (LazyWorkbenchPresenter).
-        void Run(Lazy<IWorkbenchView> view);
+    void Run(Func<IView> getView);
 
-        void Quit();
-    }
+    void Quit();
 }

@@ -22,6 +22,8 @@ public class CalculateCommand : IWorkbenchCommand
         this.scope = scope;
     }
 
+    public int Priority { get; } = 100;
+
     public string Label => "Calculate";
 
     public string[] Hierarchy => new[] { "File" };

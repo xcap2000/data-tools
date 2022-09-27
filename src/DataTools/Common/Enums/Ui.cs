@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarpeDiem.DataTools.Common.Enums
+namespace CarpeDiem.DataTools.Common.Enums;
+
+public enum Ui
 {
-    public enum Ui
-    {
-        WinForms,
-        Gtk
-    }
+    WinForms,
+    Gtk
 }

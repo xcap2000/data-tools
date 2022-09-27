@@ -1,3 +1,4 @@
+using CarpeDiem.DataTools.Workbench.Events;
 using NSubstitute;
 using Xunit;
 
@@ -10,9 +11,14 @@ public static partial class WorkbenchPresenterFacts
         [Fact]
         public void InitializesCommands()
         {
+            var @event = new ActivatedEvent();
+            eventAggregator.GetEvent<ActivatedEvent>().Returns(@event);
+
             presenter.Initialize();
 
-            view.Received().Commands = commands;
+            view.Received(1).Commands = commands;
+            eventAggregator.Received(1).GetEvent<ActivatedEvent>();
+            @event.Contains(o => view.Activate(o));
         }
     }
 }

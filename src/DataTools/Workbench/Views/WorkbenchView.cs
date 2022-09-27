@@ -26,6 +26,7 @@ namespace CarpeDiem.DataTools.Workbench.Views
         {
             builder.Autoconnect(this);
             this.presenter = presenter;
+            this.DeleteEvent += WorkbenchView_DeleteEvent;
         }
 
         public IEnumerable<IWorkbenchCommand> Commands
@@ -70,6 +71,11 @@ namespace CarpeDiem.DataTools.Workbench.Views
         private void WorkbenchView_Shown(object? sender, EventArgs a)
         {
             presenter.Initialize();
+        }
+
+        private void WorkbenchView_DeleteEvent(object o, DeleteEventArgs args)
+        {
+            presenter.Close();
         }
     }
 }

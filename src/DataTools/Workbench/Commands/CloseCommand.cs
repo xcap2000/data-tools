@@ -1,4 +1,4 @@
-using CarpeDiem.DataTools.Common;
+using CarpeDiem.DataTools.Common.Adapters;
 
 namespace CarpeDiem.DataTools.Workbench.Commands;
 

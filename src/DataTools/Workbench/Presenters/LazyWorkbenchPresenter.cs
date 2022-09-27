@@ -19,5 +19,10 @@ namespace CarpeDiem.DataTools.Workbench.Presenters
         {
             presenterLazy.Value.Initialize();
         }
+
+        public void Close()
+        {
+            presenterLazy.Value.Close();
+        }
     }
 }

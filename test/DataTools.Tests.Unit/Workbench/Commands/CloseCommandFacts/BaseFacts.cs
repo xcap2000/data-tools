@@ -1,4 +1,4 @@
-using CarpeDiem.DataTools.Common;
+using CarpeDiem.DataTools.Common.Adapters;
 using static NSubstitute.Substitute;
 
 namespace CarpeDiem.DataTools.Workbench.Commands;

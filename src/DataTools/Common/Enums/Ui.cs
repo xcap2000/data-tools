@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarpeDiem.DataTools.Common
+namespace CarpeDiem.DataTools.Common.Enums
 {
     public enum Ui
     {

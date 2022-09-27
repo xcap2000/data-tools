@@ -3,8 +3,9 @@ using System.IO.Compression;
 using System.IO;
 using System.Runtime.InteropServices;
 using Autofac;
-using CarpeDiem.DataTools.Common;
 using CarpeDiem.DataTools.Workbench.Views;
+using CarpeDiem.DataTools.Common.Adapters;
+using CarpeDiem.DataTools.Common.Enums;
 
 namespace CarpeDiem.DataTools
 {
@@ -16,15 +17,15 @@ namespace CarpeDiem.DataTools
         [STAThread]
         public static void Main(string[] args)
         {
-            var ui = args.Length > 0 && args[0] == "wf" ? Ui.WinForms : Ui.Gtk;
+            //var ui = args.Length > 0 && args[0] == "wf" ? Ui.WinForms : Ui.Gtk;
+            var ui = Ui.WinForms;
 
             if (ui == Ui.Gtk)
             {
                 SetupGtk();
             }
 
-            builder.RegisterModule<DataToolsModule>();
-            builder.RegisterUi(ui);
+            builder.RegisterModule(new DataToolsModule(ui));
 
             container = builder.Build();
 
@@ -32,33 +33,6 @@ namespace CarpeDiem.DataTools
             var view = container.Resolve<Lazy<IWorkbenchView>>();
 
             application.Run(view);
-        }
-
-        private static void RegisterUi(this ContainerBuilder builder, Ui ui)
-        {
-            switch (ui)
-            {
-                case Ui.WinForms:
-                    builder
-                        .RegisterType<WinFormsApplicationAdapter>()
-                        .As<IApplicationAdapter>()
-                        .SingleInstance();
-                    builder
-                        .RegisterType<WinFormsWorkbenchView>()
-                        .As<IWorkbenchView>()
-                        .SingleInstance();
-                    break;
-                case Ui.Gtk:
-                    builder
-                        .RegisterType<GtkApplicationAdapter>()
-                        .As<IApplicationAdapter>()
-                        .SingleInstance();
-                    builder
-                        .RegisterType<WorkbenchView>()
-                        .As<IWorkbenchView>()
-                        .SingleInstance();
-                    break;
-            }
         }
 
         private static void SetupGtk()

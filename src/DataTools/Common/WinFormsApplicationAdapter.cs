@@ -6,7 +6,6 @@ namespace CarpeDiem.DataTools.Common
 {
     public class WinFormsApplicationAdapter : IApplicationAdapter
     {
-        [STAThread]
         public void Run(Lazy<IWorkbenchView> view)
         {
             ApplicationConfiguration.Initialize();

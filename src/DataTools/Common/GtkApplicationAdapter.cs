@@ -13,12 +13,21 @@ namespace CarpeDiem.DataTools.Common
 {
     public class GtkApplicationAdapter : IApplicationAdapter
     {
-        [STAThread]
         public void Run(Lazy<IWorkbenchView> view)
         {
+            //Environment.SetEnvironmentVariable("GTK_THEME", "Adwaita:dark"); // works
+
+            //Environment.SetEnvironmentVariable("GTK_THEME", "Windows10"); // works, theme on C:\\Users\\xcap2\\AppData\\Local\\Gtk\\3.24.31-x64\\share\\themes\\Windows10
+
             Application.Init();
 
-            // Gtk.Settings.Default.ThemeName = "MS-Windows";
+            //Gtk.Settings.Default.ThemeName = "Windows10"; // works, theme on C:\\Users\\xcap2\\AppData\\Local\\Gtk\\3.24.31-x64\\share\\themes\\Windows10
+
+            // Partially works
+            Gtk.CssProvider cssProvider = new Gtk.CssProvider();
+            cssProvider.LoadFromPath("C:\\Users\\xcap2\\AppData\\Local\\Gtk\\3.24.31-x64\\share\\themes\\Windows10\\gtk-3.0\\gtk.css");
+            Gtk.StyleContext.AddProviderForScreen(Gdk.Screen.Default, cssProvider, 800);
+            Gtk.StyleContext.ResetWidgets(Gdk.Screen.Default);
 
             var app = new Application("org.DataTools.DataTools", GLib.ApplicationFlags.None);
             app.Register(GLib.Cancellable.Current);

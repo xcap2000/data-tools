@@ -16,7 +16,7 @@ namespace CarpeDiem.DataTools
         [STAThread]
         public static void Main(string[] args)
         {
-            var ui = args.Length > 0 && args[0] == "wf" ? Ui.WinForms : Ui.WinForms;
+            var ui = args.Length > 0 && args[0] == "wf" ? Ui.WinForms : Ui.Gtk;
 
             if (ui == Ui.Gtk)
             {
@@ -87,6 +87,7 @@ namespace CarpeDiem.DataTools
                         zipArchive.ExtractToDirectory(destinationDirectoryName, false);
                     }
                     Environment.SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH") + $";{destinationDirectoryName}");
+                    //Environment.SetEnvironmentVariable("GTK_PATH", Environment.GetEnvironmentVariable("PATH") + $";{destinationDirectoryName}");
                 }
             }
         }

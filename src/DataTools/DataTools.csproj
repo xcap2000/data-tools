@@ -1,8 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
+  <PropertyGroup>  
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+	<TargetFramework>net6.0-windows</TargetFramework>
+	<UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>data-tools</AssemblyName>
     <Version>0.1.0</Version>
     <Authors>Carlos Adriano Portes</Authors>
@@ -33,11 +34,14 @@
     <EmbeddedResource Include="**\*.glade">
       <LogicalName>%(Filename)%(Extension)</LogicalName>
     </EmbeddedResource>
+	<EmbeddedResource Include="gtk-3.24.31-x86.zip">
+	  <LogicalName>gtk-3.24.31-x86.zip</LogicalName>
+	</EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.3.0" />
-    <PackageReference Include="GtkSharp" Version="3.24.24.34" />
+    <PackageReference Include="GtkSharp" Version="3.24.24.38" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.0.1" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="Roslynator.Analyzers" Version="3.2.2">
@@ -45,5 +49,9 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+
+  <PropertyGroup>
+	  <SkipGtkInstall>true</SkipGtkInstall>
+  </PropertyGroup>
 
 </Project>

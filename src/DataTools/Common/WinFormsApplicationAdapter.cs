@@ -1,0 +1,21 @@
+﻿using CarpeDiem.DataTools.Workbench.Views;
+using System;
+using System.Windows.Forms;
+
+namespace CarpeDiem.DataTools.Common
+{
+    public class WinFormsApplicationAdapter : IApplicationAdapter
+    {
+        [STAThread]
+        public void Run(Lazy<IWorkbenchView> view)
+        {
+            ApplicationConfiguration.Initialize();
+            Application.Run((Form)view.Value);
+        }
+
+        public void Quit()
+        {
+            Application.Exit();
+        }
+    }
+}

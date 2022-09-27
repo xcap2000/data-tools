@@ -9,6 +9,7 @@ namespace CarpeDiem.DataTools.Common
 {
     public interface IApplicationAdapter
     {
+        // TODO - Configure container to accept (IView view), make IWorkbenchView a lazy object itself like the presenter (LazyWorkbenchPresenter).
         void Run(Lazy<IWorkbenchView> view);
 
         void Quit();

@@ -2,8 +2,9 @@
 
   <PropertyGroup>  
     <OutputType>WinExe</OutputType>
-	<TargetFramework>net6.0-windows</TargetFramework>
-	<UseWindowsForms>true</UseWindowsForms>
+    <TargetFrameworks>net6.0-windows;net48</TargetFrameworks>
+    <LangVersion>10.0</LangVersion>
+    <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>data-tools</AssemblyName>
     <Version>0.1.0</Version>
     <Authors>Carlos Adriano Portes</Authors>
@@ -35,7 +36,7 @@
       <LogicalName>%(Filename)%(Extension)</LogicalName>
     </EmbeddedResource>
 	<EmbeddedResource Include="gtk-3.24.31-x64.zip">
-	  <LogicalName>gtk-3.24.31-x64.zip</LogicalName>
+      <LogicalName>gtk-3.24.31-x64.zip</LogicalName>
 	</EmbeddedResource>
   </ItemGroup>
 
@@ -48,10 +49,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="System.IO.Compression.ZipFile" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.IO.Compression" />
   </ItemGroup>
 
   <PropertyGroup>
-	  <SkipGtkInstall>true</SkipGtkInstall>
+    <SkipGtkInstall>true</SkipGtkInstall>
   </PropertyGroup>
 
 </Project>

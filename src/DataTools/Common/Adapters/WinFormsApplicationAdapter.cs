@@ -8,7 +8,7 @@ public class WinFormsApplicationAdapter : IApplicationAdapter
 {
     public void Run(Func<IView> getView)
     {
-        ApplicationConfiguration.Initialize();
+        // ApplicationConfiguration.Initialize();
         Application.Run((Form)getView());
     }
 

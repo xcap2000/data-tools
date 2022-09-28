@@ -68,7 +68,7 @@ public class GtkApplicationAdapter : IApplicationAdapter
                 if (!Directory.Exists(destinationDirectoryName))
                 {
                     using var zipArchive = new ZipArchive(stream, ZipArchiveMode.Read, false);
-                    zipArchive.ExtractToDirectory(destinationDirectoryName, false);
+                    zipArchive.ExtractToDirectory(destinationDirectoryName);
                 }
                 Environment.SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH") + $";{destinationDirectoryName}");
             }

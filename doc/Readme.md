@@ -118,3 +118,6 @@ If the data source is stable and fast and we are getting records paged allow mul
 Allow the application to work offline, allow the user to create jobs and tasks, select connections, databases and themes offline and when back online allow the execution and test for database/tables changes. 
 
 When exporting to excel create an option to add the query on a new tab.
+
+For the visualization tool, analysis tool, make it so we have a write mode and a readonly mode, so that
+some users can only see analysis (and probably do some filtering) but not create.

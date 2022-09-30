@@ -121,3 +121,9 @@ When exporting to excel create an option to add the query on a new tab.
 
 For the visualization tool, analysis tool, make it so we have a write mode and a readonly mode, so that
 some users can only see analysis (and probably do some filtering) but not create.
+
+When getting data from a specific field, lets say date it is important to try do split the dates so that each period say
+a month has a similar amount of records, I found a scenario similar to that, we have a total of 50 million records spread in 3
+years, one month had 8 million, and some had 0 records, probably not the best field to use but we could split the query by day on
+this month, skip months with 0 records, and months with less records split every 5, 10, 20 days etc. make the algorithm good enough
+to do that and to do the counts wisely. I call that record distribution by date/during time.

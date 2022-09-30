@@ -127,3 +127,26 @@ a month has a similar amount of records, I found a scenario similar to that, we 
 years, one month had 8 million, and some had 0 records, probably not the best field to use but we could split the query by day on
 this month, skip months with 0 records, and months with less records split every 5, 10, 20 days etc. make the algorithm good enough
 to do that and to do the counts wisely. I call that record distribution by date/during time.
+
+Allow the application to slow down or speed up according to a schedule, when you are working it does not consume a lot of
+resources, when you are not it does. Create profiles like slow, moderate and fast and play with the following variables:
+
+concurrent tasks
+local cache of records, 1000, 10000 etc.
+
+slow
+one task at a time
+cache of 1000
+
+moderate
+two tasks at a time
+cache of 10_000
+
+fast
+three tasks at a time
+cache of 10_000
+
+maybe find another name for slow, moderate and fast.
+maybe cache is variable, and play only with number of tasks.
+
+conservative, moderate and aggressive mode names would probably be better.

@@ -150,3 +150,8 @@ maybe find another name for slow, moderate and fast.
 maybe cache is variable, and play only with number of tasks.
 
 conservative, moderate and aggressive mode names would probably be better.
+
+Create a tool to check for duplicates when importing/streaming data, we can do that based
+on the hash of the primary key fields (if more than one or the key itself) or based on all fields.
+Sanitize fields (trim, etc) if needed. We can do that as we go if we can group data by month for example.
+We can check for duplicates as we close/fill data for a grouping of data, a month for example.

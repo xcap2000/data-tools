@@ -159,3 +159,9 @@ We can check for duplicates as we close/fill data for a grouping of data, a mont
 Sometimes when doing a step the system just freezes, act to mitigate those kind of issues, we can trigger async an action,
 get its task and query whether it is finished or not, show progress meanwhile and eventually cancel the execution. This
 can be done while opening a connection, reading a data reader etc.
+
+We need a tool to check for duplicated items, the tool may have to check in the source database to avoid the tool creating
+duplicates while creating another data source, the issue is that the data may get replace overnight and the validation and/or
+streaming could be invalidated too, check for fields to use to invalidate already checked records and redo them, fields
+like creation and updated can help a lot in this scenario. In case of SAP we may have to map those fields by table,
+the same applies for the primary key.

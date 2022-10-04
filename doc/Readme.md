@@ -165,3 +165,5 @@ duplicates while creating another data source, the issue is that the data may ge
 streaming could be invalidated too, check for fields to use to invalidate already checked records and redo them, fields
 like creation and updated can help a lot in this scenario. In case of SAP we may have to map those fields by table,
 the same applies for the primary key.
+
+When importing from txt, csv, tsv and or excel allow duplicated columns but differentiate them by position, warn about that.

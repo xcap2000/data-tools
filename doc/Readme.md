@@ -155,3 +155,7 @@ Create a tool to check for duplicates when importing/streaming data, we can do t
 on the hash of the primary key fields (if more than one or the key itself) or based on all fields.
 Sanitize fields (trim, etc) if needed. We can do that as we go if we can group data by month for example.
 We can check for duplicates as we close/fill data for a grouping of data, a month for example.
+
+Sometimes when doing a step the system just freezes, act to mitigate those kind of issues, we can trigger async an action,
+get its task and query whether it is finished or not, show progress meanwhile and eventually cancel the execution. This
+can be done while opening a connection, reading a data reader etc.

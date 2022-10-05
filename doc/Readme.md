@@ -200,3 +200,6 @@ Add ok, cancel, apply and reset on configurations of plugins
 
 Add undo redo for the configuration of a task, use an * to show changes and when undo to a saved state
 hide the *, like vscode for instance.
+
+Add restart option on the menu.
+Add support for multiple languages from scratch.

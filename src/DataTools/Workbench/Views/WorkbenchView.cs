@@ -1,80 +1,64 @@
+﻿using CarpeDiem.DataTools.Workbench.Commands;
+using CarpeDiem.DataTools.Workbench.Presenters;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using CarpeDiem.DataTools.Workbench.Commands;
-using CarpeDiem.DataTools.Workbench.Presenters;
-using Gtk;
-using UI = Gtk.Builder.ObjectAttribute;
+using System.Windows.Forms;
 
 namespace CarpeDiem.DataTools.Workbench.Views;
 
-public class WorkbenchView : Window, IWorkbenchView
+public partial class WorkbenchView : Form, IWorkbenchView
 {
-    [UI] private readonly MenuBar menuBar = null!;
-
-    [UI] private readonly Box box = null!;
-
     private readonly IWorkbenchPresenter presenter;
 
     public WorkbenchView(IWorkbenchPresenter presenter)
-        : this(new Builder(nameof(WorkbenchView) + ".glade"), presenter)
     {
-        Shown += WorkbenchView_Shown;
-    }
-
-    private WorkbenchView(Builder builder, IWorkbenchPresenter presenter)
-        : base(builder.GetRawOwnedObject(nameof(WorkbenchView)))
-    {
-        builder.Autoconnect(this);
+        InitializeComponent();
         this.presenter = presenter;
-        this.DeleteEvent += WorkbenchView_DeleteEvent;
+        FormClosed += WinFormsWorkbenchView_FormClosed;
     }
 
     public IEnumerable<IWorkbenchCommand> Commands
     {
         set
         {
-            Menu fileMenu = new()
+            ToolStripMenuItem fileMenuItem = new()
             {
-                Visible = true
-            };
-
-            MenuItem fileMenuItem = new("File")
-            {
-                Visible = true,
-                Submenu = fileMenu
+                Text = "File"
             };
 
             foreach (var command in value.OrderByDescending(c => c.Priority))
             {
-                var menuItem = new MenuItem(command.Label);
-                menuItem.Activated += delegate
+                ToolStripMenuItem menuItem = new()
+                {
+                    Text = command.Label
+                };
+                menuItem.Click += delegate
                 {
                     command.Execute();
                 };
-                menuItem.Visible = true;
-                fileMenu.Append(menuItem);
+                fileMenuItem.DropDownItems.Add(menuItem);
             }
 
-            menuBar.Append(fileMenuItem);
+            menuStrip.Items.Add(fileMenuItem);
         }
     }
 
     public void Activate(object o)
     {
-        foreach (var widget in box.Children)
-        {
-            box.Remove(widget);
-        }
-        box.PackStart((Widget)o, true, true, 0);
+        var control = (Control)o;
+        control.Dock = DockStyle.Fill;
+
+        toolStripContainer.ContentPanel.Controls.Add(control);
     }
 
-    private void WorkbenchView_Shown(object? sender, EventArgs a)
+    private void WinFormsWorkbenchView_Load(object sender, EventArgs e)
     {
         presenter.Initialize();
     }
 
-    private void WorkbenchView_DeleteEvent(object o, DeleteEventArgs args)
+    private void WinFormsWorkbenchView_FormClosed(object? sender, FormClosedEventArgs e)
     {
         presenter.Close();
     }

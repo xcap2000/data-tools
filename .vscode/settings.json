@@ -2,19 +2,19 @@
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "files.exclude": {
-        "**/.git": true,
-        "**/.vscode": true,
-        "**/.vs": true,
-        "**/.gitignore": true,
-        "**/global.json": true,
-        "**/bin": true,
-        "**/obj": true,
-        "**/lcov.info": true,
-        "**/omnisharp.json": true,
-        "**/*.ruleset": true,
-        "**/StrykerOutput": true,
-        "**/.config": true,
-        "**/sqltools*": true,
-        "**/*.glade~": true
+        "**/.git": false,
+        "**/.vscode": false,
+        "**/.vs": false,
+        "**/.gitignore": false,
+        "**/global.json": false,
+        "**/bin": false,
+        "**/obj": false,
+        "**/lcov.info": false,
+        "**/omnisharp.json": false,
+        "**/*.ruleset": false,
+        "**/StrykerOutput": false,
+        "**/.config": false,
+        "**/sqltools*": false,
+        "**/*.glade~": false
     }
 }

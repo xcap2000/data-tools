@@ -167,3 +167,10 @@ like creation and updated can help a lot in this scenario. In case of SAP we may
 the same applies for the primary key.
 
 When importing from txt, csv, tsv and or excel allow duplicated columns but differentiate them by position, warn about that.
+
+Create plugin infrastructure
+- Create one plugin that allows multiple instances, query for example.
+- Create one plugin that does not allow multiple instances but opens multiple jobs/tasks for example.
+- Allow the plugin do load/unload, install/uninstall, pause/resume and restore multiple windows to same positions
+- Create the about window as a plugin.
+- Create the plugins management as a plugin.

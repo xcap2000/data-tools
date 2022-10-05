@@ -174,3 +174,24 @@ Create plugin infrastructure
 - Allow the plugin do load/unload, install/uninstall, pause/resume and restore multiple windows to same positions
 - Create the about window as a plugin.
 - Create the plugins management as a plugin.
+
+Tests
+Unit
+Try to use detroit starting from presenter and/or service layers, maybe use london.
+Integration
+Test only points of integration with other systems without assembling multiple classes
+Functional
+Test happy path of all features possible.
+EndToEnd
+Test presenter or the view, maybe open view and test it automated, highlight the clicked areas,
+put a delay for the user to watch while it tests on watch mode = on etc...
+Test only happy path scenarios
+
+Allow installing plugins from the web on plugin manager or from package dtpkg (data tools package)
+
+Plugins can have their own semver
+Plugins installation/update are confirmed after you close, that is why it is important to have the pause/resume feature of a plugin implemented (optional, some plugins may not need it).
+
+plugins can be alpha and beta 0.1.0-alpha 0.1.0-alpha.1
+0.1.0-alpha.2 0.1.0-beta 0.1.0-beta.1 0.1.0-rc 0.1.0-rc.1
+https://semver.org/lang/pt-BR/

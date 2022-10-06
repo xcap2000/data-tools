@@ -203,3 +203,7 @@ hide the *, like vscode for instance.
 
 Add restart option on the menu.
 Add support for multiple languages from scratch.
+
+Create a tool to identify schema
+read field names, data types, size, nullability and be able to
+infer data types, size and nullability.

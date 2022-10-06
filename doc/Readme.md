@@ -207,3 +207,5 @@ Add support for multiple languages from scratch.
 Create a tool to identify schema
 read field names, data types, size, nullability and be able to
 infer data types, size and nullability.
+
+Create a tool to copy files to and from AWS Workspaces, basically from another machine.

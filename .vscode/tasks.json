@@ -74,17 +74,6 @@
                     "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
                 ]
             },
-            "linux": {
-                "args": [
-                    "test",
-                    "${workspaceFolder}/test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj",
-                    "/clp:NoSummary",
-                    "/p:CollectCoverage=true",
-                    "/p:CoverletOutputFormat=lcov",
-                    "/p:CoverletOutput=./lcov.info",
-                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
-                ]
-            },
             "problemMatcher": "$msCompile",
             "presentation": {
                 "reveal": "silent"
@@ -109,19 +98,6 @@
                     "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
                 ]
             },
-            "linux": {
-                "args": [
-                    "watch",
-                    "--project",
-                    "${workspaceFolder}/test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj",
-                    "test",
-                    "/clp:NoSummary",
-                    "/p:CollectCoverage=true",
-                    "/p:CoverletOutputFormat=lcov",
-                    "/p:CoverletOutput=./lcov.info",
-                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
-                ]
-            },
             "problemMatcher": [],
             "presentation": {
                 "reveal": "always"
@@ -138,12 +114,6 @@
                     "cwd": "${workspaceFolder}/test/DataTools.Tests.Unit/"
                 }
             },
-            "linux": {
-                "command": "rm -rf ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput && dotnet stryker --reporter \"html\" && firefox ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/`\"/reports/mutation-report.html || wslview ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/`\"/reports/mutation-report.html",
-                "options": {
-                    "cwd": "${workspaceFolder}/test/DataTools.Tests.Unit/"
-                }
-            }
         },
         {
             "label": "test: integration",
@@ -154,17 +124,6 @@
                 "args": [
                     "test",
                     "${workspaceFolder}\\test\\DataTools.Tests.Integration\\DataTools.Tests.Integration.csproj",
-                    "/clp:NoSummary",
-                    "/p:CollectCoverage=true",
-                    "/p:CoverletOutputFormat=lcov",
-                    "/p:CoverletOutput=./lcov.info",
-                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
-                ]
-            },
-            "linux": {
-                "args": [
-                    "test",
-                    "${workspaceFolder}/test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -196,19 +155,6 @@
                     "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
                 ]
             },
-            "linux": {
-                "args": [
-                    "watch",
-                    "--project",
-                    "${workspaceFolder}/test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj",
-                    "test",
-                    "/clp:NoSummary",
-                    "/p:CollectCoverage=true",
-                    "/p:CoverletOutputFormat=lcov",
-                    "/p:CoverletOutput=./lcov.info",
-                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
-                ]
-            },
             "problemMatcher": [],
             "presentation": {
                 "reveal": "always"
@@ -224,16 +170,10 @@
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests.Integration/"
                 }
-            },
-            "linux": {
-                "command": "rm -rf ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput && dotnet stryker --reporter \"html\" && firefox ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput/`\"/reports/mutation-report.html || wslview ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput/`\"/reports/mutation-report.html",
-                "options": {
-                    "cwd": "${workspaceFolder}/test/DataTools.Tests.Integration/"
-                }
             }
         },
         {
-            "label": "src: publish (net6.0-windows)",
+            "label": "src: publish",
             "type": "shell",
             "group": "build",
             "presentation": {
@@ -241,25 +181,7 @@
             },
             "problemMatcher": "$msCompile",
             "windows": {
-                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Debug -f net6.0-windows -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\net6.0-windows\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true"
-            },
-            "linux": {
-                "command": "dotnet publish src/DataTools/DataTools.csproj -c Debug -f net6.0-windows -r linux-x64 --self-contained -o src/DataTools/bin/Release/net6.0-windows/linux-x64/ /p:UseAppHost=true /p:PublishSingleFile=true"
-            }
-        },
-        {
-            "label": "src: publish (net48)",
-            "type": "shell",
-            "group": "build",
-            "presentation": {
-                "reveal": "silent"
-            },
-            "problemMatcher": "$msCompile",
-            "windows": {
-                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Debug -f net48 -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\net48\\win10-x64\\ /p:UseAppHost=true"
-            },
-            "linux": {
-                "command": "dotnet publish src/DataTools/DataTools.csproj -c Debug -f net48 -r linux-x64 --self-contained -o src/DataTools/bin/Release/net48/linux-x64/ /p:UseAppHost=true"
+                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Debug -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\net6.0-windows\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true"
             }
         }
     ]

@@ -3,6 +3,8 @@ using Autofac;
 
 namespace CarpeDiem.DataTools.Workbench.Presenters;
 
+// TODO - Create base or generic class.
+// TODO - Create extension method for autofac to register presenters easily.
 public class LazyWorkbenchPresenter : IWorkbenchPresenter
 {
     private readonly Lazy<IWorkbenchPresenter> presenterLazy;

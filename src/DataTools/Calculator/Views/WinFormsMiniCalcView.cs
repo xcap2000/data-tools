@@ -4,6 +4,8 @@ using System.Windows.Forms;
 
 namespace CarpeDiem.DataTools.Calculator.Views;
 
+// TODO - Change to supervising controller.
+// TODO - Move this module/plugin to another assembly.
 public partial class WinFormsMiniCalcView : UserControl, IMiniCalcView
 {
     private readonly IMiniCalcPresenter presenter;

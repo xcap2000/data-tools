@@ -4,14 +4,6 @@
 
 ### Creating The Projects
 
-### Install GtkSharp Templates
-
-```bash
-$ dotnet new --install GtkSharp.Template.CSharp # To install
-$ dotnet new --uninstall GtkSharp.Template.CSharp # To uninstall
-$ dotnet new gtkapp # To create a new GtkSharp application
-```
-
 ### Setting Up Git
 
 ```bash
@@ -81,7 +73,7 @@ $ mkdir test
 
 ```bash
 $ mkdir src/DataTools
-$ dotnet new gtkapp -n DataTools -o src/DataTools
+$ dotnet new winforms -n DataTools -o src/DataTools
 $ dotnet add src/DataTools/DataTools.csproj package Microsoft.CodeAnalysis.CSharp.Workspaces --version 4.0.1
 $ dotnet add src/DataTools/DataTools.csproj package Autofac --version 6.3.0
 $ dotnet add src/DataTools/DataTools.csproj package Roslynator.Analyzers --version 3.2.2
@@ -688,183 +680,7 @@ $ dotnet-trace collect --format Chromium -p `pidof data-tools` # Open on chrome 
 $ dotnet-trace collect --format SpeedScope -p `pidof data-tools` # Open on SpeedScope (https://www.speedscope.app/)
 ```
 
-#### Disabling Gtk Download
-
-```xml
-<PropertyGroup>
-    <SkipGtkInstall>true</SkipGtkInstall>
-</PropertyGroup>
-```
-
-#### Installing Gtk From MSYS2
-
-```bash
-$ pacman -Ss gtk | grep i686 # Find x86
-$ pacman -Ss gtk | grep x86_64 # Find x64
-$ pacman -S mingw-w64-x86_64-gtk3 # x64
-$ pacman -S mingw-w64-i686-gtk3 # x86
-$ pacman -Ql mingw-w64-x86_64-gtk3 | grep bin # show installed dll's
-$ pacman -Ql mingw-w64-i686-gtk3 | grep bin # show installed dll's
-$ pacman -Si mingw-w64-x86_64-gtk3
-# Package dependencies: mingw-w64-x86_64-gcc-libs mingw-w64-x86_64-adwaita-icon-theme mingw-w64-x86_64-atk mingw-w64-x86_64-cairo mingw-w64-x86_64-gdk-pixbuf2 mingw-w64-x86_64-glib2 mingw-w64-x86_64-json-glib mingw-w64-x86_64-libepoxy mingw-w64-x86_64-pango mingw-w64-x86_64-shared-mime-info mingw-w64-x86_64-gtk-update-icon-cache
-$ pacman -Si mingw-w64-x86_64-gtk3
-# Package dependencies: mingw-w64-i686-gcc-libs mingw-w64-i686-adwaita-icon-theme mingw-w64-i686-atk mingw-w64-i686-cairo mingw-w64-i686-gdk-pixbuf2 mingw-w64-i686-glib2 mingw-w64-i686-json-glib mingw-w64-i686-libepoxy mingw-w64-i686-pango mingw-w64-i686-shared-mime-info mingw-w64-i686-gtk-update-icon-cache
-```
-
- x86 Needed files  (from https://github.com/miegir/GTK-for-Windows-Runtime-Environment-Installer-32/blob/master/gtk-nsis-pack/gtk3-runtime.ts.nsi):
-
-```ini
-libatk-1.0-0.dll
-libbrotlicommon.dll
-libbrotlidec.dll
-libbz2-1.dll
-libcairo-2.dll
-libcairo-gobject-2.dll
-libcairo-script-interpreter-2.dll
-libdatrie-1.dll
-libepoxy-0.dll
-libexpat-1.dll
-libffi-7.dll
-libfontconfig-1.dll
-libfreetype-6.dll
-libfribidi-0.dll
-libgailutil-3-0.dll
-libgcc_s_dw2-1.dll
-libgdk_pixbuf-2.0-0.dll
-libgdk-3-0.dll
-libgio-2.0-0.dll
-libglib-2.0-0.dll
-libgmodule-2.0-0.dll
-libgmp-10.dll
-libgobject-2.0-0.dll
-libgraphite2.dll
-libgthread-2.0-0.dll
-libgtk-3-0.dll
-libharfbuzz-0.dll
-libiconv-2.dll
-libintl-8.dll
-libjpeg-8.dll
-libjson-glib-1.0-0.dll
-liblzma-5.dll
-libp11-kit-0.dll
-libpango-1.0-0.dll
-libpangocairo-1.0-0.dll
-libpangoft2-1.0-0.dll
-libpangowin32-1.0-0.dll
-libpcre-1.dll
-libpixman-1-0.dll
-libpng16-16.dll
-librsvg-2-2.dll
-libssp-0.dll
-libstdc++-6.dll
-libtasn1-6.dll
-libthai-0.dll
-libtiff-5.dll
-libwinpthread-1.dll
-libxml2-2.dll
-zlib1.dll
-```
-
-x64 Needed files  (from https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/blob/master/gtk-nsis-pack/gtk3-runtime.ts.nsi):
-
-```bash
-libatk-1.0-0.dll
-libatkmm-1.6-1.dll
-libbrotlicommon.dll
-libbrotlidec.dll
-libbz2-1.dll
-libcairo-2.dll
-libcairo-gobject-2.dll
-libcairo-script-interpreter-2.dll
-libcairomm-1.0-1.dll
-libcroco-0.6-3.dll
-libdatrie-1.dll
-libepoxy-0.dll
-libexpat-1.dll
-libexslt-0.dll
-libffi-7.dll
-libfontconfig-1.dll
-libfreetype-6.dll
-libfribidi-0.dll
-libgailutil-3-0.dll
-libgcc_s_dw2-1.dll
-libgcc_s_seh-1.dll
-libgdk_pixbuf-2.0-0.dll
-libgdk-3-0.dll
-libgdkmm-3.0-1.dll
-libgio-2.0-0.dll
-libgiomm-2.4-1.dll
-libglib-2.0-0.dll
-libglibmm_generate_extra_defs-2.4-1.dll
-libglibmm-2.4-1.dll
-libgmodule-2.0-0.dll
-libgmp-10.dll
-libgnutls-30.dll
-libgobject-2.0-0.dll
-libgraphite2.dll
-libgthread-2.0-0.dll
-libgtk-3-0.dll
-libgtkmm-3.0-1.dll
-libgtksourceview-3.0-1.dll
-libgtksourceview-4-0.dll
-libgtksourceviewmm-3.0-0.dll
-libharfbuzz-0.dll
-libhogweed-6.dll
-libiconv-2.dll
-libidn2-0.dll
-libintl-8.dll
-libjasper-4.dll
-libjpeg-8.dll
-libjson-glib-1.0-0.dll
-liblzma-5.dll
-libnettle-8.dll
-libp11-kit-0.dll
-libpango-1.0-0.dll
-libpangocairo-1.0-0.dll
-libpangoft2-1.0-0.dll
-libpangomm-1.4-1.dll
-libpangowin32-1.0-0.dll
-libpcre-1.dll
-libpeas-1.0-0.dll
-libpeas-gtk-1.0-0.dll
-libpixman-1-0.dll
-libpng16-16.dll
-libproxy-1.dll
-libpsl-5.dll
-librsvg-2-2.dll
-libsigc-2.0-0.dll
-libsoup-2.4-1.dll
-libsoup-gnome-2.4-1.dll
-libsqlite3-0.dll
-libssp-0.dll
-libstdc++-6.dll
-libtasn1-6.dll
-libthai-0.dll
-libtiff-5.dll
-libunistring-2.dll
-libwinpthread-1.dll
-libxml++-2.6-2.dll
-libxml++-3.0-1.dll
-libxml2-2.dll
-libxslt-1.dll
-zlib1.dll
-```
-
-#### Zip Gtk Dependencies
-
-```bash
-$ pacman -S zip
-$ pacman -S mingw-w64-x86_64-tar
-$ cd mingw32/bin
-$ zip -9 -y -r -q gtk-3.24.31-x86.zip libatk-1.0-0.dll libbrotlicommon.dll libbrotlidec.dll libbz2-1.dll libcairo-2.dll libcairo-gobject-2.dll libcairo-script-interpreter-2.dll libdatrie-1.dll libepoxy-0.dll libexpat-1.dll libffi-7.dll libfontconfig-1.dll libfreetype-6.dll libfribidi-0.dll libgailutil-3-0.dll libgcc_s_dw2-1.dll libgdk_pixbuf-2.0-0.dll libgdk-3-0.dll libgio-2.0-0.dll libglib-2.0-0.dll libgmodule-2.0-0.dll libgmp-10.dll libgobject-2.0-0.dll libgraphite2.dll libgthread-2.0-0.dll libgtk-3-0.dll libharfbuzz-0.dll libiconv-2.dll libintl-8.dll libjpeg-8.dll libjson-glib-1.0-0.dll liblzma-5.dll libp11-kit-0.dll libpango-1.0-0.dll libpangocairo-1.0-0.dll libpangoft2-1.0-0.dll libpangowin32-1.0-0.dll libpcre-1.dll libpixman-1-0.dll libpng16-16.dll librsvg-2-2.dll libssp-0.dll libstdc++-6.dll libtasn1-6.dll libthai-0.dll libtiff-5.dll libwinpthread-1.dll libxml2-2.dll zlib1.dll gdbus.exe
-$ cd mingw64/bin
-$ zip -9 -y -r -q gtk-3.24.31-x64.zip libatk-1.0-0.dll libatkmm-1.6-1.dll libbrotlicommon.dll libbrotlidec.dll libbz2-1.dll libcairo-2.dll libcairo-gobject-2.dll libcairo-script-interpreter-2.dll libcairomm-1.0-1.dll libcroco-0.6-3.dll libdatrie-1.dll libepoxy-0.dll libexpat-1.dll libexslt-0.dll libffi-7.dll libfontconfig-1.dll libfreetype-6.dll libfribidi-0.dll libgailutil-3-0.dll libgcc_s_dw2-1.dll libgcc_s_seh-1.dll libgdk_pixbuf-2.0-0.dll libgdk-3-0.dll libgdkmm-3.0-1.dll libgio-2.0-0.dll libgiomm-2.4-1.dll libglib-2.0-0.dll libglibmm_generate_extra_defs-2.4-1.dll libglibmm-2.4-1.dll libgmodule-2.0-0.dll libgmp-10.dll libgnutls-30.dll libgobject-2.0-0.dll libgraphite2.dll libgthread-2.0-0.dll libgtk-3-0.dll libgtkmm-3.0-1.dll libgtksourceview-3.0-1.dll libgtksourceview-4-0.dll libgtksourceviewmm-3.0-0.dll libharfbuzz-0.dll libhogweed-6.dll libiconv-2.dll libidn2-0.dll libintl-8.dll libjasper-4.dll libjpeg-8.dll libjson-glib-1.0-0.dll liblzma-5.dll libnettle-8.dll libp11-kit-0.dll libpango-1.0-0.dll libpangocairo-1.0-0.dll libpangoft2-1.0-0.dll libpangomm-1.4-1.dll libpangowin32-1.0-0.dll libpcre-1.dll libpeas-1.0-0.dll libpeas-gtk-1.0-0.dll libpixman-1-0.dll libpng16-16.dll libproxy-1.dll libpsl-5.dll librsvg-2-2.dll libsigc-2.0-0.dll libsoup-2.4-1.dll libsoup-gnome-2.4-1.dll libsqlite3-0.dll libssp-0.dll libstdc++-6.dll libtasn1-6.dll libthai-0.dll libtiff-5.dll libunistring-2.dll libwinpthread-1.dll libxml++-2.6-2.dll libxml++-3.0-1.dll libxml2-2.dll libxslt-1.dll zlib1.dll gdbus.exe
-```
-
 #### Links
 
 ```
-https://www.gtk.org/docs/installations/windows#using-gtk-from-msys2-packages
-https://www.msys2.org/
-https://github.com/GtkSharp/GtkSharp/issues/167
 ```

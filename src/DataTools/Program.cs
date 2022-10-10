@@ -2,30 +2,24 @@ using System;
 using Autofac;
 using CarpeDiem.DataTools.Workbench.Views;
 using CarpeDiem.DataTools.Common.Adapters;
-using CarpeDiem.DataTools.Common.Enums;
 
-namespace CarpeDiem.DataTools
+namespace CarpeDiem.DataTools;
+
+public static class Program
 {
-    public static class Program
+    [STAThread]
+    public static void Main()
     {
-        [STAThread]
-        public static void Main(string[] args)
-        {
-            var ui = args.Length > 0 && args[0] == "wf" ? Ui.WinForms : Ui.Gtk;
-            //var ui = Ui.WinForms;
+        var container = GetContainer();
 
-            var container = GetContainer(ui);
-            var application = container.Resolve<IApplicationAdapter>();
-            var getView = () => container.Resolve<IWorkbenchView>();
+        var application = container.Resolve<IApplicationAdapter>();
+        application.Run(() => container.Resolve<IWorkbenchView>());
+    }
 
-            application.Run(getView);
-        }
-
-        public static IContainer GetContainer(Ui ui)
-        {
-            var builder = new ContainerBuilder();
-            builder.RegisterModule(new DataToolsModule(ui));
-            return builder.Build();
-        }
+    public static IContainer GetContainer()
+    {
+        var builder = new ContainerBuilder();
+        builder.RegisterModule<DataToolsModule>();
+        return builder.Build();
     }
 }

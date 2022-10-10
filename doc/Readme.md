@@ -167,3 +167,45 @@ like creation and updated can help a lot in this scenario. In case of SAP we may
 the same applies for the primary key.
 
 When importing from txt, csv, tsv and or excel allow duplicated columns but differentiate them by position, warn about that.
+
+Create plugin infrastructure
+- Create one plugin that allows multiple instances, query for example.
+- Create one plugin that does not allow multiple instances but opens multiple jobs/tasks for example.
+- Allow the plugin do load/unload, install/uninstall, pause/resume and restore multiple windows to same positions
+- Create the about window as a plugin.
+- Create the plugins management as a plugin.
+
+Tests
+Unit
+Try to use detroit starting from presenter and/or service layers, maybe use london.
+Integration
+Test only points of integration with other systems without assembling multiple classes
+Functional
+Test happy path of all features possible.
+EndToEnd
+Test presenter or the view, maybe open view and test it automated, highlight the clicked areas,
+put a delay for the user to watch while it tests on watch mode = on etc...
+Test only happy path scenarios
+
+Allow installing plugins from the web on plugin manager or from package dtpkg (data tools package)
+
+Plugins can have their own semver
+Plugins installation/update are confirmed after you close, that is why it is important to have the pause/resume feature of a plugin implemented (optional, some plugins may not need it).
+
+plugins can be alpha and beta 0.1.0-alpha 0.1.0-alpha.1
+0.1.0-alpha.2 0.1.0-beta 0.1.0-beta.1 0.1.0-rc 0.1.0-rc.1
+https://semver.org/lang/pt-BR/
+
+Add ok, cancel, apply and reset on configurations of plugins
+
+Add undo redo for the configuration of a task, use an * to show changes and when undo to a saved state
+hide the *, like vscode for instance.
+
+Add restart option on the menu.
+Add support for multiple languages from scratch.
+
+Create a tool to identify schema
+read field names, data types, size, nullability and be able to
+infer data types, size and nullability.
+
+Create a tool to copy files to and from AWS Workspaces, basically from another machine.

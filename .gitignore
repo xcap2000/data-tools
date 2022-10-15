@@ -5,4 +5,3 @@ obj
 lcov.info
 StrykerOutput
 sqltools*
-*.glade~

@@ -1,6 +1,3 @@
-using NSubstitute;
-using Xunit;
-
 namespace CarpeDiem.DataTools.Calculator.Presenters;
 
 public static partial class MiniCalcPresenterFacts

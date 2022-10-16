@@ -1,6 +1,5 @@
 using CarpeDiem.DataTools.Calculator.Services;
 using CarpeDiem.DataTools.Calculator.Views;
-using static NSubstitute.Substitute;
 
 namespace CarpeDiem.DataTools.Calculator.Presenters;
 

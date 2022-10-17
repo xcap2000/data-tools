@@ -56,5 +56,6 @@ public static class CalculatorPresenterFacts
         // TODO - The model sould use string and set itself to an invalid state that would set the error provider when int not parseable, use tryparse.
         // TODO - As the API should use int.
         // TODO - Service should return an overflow message to be set on the view? or should we limit the max integer number?
+        // TODO - client code is responsible to guarantee arguments are valid, callee code should enforce it.
     }
 }

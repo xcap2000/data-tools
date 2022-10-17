@@ -7,8 +7,8 @@ public class ServicesModule : Module
     protected override void Load(ContainerBuilder builder)
     {
         builder
-            .RegisterType<MiniCalcService>()
-            .As<IMiniCalcService>()
+            .RegisterType<CalculatorService>()
+            .As<ICalculatorService>()
             .SingleInstance();
     }
 }

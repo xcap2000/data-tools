@@ -35,6 +35,6 @@ public class CalculateCommand : IWorkbenchCommand
         // TODO - Trigger view deactivated.
         // TODO - Trigger view destroyed.
 
-        eventAggregator.GetEvent<ActivatedEvent>().Publish(scope.Resolve<IMiniCalcView>());
+        eventAggregator.GetEvent<ActivatedEvent>().Publish(scope.Resolve<ICalculatorView>());
     }
 }

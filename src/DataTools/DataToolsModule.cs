@@ -16,6 +16,6 @@ public class DataToolsModule : Module
             .RegisterType<EventAggregator>()
             .As<IEventAggregator>()
             .SingleInstance();
-        builder.RegisterModule<CaulculatorModule>();
+        builder.RegisterModule<CalculatorModule>();
     }
 }

@@ -7,13 +7,13 @@ public class PresentersModule : Module
     protected override void Load(ContainerBuilder builder)
     {
         builder
-            .RegisterType<MiniCalcPresenter>()
-            .Named<IMiniCalcPresenter>(nameof(IMiniCalcPresenter))
+            .RegisterType<CalculatorPresenter>()
+            .Named<ICalculatorPresenter>(nameof(ICalculatorPresenter))
             .SingleInstance();
 
         builder
-            .RegisterType<LazyMiniCalcPresenter>()
-            .As<IMiniCalcPresenter>()
+            .RegisterType<LazyCalculatorPresenter>()
+            .As<ICalculatorPresenter>()
             .SingleInstance();
     }
 }

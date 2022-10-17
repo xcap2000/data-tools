@@ -1,6 +1,6 @@
 namespace CarpeDiem.DataTools.Calculator.Services;
 
-public class MiniCalcService : IMiniCalcService
+public class CalculatorService : ICalculatorService
 {
     public int Sum(int value1, int value2)
     {

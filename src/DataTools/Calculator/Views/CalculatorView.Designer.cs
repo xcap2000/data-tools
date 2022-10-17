@@ -1,6 +1,6 @@
 ﻿namespace CarpeDiem.DataTools.Calculator.Views
 {
-    partial class WinFormsMiniCalcView
+    partial class CalculatorView
     {
         /// <summary> 
         /// Required designer variable.
@@ -66,7 +66,7 @@
             // 
             // value1TextBox
             // 
-            this.value1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.value1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.value1TextBox.Location = new System.Drawing.Point(3, 18);
             this.value1TextBox.Name = "value1TextBox";
@@ -75,7 +75,7 @@
             // 
             // value2TextBox
             // 
-            this.value2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.value2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.value2TextBox.Location = new System.Drawing.Point(3, 62);
             this.value2TextBox.Name = "value2TextBox";
@@ -84,7 +84,7 @@
             // 
             // resultLabel
             // 
-            this.resultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.resultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultLabel.Location = new System.Drawing.Point(3, 103);
             this.resultLabel.Name = "resultLabel";
@@ -101,7 +101,6 @@
             this.sumButton.TabIndex = 6;
             this.sumButton.Text = "Sum";
             this.sumButton.UseVisualStyleBackColor = true;
-            this.sumButton.Click += new System.EventHandler(this.sumButton_Click);
             // 
             // WinFormsMiniCalcView
             // 

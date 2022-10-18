@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using CarpeDiem.DataTools.Common.Adapters;
 using CarpeDiem.DataTools.Workbench.Commands;
 using CarpeDiem.DataTools.Workbench.Events;

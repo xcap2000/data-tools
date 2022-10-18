@@ -1,4 +1,3 @@
-using System;
 using CarpeDiem.DataTools.Calculator.Models;
 using CarpeDiem.DataTools.Calculator.Views;
 
@@ -50,12 +49,24 @@ public static class CalculatorPresenterFacts
             Equal("10", model.Result);
         }
 
-        // TODO - Test when value1 or value2 is invalid, use error provider on the view.
-        // TODO - Use on the service the request/response model.
-        // TODO - The service should receive int and return int.
-        // TODO - The model sould use string and set itself to an invalid state that would set the error provider when int not parseable, use tryparse.
-        // TODO - As the API should use int.
-        // TODO - Service should return an overflow message to be set on the view? or should we limit the max integer number?
-        // TODO - client code is responsible to guarantee arguments are valid, callee code should enforce it.
+        [Fact]
+        public void SetsModelMessage()
+        {
+            model.Value1 = "2147483647";
+            model.Value2 = "2147483647";
+
+            presenter.Sum(null, EventArgs.Empty);
+
+            Equal("Overflow ocurred while summing 2147483647 and 2147483647.", model.Message);
+        }
+
+        // TODO - Review whether model should be dumb, all validation should take place with service and the
+        // model should just fill error messages that are bound to the ui, this would work with the API model
+        // where model validation and request takes place. Model would be a mirror of the request/dto. This way
+        // validation would be centralized in the service and the model would be dumb/thin without validation logic
+
+        // TODO - Develop in a way that favors tests and coverage
+
+        // TODO - Check overall tests that can be added to calculator and improve coverage
     }
 }

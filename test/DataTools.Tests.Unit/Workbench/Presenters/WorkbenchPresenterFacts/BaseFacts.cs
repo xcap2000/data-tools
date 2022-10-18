@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using CarpeDiem.DataTools.Common.Adapters;
 using CarpeDiem.DataTools.Workbench.Commands;
 using CarpeDiem.DataTools.Workbench.Views;
 using Prism.Events;
-using static NSubstitute.Substitute;
 
 namespace CarpeDiem.DataTools.Workbench.Presenters;
 

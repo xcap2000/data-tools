@@ -1,11 +1,10 @@
-﻿using System;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 using CarpeDiem.DataTools.Calculator.Models;
 using CarpeDiem.DataTools.Calculator.Presenters;
 
 namespace CarpeDiem.DataTools.Calculator.Views;
 
-// TODO - Change to supervising controller.
 // TODO - Move this module/plugin to another assembly.
 public partial class CalculatorView : UserControl, ICalculatorView
 {
@@ -25,10 +24,25 @@ public partial class CalculatorView : UserControl, ICalculatorView
 
     public void Bind()
     {
-        value1TextBox.DataBindings.Add("Text", model, "Value1");
-        value2TextBox.DataBindings.Add("Text", model, "Value2");
-        resultLabel.DataBindings.Add("Text", model, "Result");
-        sumButton.Click += presenter.Sum;
+        const int padding = -19;
+        value1TextBox.DataBindings.Add("Text", model, nameof(model.Value1));
+        errorProvider.SetIconPadding(value1TextBox, padding);
+        value2TextBox.DataBindings.Add("Text", model, nameof(model.Value2));
+        errorProvider.SetIconPadding(value2TextBox, padding);
+        resultLabel.DataBindings.Add("Text", model, nameof(model.Result));
+        messageLabel.DataBindings.Add("Text", model, nameof(model.Message));
+
+        sumButton.Click +=
+            (o, a) =>
+            {
+                errorProvider.SetError(value1TextBox, model[nameof(model.Value1)]);
+                errorProvider.SetError(value2TextBox, model[nameof(model.Value2)]);
+
+                if (model.Error.Length == 0)
+                {
+                    presenter.Sum(o, a);
+                }
+            };
     }
 
     private void WinFormsMiniCalcView_Load(object sender, EventArgs e)

@@ -1,9 +1,6 @@
-﻿using CarpeDiem.DataTools.Workbench.Commands;
+﻿using System.Data;
+using CarpeDiem.DataTools.Workbench.Commands;
 using CarpeDiem.DataTools.Workbench.Presenters;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace CarpeDiem.DataTools.Workbench.Views;

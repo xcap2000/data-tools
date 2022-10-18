@@ -1,5 +1,5 @@
-using System;
 using CarpeDiem.DataTools.Calculator.Views;
+using CarpeDiem.DataTools.Common;
 
 namespace CarpeDiem.DataTools.Calculator;
 
@@ -10,6 +10,7 @@ public class CalculatorFixture : IDisposable
     public CalculatorFixture()
     {
         var builder = new ContainerBuilder();
+        builder.RegisterModule<CommonModule>();
         builder.RegisterModule<CalculatorModule>();
         builder.RegisterInstance(For<ICalculatorView>());
         Container = builder.Build();

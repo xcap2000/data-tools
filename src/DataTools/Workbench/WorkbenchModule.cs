@@ -1,4 +1,3 @@
-using Autofac;
 using CarpeDiem.DataTools.Workbench.Commands;
 using CarpeDiem.DataTools.Workbench.Presenters;
 using CarpeDiem.DataTools.Workbench.Views;

@@ -1,7 +1,5 @@
-using System;
-using Autofac;
-using CarpeDiem.DataTools.Workbench.Views;
 using CarpeDiem.DataTools.Common.Adapters;
+using CarpeDiem.DataTools.Workbench.Views;
 
 namespace CarpeDiem.DataTools;
 

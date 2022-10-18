@@ -1,6 +1,9 @@
+using CarpeDiem.DataTools.Calculator.Requests;
+using CarpeDiem.DataTools.Calculator.Responses;
+
 namespace CarpeDiem.DataTools.Calculator.Services;
 
 public interface ICalculatorService
 {
-    int Sum(int value1, int value2);
+    ISumResponseReader Sum(ISumRequestReader request);
 }

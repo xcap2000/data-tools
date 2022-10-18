@@ -1,6 +1,4 @@
 using CarpeDiem.DataTools.Workbench.Events;
-using NSubstitute;
-using Xunit;
 
 namespace CarpeDiem.DataTools.Workbench.Presenters;
 

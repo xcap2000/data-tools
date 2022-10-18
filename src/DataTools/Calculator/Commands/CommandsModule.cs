@@ -1,4 +1,3 @@
-using Autofac;
 using CarpeDiem.DataTools.Workbench.Commands;
 
 namespace CarpeDiem.DataTools.Calculator.Commands;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -35,6 +36,9 @@
             this.value2TextBox = new System.Windows.Forms.TextBox();
             this.resultLabel = new System.Windows.Forms.Label();
             this.sumButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,25 +70,27 @@
             // 
             // value1TextBox
             // 
-            this.value1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.value1TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.value1TextBox.Location = new System.Drawing.Point(3, 18);
             this.value1TextBox.Name = "value1TextBox";
+            this.value1TextBox.PlaceholderText = "Enter Value 1";
             this.value1TextBox.Size = new System.Drawing.Size(639, 23);
             this.value1TextBox.TabIndex = 3;
             // 
             // value2TextBox
             // 
-            this.value2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.value2TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.value2TextBox.Location = new System.Drawing.Point(3, 62);
             this.value2TextBox.Name = "value2TextBox";
+            this.value2TextBox.PlaceholderText = "Enter Value 2";
             this.value2TextBox.Size = new System.Drawing.Size(639, 23);
             this.value2TextBox.TabIndex = 4;
             // 
             // resultLabel
             // 
-            this.resultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.resultLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultLabel.Location = new System.Drawing.Point(3, 103);
             this.resultLabel.Name = "resultLabel";
@@ -95,17 +101,34 @@
             // sumButton
             // 
             this.sumButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.sumButton.Location = new System.Drawing.Point(567, 129);
+            this.sumButton.Location = new System.Drawing.Point(567, 152);
             this.sumButton.Name = "sumButton";
             this.sumButton.Size = new System.Drawing.Size(75, 23);
             this.sumButton.TabIndex = 6;
             this.sumButton.Text = "Sum";
             this.sumButton.UseVisualStyleBackColor = true;
             // 
-            // WinFormsMiniCalcView
+            // messageLabel
+            // 
+            this.messageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(3, 126);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(639, 23);
+            this.messageLabel.TabIndex = 7;
+            this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
+            // CalculatorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.sumButton);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.value2TextBox);
@@ -113,9 +136,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "WinFormsMiniCalcView";
-            this.Size = new System.Drawing.Size(645, 156);
+            this.Name = "CalculatorView";
+            this.Size = new System.Drawing.Size(645, 179);
             this.Load += new System.EventHandler(this.WinFormsMiniCalcView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +154,7 @@
         private System.Windows.Forms.TextBox value2TextBox;
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.Button sumButton;
+        private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

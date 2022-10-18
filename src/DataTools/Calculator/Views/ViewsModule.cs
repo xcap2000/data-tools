@@ -1,5 +1,3 @@
-using Autofac;
-
 namespace CarpeDiem.DataTools.Calculator.Views;
 
 public class ViewsModule : Module

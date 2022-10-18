@@ -1,5 +1,3 @@
-using Autofac;
-
 namespace CarpeDiem.DataTools.Workbench.Commands;
 
 public class CommandsModule : Module

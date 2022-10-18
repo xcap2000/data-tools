@@ -1,5 +1,3 @@
-using Autofac;
-
 namespace CarpeDiem.DataTools.Calculator.Models;
 
 public class ModelsModule : Module

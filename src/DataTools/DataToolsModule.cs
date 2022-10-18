@@ -1,4 +1,3 @@
-using Autofac;
 using CarpeDiem.DataTools.Calculator;
 using CarpeDiem.DataTools.Common;
 using CarpeDiem.DataTools.Workbench;
@@ -12,10 +11,10 @@ public class DataToolsModule : Module
     {
         builder.RegisterModule<CommonModule>();
         builder.RegisterModule<WorkbenchModule>();
+        builder.RegisterModule<CalculatorModule>();
         builder
             .RegisterType<EventAggregator>()
             .As<IEventAggregator>()
             .SingleInstance();
-        builder.RegisterModule<CalculatorModule>();
     }
 }

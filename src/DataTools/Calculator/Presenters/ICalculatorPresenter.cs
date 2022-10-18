@@ -1,5 +1,3 @@
-using System;
-
 namespace CarpeDiem.DataTools.Calculator.Presenters;
 
 public interface ICalculatorPresenter

@@ -213,7 +213,9 @@ Create a tool to copy files to and from AWS Workspaces, basically from another m
 APIs use BadRequest to validate request, when the contract is defined by an interface you can guarantee an int is provided, it is compiled into the code, it is early bound and in the API it is late bound.
 Think about a common approach to solve that, maybe treat as late bound using nullable like int? and string?, this will probably make it easier to call the server on another machine.
 Or on the service I can skip badrequest etc on the service for issues that would only occurr on latebound,
-test what would fail in early bound like code contracts, require, 
+test what would fail in early bound like code contracts, require, ensures.
+Another thing to think is to minimize the dependency of framework specific components like errorprovider, in gtk
+we do not have that.
 
 On WPF we have another databinding model where we can use string on the control and int on the model as we have
 valueconverters, on windows forms we can use typeconverters:

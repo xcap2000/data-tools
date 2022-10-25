@@ -1,5 +1,5 @@
 using CarpeDiem.DataTools.Common.Adapters;
-using CarpeDiem.DataTools.Workbench.Commands;
+using CarpeDiem.DataTools.Common.Commands;
 using CarpeDiem.DataTools.Workbench.Events;
 using CarpeDiem.DataTools.Workbench.Views;
 using Prism.Events;
@@ -9,14 +9,14 @@ namespace CarpeDiem.DataTools.Workbench.Presenters;
 public class WorkbenchPresenter : IWorkbenchPresenter
 {
     private readonly IWorkbenchView view;
-    private readonly IEnumerable<IWorkbenchCommand> commands;
+    private readonly IEnumerable<ICommand> commands;
     private readonly IEventAggregator eventAggregator;
     private readonly IApplicationAdapter application;
 
     public WorkbenchPresenter
     (
         IWorkbenchView view,
-        IEnumerable<IWorkbenchCommand> commands,
+        IEnumerable<ICommand> commands,
         IEventAggregator eventAggregator,
         IApplicationAdapter application
     )

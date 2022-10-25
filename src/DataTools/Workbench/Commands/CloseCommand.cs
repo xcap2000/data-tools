@@ -1,8 +1,9 @@
 using CarpeDiem.DataTools.Common.Adapters;
+using CarpeDiem.DataTools.Common.Commands;
 
 namespace CarpeDiem.DataTools.Workbench.Commands;
 
-public class CloseCommand : IWorkbenchCommand
+public class CloseCommand : BaseCommand
 {
     private readonly IApplicationAdapter application;
 
@@ -11,13 +12,11 @@ public class CloseCommand : IWorkbenchCommand
         this.application = application;
     }
 
-    public int Priority { get; } = 0;
+    public override int Priority { get; } = 0;
 
-    public string Label => "Close";
+    public override string Label => "Close";
 
-    public string[] Hierarchy => new[] { "File" };
-
-    public void Execute()
+    public override void Execute()
     {
         application.Quit();
     }

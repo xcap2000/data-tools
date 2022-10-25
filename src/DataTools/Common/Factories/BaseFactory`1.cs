@@ -2,7 +2,7 @@ using CarpeDiem.DataTools.Common.Resolvers;
 
 namespace CarpeDiem.DataTools.Common.Factories;
 
-public class BaseFactory<T> : IFactory<T>
+public abstract class BaseFactory<T> : IFactory<T>
     where T : class
 {
     private readonly IResolver<T> resolver;

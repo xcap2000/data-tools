@@ -130,7 +130,7 @@
             this.AcceptButton = this.sumButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(434, 261);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.sumButton);
@@ -140,9 +140,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.MdiChildrenMinimizedAnchorBottom = false;
             this.MinimumSize = new System.Drawing.Size(450, 300);
             this.Name = "CalculatorView";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.WinFormsMiniCalcView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

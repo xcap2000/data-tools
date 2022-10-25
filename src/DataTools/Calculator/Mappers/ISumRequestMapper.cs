@@ -4,5 +4,5 @@ namespace CarpeDiem.DataTools.Calculator.Mappers;
 
 public interface ISumRequestMapper
 {
-    ISumRequestReader Map(int value1, int value2);
+    ISumRequest Map(string value1, string value2);
 }

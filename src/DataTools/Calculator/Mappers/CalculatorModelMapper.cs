@@ -5,16 +5,13 @@ namespace CarpeDiem.DataTools.Calculator.Mappers;
 
 public class CalculatorModelMapper : ICalculatorModelMapper
 {
-    public void Map(ICalculatorModel model, ISumResponseReader response)
+    public void Map(ICalculatorModel model, ISumResponse response)
     {
+        model.Value1Message = response.Value1Message;
+        model.Value2Message = response.Value2Message;
+        model.Message = response.Message;
+
         if (response.Succeeded)
-        {
-            model.Result = response.Result.ToString();
-            model.Message = "";
-        }
-        else
-        {
-            model.Message = response.Message;
-        }
+            model.Result = response.Result;
     }
 }

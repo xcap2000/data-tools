@@ -166,7 +166,7 @@
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput -Recurse } ; dotnet stryker --reporter \"html\" ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput -Recurse } ; dotnet stryker ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests.Integration/"
                 }

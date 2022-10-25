@@ -6,8 +6,6 @@ public class ResponsesModule : Module
     {
         builder
             .RegisterType<SumResponse>()
-            .As<ISumResponseReader>()
-            .As<ISumResponseWriter>()
             .As<ISumResponse>()
             .InstancePerDependency();
     }

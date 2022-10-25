@@ -5,5 +5,5 @@ namespace CarpeDiem.DataTools.Calculator.Services;
 
 public interface ICalculatorService
 {
-    ISumResponseReader Sum(ISumRequestReader request);
+    ISumResponse Sum(ISumRequest request);
 }

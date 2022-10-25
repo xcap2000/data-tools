@@ -36,9 +36,7 @@ public class CalculatorPresenter : ICalculatorPresenter
 
     public void Sum(object? sender, EventArgs e)
     {
-        int value1 = int.Parse(model.Value1);
-        int value2 = int.Parse(model.Value2);
-        var request = sumRequestMapper.Map(value1, value2);
+        var request = sumRequestMapper.Map(model.Value1, model.Value2);
         var response = service.Sum(request);
         calculatorModelMapper.Map(model, response);
     }

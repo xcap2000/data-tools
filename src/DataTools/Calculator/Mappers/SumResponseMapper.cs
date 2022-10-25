@@ -12,21 +12,21 @@ public class SumResponseMapper : ISumResponseMapper
         this.factory = factory;
     }
 
-    public ISumResponseReader ForSuccess(int result)
+    public ISumResponse ForSuccess(string result)
     {
         var response = factory.Create();
-        var writer = response as ISumResponseWriter;
-        writer.Succeeded = true;
-        writer.Result = result;
+        response.Succeeded = true;
+        response.Result = result;
         return response;
     }
 
-    public ISumResponseReader ForFailure(string message)
+    public ISumResponse ForFailure(string? value1 = null, string? value2 = null, string? message = null)
     {
         var response = factory.Create();
-        var writer = response as ISumResponseWriter;
-        writer.Succeeded = false;
-        writer.Message = message;
+        response.Succeeded = false;
+        response.Value1Message = value1 ?? "";
+        response.Value2Message = value2 ?? "";
+        response.Message = message ?? "";
         return response;
     }
 }

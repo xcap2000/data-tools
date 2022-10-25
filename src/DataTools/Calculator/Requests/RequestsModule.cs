@@ -6,8 +6,6 @@ public class RequestsModule : Module
     {
         builder
             .RegisterType<SumRequest>()
-            .As<ISumRequestReader>()
-            .As<ISumRequestWriter>()
             .As<ISumRequest>()
             .InstancePerDependency();
     }

@@ -5,5 +5,5 @@ namespace CarpeDiem.DataTools.Calculator.Mappers;
 
 public interface ICalculatorModelMapper
 {
-    void Map(ICalculatorModel model, ISumResponseReader response);
+    void Map(ICalculatorModel model, ISumResponse response);
 }

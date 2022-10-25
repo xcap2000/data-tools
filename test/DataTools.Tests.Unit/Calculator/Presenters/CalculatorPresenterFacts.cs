@@ -50,6 +50,28 @@ public static class CalculatorPresenterFacts
         }
 
         [Fact]
+        public void UpdatesModelValue1Error()
+        {
+            model.Value1 = "abc";
+            model.Value2 = "5";
+
+            presenter.Sum(null, EventArgs.Empty);
+
+            Equal("Value 1 is not a valid integer.", model.Value1Message);
+        }
+
+        [Fact]
+        public void UpdatesModelValue2Error()
+        {
+            model.Value1 = "5";
+            model.Value2 = "abc";
+
+            presenter.Sum(null, EventArgs.Empty);
+
+            Equal("Value 2 is not a valid integer.", model.Value2Message);
+        }
+
+        [Fact]
         public void SetsModelMessage()
         {
             model.Value1 = "2147483647";
@@ -59,11 +81,6 @@ public static class CalculatorPresenterFacts
 
             Equal("Overflow ocurred while summing 2147483647 and 2147483647.", model.Message);
         }
-
-        // TODO - Review whether model should be dumb, all validation should take place with service and the
-        // model should just fill error messages that are bound to the ui, this would work with the API model
-        // where model validation and request takes place. Model would be a mirror of the request/dto. This way
-        // validation would be centralized in the service and the model would be dumb/thin without validation logic
 
         // TODO - Develop in a way that favors tests and coverage
 

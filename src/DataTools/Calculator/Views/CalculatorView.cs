@@ -52,6 +52,8 @@ public partial class CalculatorView : Form, ICalculatorView
         presenter.Initialize();
     }
 
+    // TODO - Let it close and enable menu again, when menu is created again then recreate.
+    // TODO - If it implements a marker interface we should enable creating more than one instance according to that.
     protected override void OnFormClosing(FormClosingEventArgs e)
     {
         base.OnFormClosing(e);

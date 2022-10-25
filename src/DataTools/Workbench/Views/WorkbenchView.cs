@@ -44,10 +44,9 @@ public partial class WorkbenchView : Form, IWorkbenchView
 
     public void Activate(object o)
     {
-        var control = (Control)o;
-        control.Dock = DockStyle.Fill;
-
-        toolStripContainer.ContentPanel.Controls.Add(control);
+        var form = (Form)o;
+        form.MdiParent = this;
+        form.Show();
     }
 
     private void WinFormsWorkbenchView_Load(object sender, EventArgs e)

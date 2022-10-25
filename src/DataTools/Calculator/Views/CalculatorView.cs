@@ -1,11 +1,11 @@
-﻿using System.Windows.Forms;
-using CarpeDiem.DataTools.Calculator.Models;
+﻿using CarpeDiem.DataTools.Calculator.Models;
 using CarpeDiem.DataTools.Calculator.Presenters;
+using System.Windows.Forms;
 
 namespace CarpeDiem.DataTools.Calculator.Views;
 
 // TODO - Move this module/plugin to another assembly.
-public partial class CalculatorView : UserControl, ICalculatorView
+public partial class CalculatorView : Form, ICalculatorView
 {
     private readonly ICalculatorModel model;
     private readonly ICalculatorPresenter presenter;
@@ -47,9 +47,18 @@ public partial class CalculatorView : UserControl, ICalculatorView
         sumButton.Click += presenter.Sum;
     }
 
-
     private void WinFormsMiniCalcView_Load(object sender, EventArgs e)
     {
         presenter.Initialize();
+    }
+
+    protected override void OnFormClosing(FormClosingEventArgs e)
+    {
+        base.OnFormClosing(e);
+        if (e.CloseReason == CloseReason.UserClosing)
+        {
+            e.Cancel = true;
+            Hide();
+        }
     }
 }

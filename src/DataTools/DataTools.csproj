@@ -2,7 +2,7 @@
 
   <PropertyGroup>  
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net6.0-windows</TargetFrameworks>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>data-tools</AssemblyName>
     <Version>0.1.0</Version>

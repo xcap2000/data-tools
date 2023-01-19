@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using CarpeDiem.DataTools.Common.Adapters;
-using CarpeDiem.DataTools.Workbench.Commands;
+using CarpeDiem.DataTools.Common.Commands;
 using CarpeDiem.DataTools.Workbench.Views;
 using Prism.Events;
-using static NSubstitute.Substitute;
 
 namespace CarpeDiem.DataTools.Workbench.Presenters;
 
@@ -12,7 +10,7 @@ public static partial class WorkbenchPresenterFacts
     public abstract class BaseFacts
     {
         protected readonly IWorkbenchView view;
-        protected readonly IEnumerable<IWorkbenchCommand> commands;
+        protected readonly IEnumerable<ICommand> commands;
         protected readonly IEventAggregator eventAggregator;
         protected readonly IApplicationAdapter application;
         protected readonly IWorkbenchPresenter presenter;
@@ -20,7 +18,7 @@ public static partial class WorkbenchPresenterFacts
         protected BaseFacts()
         {
             view = For<IWorkbenchView>();
-            commands = For<IEnumerable<IWorkbenchCommand>>();
+            commands = For<IEnumerable<ICommand>>();
             eventAggregator = For<IEventAggregator>();
             application = For<IApplicationAdapter>();
             presenter = new WorkbenchPresenter(view, commands, eventAggregator, application);

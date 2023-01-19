@@ -1,6 +1,3 @@
-using System;
-using Autofac;
-
 namespace CarpeDiem.DataTools.Workbench.Presenters;
 
 // TODO - Create base or generic class.

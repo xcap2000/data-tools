@@ -1,10 +1,7 @@
-﻿using CarpeDiem.DataTools.Workbench.Commands;
+﻿using System.Data;
 using CarpeDiem.DataTools.Workbench.Presenters;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
+using CarpeDiem.DataTools.Common.Commands;
 
 namespace CarpeDiem.DataTools.Workbench.Views;
 
@@ -19,7 +16,7 @@ public partial class WorkbenchView : Form, IWorkbenchView
         FormClosed += WinFormsWorkbenchView_FormClosed;
     }
 
-    public IEnumerable<IWorkbenchCommand> Commands
+    public IEnumerable<ICommand> Commands
     {
         set
         {
@@ -38,6 +35,14 @@ public partial class WorkbenchView : Form, IWorkbenchView
                 {
                     command.Execute();
                 };
+                command.PropertyChanged +=
+                    (o, a) =>
+                    {
+                        if (a.PropertyName == "Enabled")
+                        {
+                            menuItem.Enabled = command.Enabled;
+                        }
+                    };
                 fileMenuItem.DropDownItems.Add(menuItem);
             }
 
@@ -47,10 +52,9 @@ public partial class WorkbenchView : Form, IWorkbenchView
 
     public void Activate(object o)
     {
-        var control = (Control)o;
-        control.Dock = DockStyle.Fill;
-
-        toolStripContainer.ContentPanel.Controls.Add(control);
+        var form = (Form)o;
+        form.MdiParent = this;
+        form.Show();
     }
 
     private void WinFormsWorkbenchView_Load(object sender, EventArgs e)

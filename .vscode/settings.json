@@ -15,6 +15,7 @@
         "**/StrykerOutput": true,
         "**/.config": true,
         "**/sqltools*": true,
-        "**/**csproj.user": true
+        "**/**csproj.user": true,
+        "**/stryker-config.json": true
     }
 }

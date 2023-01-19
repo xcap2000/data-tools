@@ -163,6 +163,20 @@ Edit src/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj to configure it as fol
 </Project>
 ```
 
+Create a file named stryker-config.json with the following contents:
+
+```json
+{
+    "stryker-config": {
+        "solution": "../../DataTools.sln",
+        "project": "DataTools.csproj",
+        "reporters": [
+            "html"
+        ]
+    }
+}
+```
+
 #### Creating The Integration Test Project
 
 ```bash
@@ -315,7 +329,9 @@ Create a file named settings.json in the .vscode folder with the following conte
         "**/*.ruleset": true,
         "**/StrykerOutput": true,
         "**/.config": true,
-        "**/sqltools*": true
+        "**/sqltools*": true,
+        "**/**csproj.user": true,
+        "**/stryker-config.json": true
     }
 }
 ```

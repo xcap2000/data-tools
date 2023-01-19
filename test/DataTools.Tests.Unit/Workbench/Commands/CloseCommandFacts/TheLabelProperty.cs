@@ -1,6 +1,3 @@
-using Xunit;
-using static Xunit.Assert;
-
 namespace CarpeDiem.DataTools.Workbench.Commands;
 
 public static partial class CloseCommandFacts

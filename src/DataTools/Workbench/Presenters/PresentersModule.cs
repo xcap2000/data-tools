@@ -1,5 +1,3 @@
-using Autofac;
-
 namespace CarpeDiem.DataTools.Workbench.Presenters;
 
 public class PresentersModule : Module

@@ -1,5 +1,4 @@
-using Autofac;
-using CarpeDiem.DataTools.Workbench.Commands;
+using CarpeDiem.DataTools.Common.Commands;
 
 namespace CarpeDiem.DataTools.Calculator.Commands;
 
@@ -9,7 +8,7 @@ public class CommandsModule : Module
     {
         builder
             .RegisterType<CalculateCommand>()
-            .As<IWorkbenchCommand>()
+            .As<ICommand>()
             .SingleInstance()
             .PreserveExistingDefaults();
     }

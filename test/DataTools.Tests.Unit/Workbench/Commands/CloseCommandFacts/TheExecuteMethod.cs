@@ -1,6 +1,3 @@
-using NSubstitute;
-using Xunit;
-
 namespace CarpeDiem.DataTools.Workbench.Commands;
 
 public static partial class CloseCommandFacts

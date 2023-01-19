@@ -1,5 +1,4 @@
 ﻿using CarpeDiem.DataTools.Common.Views;
-using System;
 using System.Windows.Forms;
 
 namespace CarpeDiem.DataTools.Common.Adapters;

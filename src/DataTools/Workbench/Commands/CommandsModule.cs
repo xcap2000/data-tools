@@ -1,4 +1,4 @@
-using Autofac;
+using CarpeDiem.DataTools.Common.Commands;
 
 namespace CarpeDiem.DataTools.Workbench.Commands;
 
@@ -8,7 +8,7 @@ public class CommandsModule : Module
     {
         builder
             .RegisterType<CloseCommand>()
-            .As<IWorkbenchCommand>()
+            .As<ICommand>()
             .SingleInstance()
             .PreserveExistingDefaults();
     }

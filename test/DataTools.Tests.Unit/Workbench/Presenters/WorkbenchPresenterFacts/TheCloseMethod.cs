@@ -1,7 +1,4 @@
-﻿using Xunit;
-using NSubstitute;
-
-namespace CarpeDiem.DataTools.Workbench.Presenters;
+﻿namespace CarpeDiem.DataTools.Workbench.Presenters;
 
 public static partial class WorkbenchPresenterFacts
 {

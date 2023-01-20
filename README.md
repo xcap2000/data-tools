@@ -115,21 +115,22 @@ Edit src/DataTools/DataTools.csproj to configure it as following:
 </Project>
 ```
 
-#### Creating The Unit Test Project
+#### Creating The Test Project
 
 ```bash
-$ mkdir test/DataTools.Tests.Unit
-$ dotnet new xunit -n DataTools.Tests.Unit -o test/DataTools.Tests.Unit
-$ dotnet add test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj reference src/DataTools/DataTools.csproj
-$ dotnet add test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj package Microsoft.CodeAnalysis.CSharp.Workspaces --version 4.0.1
-$ dotnet add test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj package coverlet.msbuild --version 3.1.0
-$ dotnet add test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj package Roslynator.Analyzers --version 3.2.2
-$ dotnet add test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj package NSubstitute --version 4.2.2
-$ dotnet add test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj package NSubstitute.Analyzers.CSharp --version 1.0.15
-$ dotnet add test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.0
+$ mkdir test/DataTools.Tests
+$ dotnet new xunit -n DataTools.Tests -o test/DataTools.Tests
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj reference src/DataTools/DataTools.csproj
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package Autofac --version 6.3.0
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package Microsoft.CodeAnalysis.CSharp.Workspaces --version 4.0.1
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package coverlet.msbuild --version 3.1.0
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package Roslynator.Analyzers --version 3.2.2
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package NSubstitute --version 4.2.2
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package NSubstitute.Analyzers.CSharp --version 1.0.15
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.0
 ```
 
-Edit src/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj to configure it as following:
+Edit src/DataTools.Tests/DataTools.Tests.csproj to configure it as following:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -139,7 +140,7 @@ Edit src/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj to configure it as fol
     <Authors>Carlos Adriano Portes</Authors>
     <Company>Carpe Diem</Company>
     <Product>RefreshMaint</Product>
-    <PackageId>DataTools.Tests.Unit</PackageId>
+    <PackageId>DataTools.Tests</PackageId>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
     <FileVersion>0.1.0.0</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
@@ -155,7 +156,7 @@ Edit src/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj to configure it as fol
     <IsPackable>false</IsPackable>
     <RootNamespace>CarpeDiem.DataTools</RootNamespace>
     <Nullable>enable</Nullable>
-    <CodeAnalysisRuleSet>DataTools.Tests.Unit.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>DataTools.Tests.ruleset</CodeAnalysisRuleSet>
     <GenerateFullPaths>true</GenerateFullPaths>
     ...
   </PropertyGroup>
@@ -163,7 +164,7 @@ Edit src/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj to configure it as fol
 </Project>
 ```
 
-Create a file named stryker-config.json with the following contents:
+Create a file named stryker-config.all.json with the following contents:
 
 ```json
 {
@@ -177,52 +178,34 @@ Create a file named stryker-config.json with the following contents:
 }
 ```
 
-#### Creating The Integration Test Project
+Create a file named stryker-config.unit.json with the following contents:
 
-```bash
-$ mkdir test/DataTools.Tests.Integration
-$ dotnet new xunit -n DataTools.Tests.Integration -o test/DataTools.Tests.Integration
-$ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj reference src/DataTools/DataTools.csproj
-$ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package Microsoft.CodeAnalysis.CSharp.Workspaces --version 4.0.1
-$ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package coverlet.msbuild --version 3.1.0
-$ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package Roslynator.Analyzers --version 3.2.2
-$ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package Autofac --version 6.3.0
-$ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package NSubstitute --version 4.2.2
-$ dotnet add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj package NSubstitute.Analyzers.CSharp --version 1.0.15
+```json
+{
+    "stryker-config": {
+        "solution": "../../DataTools.sln",
+        "project": "DataTools.csproj",
+        "test-case-filter": "Category=Unit",
+        "reporters": [
+            "html"
+        ]
+    }
+}
 ```
 
-Edit src/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj to configure it as following:
+Create a file named stryker-config.integration.json with the following contents:
 
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    ...
-    <Version>0.1.0</Version>
-    <Authors>Carlos Adriano Portes</Authors>
-    <Company>Carpe Diem</Company>
-    <Product>DataTools</Product>
-    <PackageId>DataTools.Tests.Integration</PackageId>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
-    <NeutralLanguage>en</NeutralLanguage>
-    <Description>DataTools Application Integration Tests</Description>
-    <Copyright>Carpe Diem</Copyright>
-    <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageProjectUrl></PackageProjectUrl>
-    <PackageIconUrl></PackageIconUrl>
-    <RepositoryUrl>https://github.com/xcap2000/data-tools</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags></PackageTags>
-    <PackageReleaseNotes>Release</PackageReleaseNotes>
-    <IsPackable>false</IsPackable>
-    <RootNamespace>CarpeDiem.DataTools</RootNamespace>
-    <Nullable>enable</Nullable>
-    <CodeAnalysisRuleSet>DataTools.Tests.Integration.ruleset</CodeAnalysisRuleSet>
-    <GenerateFullPaths>true</GenerateFullPaths>
-    ...
-  </PropertyGroup>
-  ...
-</Project>
+```json
+{
+    "stryker-config": {
+        "solution": "../../DataTools.sln",
+        "project": "DataTools.csproj",
+        "test-case-filter": "Category=Integration",
+        "reporters": [
+            "html"
+        ]
+    }
+}
 ```
 
 #### Creating The Solution
@@ -230,13 +213,12 @@ Edit src/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj to confi
 ```bash
 $ dotnet new sln -n DataTools
 $ dotnet sln DataTools.sln add src/DataTools/DataTools.csproj
-$ dotnet sln DataTools.sln add test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj
-$ dotnet sln DataTools.sln add test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj
+$ dotnet sln DataTools.sln add test/DataTools.Tests/DataTools.Tests.csproj
 ```
 
 #### Creating The Ruleset Configuration File
 
-Create the files src/DataTools/DataTools.ruleset, test/DataTools.Tests.Unit/DataTools.Tests.Unit.ruleset and test/DataTools.Tests.Integration/DataTools.Tests.Integration.ruleset with the following contents:
+Create the files src/DataTools/DataTools.ruleset, test/DataTools.Tests/DataTools.Tests.ruleset with the following contents:
 
 ```xml
 <RuleSet Name="Rules" Description="Rules for this project" ToolsVersion="15.0">
@@ -443,7 +425,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "windows": {
                 "args": [
                     "test",
-                    "${workspaceFolder}\\test\\DataTools.Tests.Unit\\DataTools.Tests.Unit.csproj",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -454,7 +436,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "linux": {
                 "args": [
                     "test",
-                    "${workspaceFolder}/test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj",
+                    "${workspaceFolder}/test/DataTools.Tests/DataTools.Tests.csproj",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -477,7 +459,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
                 "args": [
                     "watch",
                     "--project",
-                    "${workspaceFolder}\\test\\DataTools.Tests.Unit\\DataTools.Tests.Unit.csproj",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "test",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
@@ -490,7 +472,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
                 "args": [
                     "watch",
                     "--project",
-                    "${workspaceFolder}/test/DataTools.Tests.Unit/DataTools.Tests.Unit.csproj",
+                    "${workspaceFolder}/test/DataTools.Tests/DataTools.Tests.csproj",
                     "test",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
@@ -510,15 +492,15 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput -Recurse } ; dotnet stryker --reporter \"html\" ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --reporter \"html\" ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
-                    "cwd": "${workspaceFolder}/test/DataTools.Tests.Unit/"
+                    "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }
             },
             "linux": {
-                "command": "rm -rf ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput && dotnet stryker --reporter \"html\" && firefox ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/`\"/reports/mutation-report.html || wslview ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Unit/StrykerOutput/`\"/reports/mutation-report.html",
+                "command": "rm -rf ${workspaceFolder}/test/DataTools.Tests/StrykerOutput && dotnet stryker --reporter \"html\" && firefox ${workspaceFolder}/test/DataTools.Tests/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests/StrykerOutput/`\"/reports/mutation-report.html || wslview ${workspaceFolder}/test/DataTools.Tests/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests/StrykerOutput/`\"/reports/mutation-report.html",
                 "options": {
-                    "cwd": "${workspaceFolder}/test/DataTools.Tests.Unit/"
+                    "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }
             }
         },
@@ -634,7 +616,7 @@ To add Stryker locally:
 
 ```bash
 $ dotnet new tool-manifest
-$ dotnet tool install dotnet-stryker --version 1.1.0
+$ dotnet tool install dotnet-stryker --version 3.4.0
 ```
 
 To update Stryker:

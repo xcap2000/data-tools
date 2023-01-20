@@ -5,6 +5,7 @@ public static partial class CloseCommandFacts
     public class TheExecuteMethod : BaseFacts
     {
         [Fact]
+        [Trait("Category", "Unit")]
         public void QuitsApplication()
         {
             command.Execute();

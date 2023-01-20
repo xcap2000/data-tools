@@ -20,6 +20,7 @@ public static class TasksPresenterFacts
         }
 
         [Fact]
+        [Trait("Category", "Unit")]
         public async void ListsActiveTasks()
         {
             // TODO - Continue.

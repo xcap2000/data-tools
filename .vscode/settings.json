@@ -16,6 +16,6 @@
         "**/.config": true,
         "**/sqltools*": true,
         "**/**csproj.user": true,
-        "**/stryker-config.json": true
+        "**/stryker-config*.json": true
     }
 }

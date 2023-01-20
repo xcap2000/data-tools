@@ -5,6 +5,7 @@ public static partial class WorkbenchPresenterFacts
     public class TheCloseMethod : BaseFacts
     {
         [Fact]
+        [Trait("Category", "Unit")]
         public void QuitsApplication()
         {
             presenter.Close();

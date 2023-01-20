@@ -7,6 +7,7 @@ public static partial class WorkbenchPresenterFacts
     public class TheInitializeMethod : BaseFacts
     {
         [Fact]
+        [Trait("Category", "Unit")]
         public void InitializesCommands()
         {
             var @event = new ActivatedEvent();

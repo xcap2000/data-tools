@@ -9,9 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTools", "src\DataTools\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{222E8061-8D81-4DA3-B380-9B97242B6806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTools.Tests.Unit", "test\DataTools.Tests.Unit\DataTools.Tests.Unit.csproj", "{739B8EEF-46F1-4BFB-A986-BE8B312135D8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTools.Tests.Integration", "test\DataTools.Tests.Integration\DataTools.Tests.Integration.csproj", "{2877069B-0920-4143-9B17-5BF112A31145}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTools.Tests", "test\DataTools.Tests\DataTools.Tests.csproj", "{739B8EEF-46F1-4BFB-A986-BE8B312135D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,14 +28,9 @@ Global
 		{739B8EEF-46F1-4BFB-A986-BE8B312135D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{739B8EEF-46F1-4BFB-A986-BE8B312135D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{739B8EEF-46F1-4BFB-A986-BE8B312135D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2877069B-0920-4143-9B17-5BF112A31145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2877069B-0920-4143-9B17-5BF112A31145}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2877069B-0920-4143-9B17-5BF112A31145}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2877069B-0920-4143-9B17-5BF112A31145}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8C7CCB3E-6761-475A-8238-54CB1705D851} = {01AA4DE8-DF91-4AC9-8E20-7B87D40FAA2F}
 		{739B8EEF-46F1-4BFB-A986-BE8B312135D8} = {222E8061-8D81-4DA3-B380-9B97242B6806}
-		{2877069B-0920-4143-9B17-5BF112A31145} = {222E8061-8D81-4DA3-B380-9B97242B6806}
 	EndGlobalSection
 EndGlobal

@@ -59,6 +59,63 @@
             }
         },
         {
+            "label": "test: all",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "windows": {
+                "args": [
+                    "test",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=./lcov.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "test: all (watch)",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "isBackground": true,
+            "windows": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
+                    "test",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=./lcov.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "test: all mutation coverage",
+            "type": "shell",
+            "group": "test",
+            "isBackground": true,
+            "windows": {
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.all.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "options": {
+                    "cwd": "${workspaceFolder}/test/DataTools.Tests/"
+                }
+            },
+        },
+        {
             "label": "test: unit",
             "type": "process",
             "group": "test",
@@ -66,7 +123,9 @@
             "windows": {
                 "args": [
                     "test",
-                    "${workspaceFolder}\\test\\DataTools.Tests.Unit\\DataTools.Tests.Unit.csproj",
+                    "--filter",
+                    "Category=Unit",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -89,8 +148,10 @@
                 "args": [
                     "watch",
                     "--project",
-                    "${workspaceFolder}\\test\\DataTools.Tests.Unit\\DataTools.Tests.Unit.csproj",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "test",
+                    "--filter",
+                    "Category=Unit",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -109,9 +170,9 @@
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput -Recurse } ; dotnet stryker --reporter \"html\" ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Unit\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.unit.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
-                    "cwd": "${workspaceFolder}/test/DataTools.Tests.Unit/"
+                    "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }
             },
         },
@@ -123,7 +184,9 @@
             "windows": {
                 "args": [
                     "test",
-                    "${workspaceFolder}\\test\\DataTools.Tests.Integration\\DataTools.Tests.Integration.csproj",
+                    "--filter",
+                    "Category=Integration",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -146,8 +209,10 @@
                 "args": [
                     "watch",
                     "--project",
-                    "${workspaceFolder}\\test\\DataTools.Tests.Integration\\DataTools.Tests.Integration.csproj",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "test",
+                    "--filter",
+                    "Category=Integration",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -166,9 +231,9 @@
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput -Recurse } ; dotnet stryker ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.integration.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
-                    "cwd": "${workspaceFolder}/test/DataTools.Tests.Integration/"
+                    "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }
             }
         },

@@ -275,7 +275,7 @@ Create a file named launch.json in the .vscode folder with the following content
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "all: build",
-            "program": "${workspaceFolder}/src/DataTools/bin/Debug/net6.0/data-tools.dll",
+            "program": "${workspaceFolder}/src/DataTools/bin/Debug/net6.0-windows/data-tools.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/DataTools",
             "stopAtEntry": false,
@@ -418,7 +418,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             }
         },
         {
-            "label": "test: unit",
+            "label": "test: all",
             "type": "process",
             "group": "test",
             "command": "dotnet",
@@ -433,10 +433,58 @@ Create a file named tasks.json in the .vscode folder with the following contents
                     "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
                 ]
             },
-            "linux": {
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "test: all (watch)",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "isBackground": true,
+            "windows": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
+                    "test",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=./lcov.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "test: all mutation coverage",
+            "type": "shell",
+            "group": "test",
+            "isBackground": true,
+            "windows": {
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.all.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "options": {
+                    "cwd": "${workspaceFolder}/test/DataTools.Tests/"
+                }
+            },
+        },
+        {
+            "label": "test: unit",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "windows": {
                 "args": [
                     "test",
-                    "${workspaceFolder}/test/DataTools.Tests/DataTools.Tests.csproj",
+                    "--filter",
+                    "Category=Unit",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -461,19 +509,8 @@ Create a file named tasks.json in the .vscode folder with the following contents
                     "--project",
                     "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "test",
-                    "/clp:NoSummary",
-                    "/p:CollectCoverage=true",
-                    "/p:CoverletOutputFormat=lcov",
-                    "/p:CoverletOutput=./lcov.info",
-                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
-                ]
-            },
-            "linux": {
-                "args": [
-                    "watch",
-                    "--project",
-                    "${workspaceFolder}/test/DataTools.Tests/DataTools.Tests.csproj",
-                    "test",
+                    "--filter",
+                    "Category=Unit",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -492,17 +529,11 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --reporter \"html\" ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.unit.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }
             },
-            "linux": {
-                "command": "rm -rf ${workspaceFolder}/test/DataTools.Tests/StrykerOutput && dotnet stryker --reporter \"html\" && firefox ${workspaceFolder}/test/DataTools.Tests/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests/StrykerOutput/`\"/reports/mutation-report.html || wslview ${workspaceFolder}/test/DataTools.Tests/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests/StrykerOutput/`\"/reports/mutation-report.html",
-                "options": {
-                    "cwd": "${workspaceFolder}/test/DataTools.Tests/"
-                }
-            }
         },
         {
             "label": "test: integration",
@@ -512,18 +543,9 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "windows": {
                 "args": [
                     "test",
-                    "${workspaceFolder}\\test\\DataTools.Tests.Integration\\DataTools.Tests.Integration.csproj",
-                    "/clp:NoSummary",
-                    "/p:CollectCoverage=true",
-                    "/p:CoverletOutputFormat=lcov",
-                    "/p:CoverletOutput=./lcov.info",
-                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
-                ]
-            },
-            "linux": {
-                "args": [
-                    "test",
-                    "${workspaceFolder}/test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj",
+                    "--filter",
+                    "Category=Integration",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -546,21 +568,10 @@ Create a file named tasks.json in the .vscode folder with the following contents
                 "args": [
                     "watch",
                     "--project",
-                    "${workspaceFolder}\\test\\DataTools.Tests.Integration\\DataTools.Tests.Integration.csproj",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
                     "test",
-                    "/clp:NoSummary",
-                    "/p:CollectCoverage=true",
-                    "/p:CoverletOutputFormat=lcov",
-                    "/p:CoverletOutput=./lcov.info",
-                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
-                ]
-            },
-            "linux": {
-                "args": [
-                    "watch",
-                    "--project",
-                    "${workspaceFolder}/test/DataTools.Tests.Integration/DataTools.Tests.Integration.csproj",
-                    "test",
+                    "--filter",
+                    "Category=Integration",
                     "/clp:NoSummary",
                     "/p:CollectCoverage=true",
                     "/p:CoverletOutputFormat=lcov",
@@ -579,15 +590,9 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput -Recurse } ; dotnet stryker --reporter \"html\" ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests.Integration\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.integration.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
-                    "cwd": "${workspaceFolder}/test/DataTools.Tests.Integration/"
-                }
-            },
-            "linux": {
-                "command": "rm -rf ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput && dotnet stryker --reporter \"html\" && firefox ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput/`\"/reports/mutation-report.html || wslview ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput/\"`ls ${workspaceFolder}/test/DataTools.Tests.Integration/StrykerOutput/`\"/reports/mutation-report.html",
-                "options": {
-                    "cwd": "${workspaceFolder}/test/DataTools.Tests.Integration/"
+                    "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }
             }
         },
@@ -600,10 +605,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             },
             "problemMatcher": "$msCompile",
             "windows": {
-                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Release -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\net6.0\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true"
-            },
-            "linux": {
-                "command": "dotnet publish src/DataTools/DataTools.csproj -c Release -r linux-x64 --self-contained -o src/DataTools/bin/Release/net6.0/linux-x64/ /p:UseAppHost=true /p:PublishSingleFile=true"
+                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Debug -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\net6.0-windows\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true"
             }
         }
     ]

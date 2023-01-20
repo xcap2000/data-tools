@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "all: build",
-            "program": "${workspaceFolder}/src/DataTools/bin/Debug/net6.0/data-tools.dll",
+            "program": "${workspaceFolder}/src/DataTools/bin/Debug/net6.0-windows/data-tools.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/DataTools",
             "stopAtEntry": false,

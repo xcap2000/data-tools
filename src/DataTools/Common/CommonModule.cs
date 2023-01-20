@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Autofac;
-using CarpeDiem.DataTools.Common.Adapters;
+﻿using CarpeDiem.DataTools.Common.Adapters;
 using CarpeDiem.DataTools.Common.Resolvers;
 using JiraIntegration.Common.Factories;
 

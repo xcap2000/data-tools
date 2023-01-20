@@ -8,6 +8,12 @@ public abstract class BaseCommand : ICommand
 
     private bool enabled = true;
 
+    protected BaseCommand(int priority, params string[] label)
+    {
+        Priority = priority;
+        Label = label;
+    }
+
     protected void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -28,7 +34,7 @@ public abstract class BaseCommand : ICommand
         }
     }
 
-    public abstract int Priority { get; }
+    public int Priority { get; }
 
-    public abstract string Label { get; }
+    public string[] Label { get; }
 }

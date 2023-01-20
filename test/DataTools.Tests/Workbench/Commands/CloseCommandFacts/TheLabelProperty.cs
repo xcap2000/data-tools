@@ -6,9 +6,10 @@ public static partial class CloseCommandFacts
     {
         [Fact]
         [Trait("Category", "Unit")]
-        public void ReturnsLavel()
+        public void ReturnsLabel()
         {
-            Equal("Close", command.Label);
+            Equal("File", command.Label[0]);
+            Equal("Close", command.Label[1]);
         }
     }
 }

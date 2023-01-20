@@ -5,7 +5,7 @@ using Prism.Events;
 
 namespace CarpeDiem.DataTools.Calculator.Commands;
 
-public class CalculateCommand : BaseCommand, ICommand
+public class CalculateCommand : BaseCommand
 {
     private readonly IEventAggregator eventAggregator;
     private readonly ICalculatorViewFactory factory;
@@ -15,15 +15,11 @@ public class CalculateCommand : BaseCommand, ICommand
         IEventAggregator eventAggregator,
         ICalculatorViewFactory factory
     )
+        : base(100, "File", "Calculate")
     {
         this.eventAggregator = eventAggregator;
         this.factory = factory;
     }
-
-    // TODO - Use contructir inheritance to set those properties.
-    public override int Priority { get; } = 100;
-
-    public override string Label => "Calculate";
 
     public override void Execute()
     {

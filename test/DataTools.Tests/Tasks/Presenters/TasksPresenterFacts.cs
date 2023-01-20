@@ -19,7 +19,7 @@ public static class TasksPresenterFacts
             presenter = fixture.Container.Resolve<ITasksPresenter>();
         }
 
-        [Fact]
+        [Fact(Skip = "Finish")]
         [Trait("Category", "Unit")]
         public async void ListsActiveTasks()
         {

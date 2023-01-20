@@ -8,13 +8,10 @@ public class CloseCommand : BaseCommand
     private readonly IApplicationAdapter application;
 
     public CloseCommand(IApplicationAdapter application)
+        : base(0, "File", "Close")
     {
         this.application = application;
     }
-
-    public override int Priority { get; } = 0;
-
-    public override string Label => "Close";
 
     public override void Execute()
     {

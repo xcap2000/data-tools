@@ -67,8 +67,8 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "WorkbenchView";
-            this.Text = "WinFormsWorkbenchView";
-            this.Load += new System.EventHandler(this.WinFormsWorkbenchView_Load);
+            this.Text = "WorkbenchView";
+            this.Load += new System.EventHandler(this.WorkbenchView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

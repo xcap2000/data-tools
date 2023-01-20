@@ -1,7 +1,7 @@
 ﻿using System.Data;
-using CarpeDiem.DataTools.Workbench.Presenters;
 using System.Windows.Forms;
 using CarpeDiem.DataTools.Common.Commands;
+using CarpeDiem.DataTools.Workbench.Presenters;
 
 namespace CarpeDiem.DataTools.Workbench.Views;
 
@@ -13,41 +13,76 @@ public partial class WorkbenchView : Form, IWorkbenchView
     {
         InitializeComponent();
         this.presenter = presenter;
-        FormClosed += WinFormsWorkbenchView_FormClosed;
+        FormClosed += WorkbenchView_FormClosed;
     }
 
     public IEnumerable<ICommand> Commands
     {
         set
         {
-            ToolStripMenuItem fileMenuItem = new()
-            {
-                Text = "File"
-            };
-
             foreach (var command in value.OrderByDescending(c => c.Priority))
             {
-                ToolStripMenuItem menuItem = new()
+                for (int index = 0; index < command.Label.Length; index++)
                 {
-                    Text = command.Label
-                };
-                menuItem.Click += delegate
-                {
-                    command.Execute();
-                };
-                command.PropertyChanged +=
-                    (o, a) =>
+                    if (index == 0)
                     {
-                        if (a.PropertyName == "Enabled")
-                        {
-                            menuItem.Enabled = command.Enabled;
-                        }
-                    };
-                fileMenuItem.DropDownItems.Add(menuItem);
-            }
+                        var label = command.Label[index];
 
-            menuStrip.Items.Add(fileMenuItem);
+                        var controlName = CreateControlName(label, nameof(ToolStripMenuItem));
+
+                        var itemsFound = menuStrip.Items.Find(controlName, true);
+
+                        if (itemsFound.Length == 0)
+                        {
+                            menuStrip.Items.Add(CreateToolStripMenuItem(controlName, label));
+                        }
+                    }
+                    else
+                    {
+                        var previousLabel = command.Label[index - 1];
+
+                        var previousControlName = CreateControlName(previousLabel, nameof(ToolStripMenuItem));
+
+                        var toolStripMenuItem = (ToolStripMenuItem)menuStrip.Items.Find(previousControlName, true)[0];
+
+                        var label = command.Label[index];
+
+                        var controlName = CreateControlName(label, nameof(ToolStripMenuItem));
+
+                        var itemsFound = toolStripMenuItem.DropDownItems.Find(controlName, true);
+
+                        if (itemsFound.Length == 0)
+                        {
+                            toolStripMenuItem.DropDownItems.Add(CreateToolStripMenuItem(controlName, label, command.Execute));
+                        }
+                    }
+                }
+            }
         }
+    }
+
+    private static ToolStripMenuItem CreateToolStripMenuItem(string controlName, string controlText, Action? execute = null)
+    {
+        var toolStripMenuItem = new ToolStripMenuItem
+        {
+            Name = controlName,
+            Text = controlText
+        };
+
+        if (execute is not null)
+        {
+            toolStripMenuItem.Click += delegate
+            {
+                execute();
+            };
+        }
+
+        return toolStripMenuItem;
+    }
+
+    private static string CreateControlName(string label, string controlName)
+    {
+        return label.ToLower() + controlName;
     }
 
     public void Activate(object o)
@@ -57,12 +92,12 @@ public partial class WorkbenchView : Form, IWorkbenchView
         form.Show();
     }
 
-    private void WinFormsWorkbenchView_Load(object sender, EventArgs e)
+    private void WorkbenchView_Load(object sender, EventArgs e)
     {
         presenter.Initialize();
     }
 
-    private void WinFormsWorkbenchView_FormClosed(object? sender, FormClosedEventArgs e)
+    private void WorkbenchView_FormClosed(object? sender, FormClosedEventArgs e)
     {
         presenter.Close();
     }

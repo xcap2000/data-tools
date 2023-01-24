@@ -10,7 +10,7 @@ public static partial class CloseCommandFacts
         {
             command.Execute();
 
-            adapter.Received().Quit();
+            adapter.Received(1).Quit();
         }
     }
 }

@@ -18,7 +18,7 @@ public static class CalculatorPresenterFacts
         }
 
         [Fact]
-        [Trait("Category", "Unit")]
+        [Trait("Category", "e2e")]
         public void BindsModel()
         {
             presenter.Initialize();
@@ -40,7 +40,7 @@ public static class CalculatorPresenterFacts
         }
 
         [Fact]
-        [Trait("Category", "Unit")]
+        [Trait("Category", "e2e")]
         public void UpdatesModel()
         {
             model.Value1 = "5";
@@ -52,7 +52,7 @@ public static class CalculatorPresenterFacts
         }
 
         [Fact]
-        [Trait("Category", "Unit")]
+        [Trait("Category", "e2e")]
         public void UpdatesModelValue1Error()
         {
             model.Value1 = "abc";
@@ -64,7 +64,7 @@ public static class CalculatorPresenterFacts
         }
 
         [Fact]
-        [Trait("Category", "Unit")]
+        [Trait("Category", "e2e")]
         public void UpdatesModelValue2Error()
         {
             model.Value1 = "5";
@@ -76,7 +76,7 @@ public static class CalculatorPresenterFacts
         }
 
         [Fact]
-        [Trait("Category", "Unit")]
+        [Trait("Category", "e2e")]
         public void SetsModelMessage()
         {
             model.Value1 = "2147483647";

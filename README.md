@@ -208,6 +208,21 @@ Create a file named stryker-config.integration.json with the following contents:
 }
 ```
 
+Create a file named stryker-config.e2e.json with the following contents:
+
+```json
+{
+    "stryker-config": {
+        "solution": "../../DataTools.sln",
+        "project": "DataTools.csproj",
+        "test-case-filter": "Category=e2e",
+        "reporters": [
+            "html"
+        ]
+    }
+}
+```
+
 #### Creating The Solution
 
 ```bash
@@ -591,6 +606,67 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "isBackground": true,
             "windows": {
                 "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.integration.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "options": {
+                    "cwd": "${workspaceFolder}/test/DataTools.Tests/"
+                }
+            }
+        },
+        {
+            "label": "test: e2e",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "windows": {
+                "args": [
+                    "test",
+                    "--filter",
+                    "Category=e2e",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=./lcov.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "test: e2e (watch)",
+            "type": "process",
+            "group": "test",
+            "command": "dotnet",
+            "isBackground": true,
+            "windows": {
+                "args": [
+                    "watch",
+                    "--project",
+                    "${workspaceFolder}\\test\\DataTools.Tests\\DataTools.Tests.csproj",
+                    "test",
+                    "--filter",
+                    "Category=e2e",
+                    "/clp:NoSummary",
+                    "/p:CollectCoverage=true",
+                    "/p:CoverletOutputFormat=lcov",
+                    "/p:CoverletOutput=./lcov.info",
+                    "/p:Exclude=\"[coverlet.*]*,[*]Coverlet.Core*,[System*]*,[xunit.*]*\""
+                ]
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "test: e2e mutation coverage",
+            "type": "shell",
+            "group": "test",
+            "isBackground": true,
+            "windows": {
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.e2e.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }

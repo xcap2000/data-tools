@@ -1,0 +1,10 @@
+{
+    "stryker-config": {
+        "solution": "../../DataTools.sln",
+        "project": "DataTools.csproj",
+        "test-case-filter": "Category=e2e",
+        "reporters": [
+            "html"
+        ]
+    }
+}

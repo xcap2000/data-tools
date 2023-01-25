@@ -20,7 +20,7 @@ public static class TasksPresenterFacts
         }
 
         [Fact(Skip = "Finish")]
-        [Trait("Category", "Unit")]
+        [Trait("Category", "e2e")]
         public async void ListsActiveTasks()
         {
             // TODO - Continue.

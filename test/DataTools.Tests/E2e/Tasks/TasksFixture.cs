@@ -1,18 +1,18 @@
-using CarpeDiem.DataTools.Calculator.Views;
-using CarpeDiem.DataTools.Common;
+using CarpeDiem.DataTools.Common.Contexts;
+using CarpeDiem.DataTools.Tasks.Views;
 
-namespace CarpeDiem.DataTools.Calculator;
+namespace CarpeDiem.DataTools.E2e.Tasks;
 
-public class CalculatorFixture : IDisposable
+public class TasksFixture : IDisposable
 {
     private bool disposed;
 
-    public CalculatorFixture()
+    public TasksFixture()
     {
         var builder = new ContainerBuilder();
-        builder.RegisterModule<CommonModule>();
-        builder.RegisterModule<CalculatorModule>();
-        builder.RegisterInstance(For<ICalculatorView>());
+        builder.RegisterModule<TasksModule>();
+        builder.RegisterInstance(For<IContext>());
+        builder.RegisterInstance(For<ITasksView>());
         Container = builder.Build();
     }
 

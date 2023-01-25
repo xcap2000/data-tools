@@ -1,4 +1,4 @@
-namespace CarpeDiem.DataTools.Tasks;
+namespace CarpeDiem.DataTools.E2e.Tasks;
 
 [CollectionDefinition(NAME)]
 public class TasksCollection : ICollectionFixture<TasksFixture>

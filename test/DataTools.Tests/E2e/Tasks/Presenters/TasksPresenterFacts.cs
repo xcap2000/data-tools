@@ -1,7 +1,7 @@
 using CarpeDiem.DataTools.Common.Contexts;
 using CarpeDiem.DataTools.Tasks.Views;
 
-namespace CarpeDiem.DataTools.Tasks.Presenters;
+namespace CarpeDiem.DataTools.E2e.Tasks.Presenters;
 
 public static class TasksPresenterFacts
 {

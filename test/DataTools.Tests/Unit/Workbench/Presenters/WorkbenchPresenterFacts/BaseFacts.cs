@@ -3,7 +3,7 @@ using CarpeDiem.DataTools.Common.Commands;
 using CarpeDiem.DataTools.Workbench.Views;
 using Prism.Events;
 
-namespace CarpeDiem.DataTools.Workbench.Presenters;
+namespace CarpeDiem.DataTools.E2e.Workbench.Presenters;
 
 public static partial class WorkbenchPresenterFacts
 {

@@ -1,6 +1,6 @@
 using CarpeDiem.DataTools.Workbench.Events;
 
-namespace CarpeDiem.DataTools.Workbench.Presenters;
+namespace CarpeDiem.DataTools.E2e.Workbench.Presenters;
 
 public static partial class WorkbenchPresenterFacts
 {

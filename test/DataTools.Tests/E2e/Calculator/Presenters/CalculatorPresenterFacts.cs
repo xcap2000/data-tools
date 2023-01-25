@@ -1,7 +1,7 @@
 using CarpeDiem.DataTools.Calculator.Models;
 using CarpeDiem.DataTools.Calculator.Views;
 
-namespace CarpeDiem.DataTools.Calculator.Presenters;
+namespace CarpeDiem.DataTools.E2e.Calculator.Presenters;
 
 public static class CalculatorPresenterFacts
 {

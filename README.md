@@ -188,6 +188,9 @@ Create a file named stryker-config.all.json with the following contents:
         "project": "DataTools.csproj",
         "reporters": [
             "html"
+        ],
+        "mutate": [
+            "!**/*Module.cs"
         ]
     }
 }
@@ -203,6 +206,9 @@ Create a file named stryker-config.unit.json with the following contents:
         "test-case-filter": "Category=Unit",
         "reporters": [
             "html"
+        ],
+        "mutate": [
+            "!**/*Module.cs"
         ]
     }
 }
@@ -218,6 +224,9 @@ Create a file named stryker-config.integration.json with the following contents:
         "test-case-filter": "Category=Integration",
         "reporters": [
             "html"
+        ],
+        "mutate": [
+            "!**/*Module.cs"
         ]
     }
 }
@@ -233,6 +242,9 @@ Create a file named stryker-config.e2e.json with the following contents:
         "test-case-filter": "Category=e2e",
         "reporters": [
             "html"
+        ],
+        "mutate": [
+            "!**/*Module.cs"
         ]
     }
 }

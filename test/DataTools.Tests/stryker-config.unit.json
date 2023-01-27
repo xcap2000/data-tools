@@ -5,6 +5,9 @@
         "test-case-filter": "Category=Unit",
         "reporters": [
             "html"
+        ],
+        "mutate": [
+            "!**/*Module.cs"
         ]
     }
 }

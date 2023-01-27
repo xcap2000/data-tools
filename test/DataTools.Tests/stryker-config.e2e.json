@@ -5,6 +5,9 @@
         "test-case-filter": "Category=e2e",
         "reporters": [
             "html"
+        ],
+        "mutate": [
+            "!**/*Module.cs"
         ]
     }
 }

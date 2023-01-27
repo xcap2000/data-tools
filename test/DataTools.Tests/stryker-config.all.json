@@ -4,6 +4,9 @@
         "project": "DataTools.csproj",
         "reporters": [
             "html"
+        ],
+        "mutate": [
+            "!**/*Module.cs"
         ]
     }
 }

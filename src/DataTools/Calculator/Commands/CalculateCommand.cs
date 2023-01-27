@@ -28,8 +28,6 @@ public class CalculateCommand : BaseCommand
         // TODO - Trigger view deactivated.
         // TODO - Trigger view destroyed.
 
-        Enabled = false;
-
         eventAggregator.GetEvent<ActivatedEvent>().Publish(factory.Create());
 
         // TODO - Enable only when the form is closed/hidden.

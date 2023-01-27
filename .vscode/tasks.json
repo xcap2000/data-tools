@@ -59,6 +59,16 @@
             }
         },
         {
+            "label": "all: tool restore",
+            "type": "shell",
+            "group": "build",
+            "command": "dotnet tool restore",
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
             "label": "test: all",
             "type": "process",
             "group": "test",

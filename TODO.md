@@ -7,8 +7,10 @@ dotnet tool restore
 
 etc
 
-Add to readme something like:
+Add to readme something like or add tasks for firefox and chrome, or use open command from stryker and test:
 Replace
 C:\\Program` Files\\Mozilla` Firefox\\firefox.exe
 To
 C:\\Program` Files` '(x86)'\\Google\\Chrome\\Application\\chrome.exe
+
+Add changelog file, improve todo file

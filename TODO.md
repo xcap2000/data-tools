@@ -6,3 +6,9 @@ dotnet restore
 dotnet tool restore
 
 etc
+
+Add to readme something like:
+Replace
+C:\\Program` Files\\Mozilla` Firefox\\firefox.exe
+To
+C:\\Program` Files` '(x86)'\\Google\\Chrome\\Application\\chrome.exe

@@ -1,5 +1,20 @@
 # Data Tools
 
+The aim of this project is to create data related tools to import, export and convert data to and from diverse source and destinations.
+
+After clonning be sure to run the following tasks (on vscode press ctrl+shift+b):
+
+```
+all: restore
+all: tool restore
+```
+
+And initialize git flow with defaults:
+
+```bash
+$ git flow init
+```
+
 ## Project Infrastructure
 
 ### Creating The Projects
@@ -427,6 +442,16 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "type": "shell",
             "group": "build",
             "command": "dotnet build /clp:NoSummary",
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "all: tool restore",
+            "type": "shell",
+            "group": "build",
+            "command": "dotnet tool restore",
             "problemMatcher": "$msCompile",
             "presentation": {
                 "reveal": "silent"

@@ -1,21 +1,15 @@
+using CarpeDiem.DataTools.Calculator.Factories;
+using static CarpeDiem.DataTools.Unit.Common.Factories.BaseFactoryFacts;
+
 namespace CarpeDiem.DataTools.Unit.Calculator.Factories;
 
 public static partial class CalculatorViewFactoryFacts
 {
-    public class TheCreateMethod : BaseFacts
+    public class TheCreateMethod : BaseTheCreateMethod<ICalculatorView, ICalculatorViewFactory>
     {
-        [Fact]
-        public void TestName()
+        protected override ICalculatorViewFactory CreateFactory()
         {
-            // Given
-            var expectedView = For<ICalculatorView>();
-            resolver.Resolve().Returns(expectedView);
-
-            // When
-            var actualView = factory.Create();
-
-            // Then
-            Same(expectedView, actualView);
+            return new CalculatorViewFactory(resolver);
         }
     }
 }

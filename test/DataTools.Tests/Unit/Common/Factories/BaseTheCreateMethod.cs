@@ -7,6 +7,7 @@ public abstract class BaseTheCreateMethod<T, TFactory> : BaseFacts<T, TFactory>
     where TFactory : IFactory<T>
 {
     [Fact]
+    [Trait("Category", "Unit")]
     public void ResolvesInstance()
     {
         // Given

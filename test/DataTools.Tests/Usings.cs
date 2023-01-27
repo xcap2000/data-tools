@@ -4,6 +4,7 @@ global using System.Linq;
 global using Autofac;
 global using CarpeDiem.DataTools.Calculator;
 global using CarpeDiem.DataTools.Calculator.Presenters;
+global using CarpeDiem.DataTools.Calculator.Requests;
 global using CarpeDiem.DataTools.Calculator.Views;
 global using CarpeDiem.DataTools.Tasks;
 global using CarpeDiem.DataTools.Tasks.Presenters;

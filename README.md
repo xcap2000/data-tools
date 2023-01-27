@@ -483,7 +483,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.all.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --open-report --config-file stryker-config.all.json",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }
@@ -544,7 +544,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.unit.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --open-report --config-file stryker-config.unit.json",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }
@@ -605,7 +605,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.integration.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --open-report --config-file stryker-config.integration.json",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }
@@ -666,7 +666,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             "group": "test",
             "isBackground": true,
             "windows": {
-                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --config-file stryker-config.e2e.json ; C:\\Program` Files\\Mozilla` Firefox\\firefox.exe \"${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\$(ls -Name ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput\\ | Select-Object -First 1)\\reports\\mutation-report.html\"",
+                "command": "If (Test-Path ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput) { rm ${workspaceFolder}\\test\\DataTools.Tests\\StrykerOutput -Recurse } ; dotnet stryker --open-report --config-file stryker-config.e2e.json",
                 "options": {
                     "cwd": "${workspaceFolder}/test/DataTools.Tests/"
                 }

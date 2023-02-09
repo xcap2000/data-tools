@@ -87,7 +87,7 @@ public static partial class CalculatorServiceFacts
 
         [Fact]
         [Trait("Category", "Unit")]
-        public void Succeededs()
+        public void Succeeds()
         {
             var request = new SumRequest
             {

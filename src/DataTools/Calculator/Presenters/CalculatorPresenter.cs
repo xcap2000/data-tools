@@ -34,10 +34,11 @@ public class CalculatorPresenter : ICalculatorPresenter
         view.Bind();
     }
 
-    public void Sum(object? sender, EventArgs e)
+    public async void Sum(object? sender, EventArgs e)
     {
         var request = sumRequestMapper.Map(model.Value1, model.Value2);
-        var response = service.Sum(request);
+        var response = await service.SumAsync(request)
+            .ConfigureAwait(false);
         calculatorModelMapper.Map(model, response);
     }
 }

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CarpeDiem.DataTools.Calculator.Mappers;
 using CarpeDiem.DataTools.Calculator.Requests;
 using CarpeDiem.DataTools.Calculator.Responses;
@@ -13,8 +14,9 @@ public class CalculatorService : ICalculatorService
         this.sumResponseMapper = sumResponseMapper;
     }
 
-    public ISumResponse Sum(ISumRequest request)
+    public Task<ISumResponse> SumAsync(ISumRequest request)
     {
+        ISumResponse response;
         try
         {
             string? value1Message = null;
@@ -26,14 +28,17 @@ public class CalculatorService : ICalculatorService
 
             if (value1Message is not null || value2Message is not null)
             {
-                return sumResponseMapper.ForFailure(value1Message, value2Message, "One or more values are incorrect.");
+                response = sumResponseMapper.ForFailure(value1Message, value2Message, "One or more values are incorrect.");
             }
-
-            return sumResponseMapper.ForSuccess(checked(value1 + value2).ToString());
+            else
+            {
+                response = sumResponseMapper.ForSuccess(checked(value1 + value2).ToString());
+            }
         }
         catch
         {
-            return sumResponseMapper.ForFailure(message: $"Overflow ocurred while summing {request.Value1} and {request.Value2}.");
+            response = sumResponseMapper.ForFailure(message: $"Overflow ocurred while summing {request.Value1} and {request.Value2}.");
         }
+        return Task.FromResult(response);
     }
 }

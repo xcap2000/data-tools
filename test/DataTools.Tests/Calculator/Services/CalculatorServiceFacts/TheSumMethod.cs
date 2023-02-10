@@ -11,7 +11,7 @@ public static partial class CalculatorServiceFacts
 
         [Fact]
         [Trait("Category", "Unit")]
-        public void FailsForInvalidValue1()
+        public async void FailsForInvalidValue1()
         {
             var request = new SumRequest
             {
@@ -19,7 +19,7 @@ public static partial class CalculatorServiceFacts
                 Value2 = "1"
             };
 
-            var response = service.Sum(request);
+            var response = await service.SumAsync(request);
 
             False(response.Succeeded);
             Empty(response.Result);
@@ -30,7 +30,7 @@ public static partial class CalculatorServiceFacts
 
         [Fact]
         [Trait("Category", "Unit")]
-        public void FailsForInvalidValue2()
+        public async void FailsForInvalidValue2()
         {
             var request = new SumRequest
             {
@@ -38,7 +38,7 @@ public static partial class CalculatorServiceFacts
                 Value2 = "a"
             };
 
-            var response = service.Sum(request);
+            var response = await service.SumAsync(request);
 
             False(response.Succeeded);
             Empty(response.Result);
@@ -49,7 +49,7 @@ public static partial class CalculatorServiceFacts
 
         [Fact]
         [Trait("Category", "Unit")]
-        public void FailsForInvalidValue1AndValue2()
+        public async void FailsForInvalidValue1AndValue2()
         {
             var request = new SumRequest
             {
@@ -57,7 +57,7 @@ public static partial class CalculatorServiceFacts
                 Value2 = "b"
             };
 
-            var response = service.Sum(request);
+            var response = await service.SumAsync(request);
 
             False(response.Succeeded);
             Empty(response.Result);
@@ -68,7 +68,7 @@ public static partial class CalculatorServiceFacts
 
         [Fact]
         [Trait("Category", "Unit")]
-        public void FailsForOverflow()
+        public async void FailsForOverflow()
         {
             var request = new SumRequest
             {
@@ -76,7 +76,7 @@ public static partial class CalculatorServiceFacts
                 Value2 = int.MaxValue.ToString()
             };
 
-            var response = service.Sum(request);
+            var response = await service.SumAsync(request);
 
             False(response.Succeeded);
             Empty(response.Result);
@@ -87,7 +87,7 @@ public static partial class CalculatorServiceFacts
 
         [Fact]
         [Trait("Category", "Unit")]
-        public void Succeeds()
+        public async void Succeeds()
         {
             var request = new SumRequest
             {
@@ -95,7 +95,7 @@ public static partial class CalculatorServiceFacts
                 Value2 = "2"
             };
 
-            var response = service.Sum(request);
+            var response = await service.SumAsync(request);
 
             True(response.Succeeded);
             Equal("3", response.Result);

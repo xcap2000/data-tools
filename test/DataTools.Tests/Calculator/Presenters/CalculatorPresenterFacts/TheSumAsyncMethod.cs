@@ -17,15 +17,14 @@ public static partial class CalculatorPresenterFacts
 
             var response = For<ISumResponse>();
 
-            // TODO - Make service method async to define patterns.
-            service.Sum(request)
+            service.SumAsync(request)
                 .Returns(response);
 
             presenter.Sum(null, EventArgs.Empty);
 
             sumRequestMapper.Received(1).Map(model.Value1, model.Value2);
 
-            service.Received(1).Sum(request);
+            service.Received(1).SumAsync(request);
 
             calculatorModelMapper.Received(1).Map(model, response);
         }

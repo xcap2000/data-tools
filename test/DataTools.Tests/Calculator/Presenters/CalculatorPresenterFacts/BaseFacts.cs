@@ -10,9 +10,9 @@ public static partial class CalculatorPresenterFacts
     {
         protected readonly ICalculatorModel model;
         protected readonly ICalculatorView view;
+        protected readonly ICalculatorService service;
         protected readonly ISumRequestMapper sumRequestMapper;
         protected readonly ICalculatorModelMapper calculatorModelMapper;
-        protected readonly ICalculatorService service;
         protected readonly ICalculatorPresenter presenter;
 
         protected BaseFacts()
@@ -22,7 +22,14 @@ public static partial class CalculatorPresenterFacts
             sumRequestMapper = For<ISumRequestMapper>();
             calculatorModelMapper = For<ICalculatorModelMapper>();
             service = For<ICalculatorService>();
-            presenter = new CalculatorPresenter(model, view, sumRequestMapper, calculatorModelMapper, service);
+            presenter = new CalculatorPresenter
+            (
+                model,
+                view,
+                service,
+                sumRequestMapper,
+                calculatorModelMapper
+            );
         }
     }
 }

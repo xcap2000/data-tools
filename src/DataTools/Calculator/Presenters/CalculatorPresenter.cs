@@ -9,24 +9,24 @@ public class CalculatorPresenter : ICalculatorPresenter
 {
     private readonly ICalculatorModel model;
     private readonly ICalculatorView view;
+    private readonly ICalculatorService service;
     private readonly ISumRequestMapper sumRequestMapper;
     private readonly ICalculatorModelMapper calculatorModelMapper;
-    private readonly ICalculatorService service;
 
     public CalculatorPresenter
     (
         ICalculatorModel model,
         ICalculatorView view,
+        ICalculatorService service,
         ISumRequestMapper sumRequestMapper,
-        ICalculatorModelMapper calculatorModelMapper,
-        ICalculatorService service
+        ICalculatorModelMapper calculatorModelMapper
     )
     {
         this.model = model;
         this.view = view;
+        this.service = service;
         this.sumRequestMapper = sumRequestMapper;
         this.calculatorModelMapper = calculatorModelMapper;
-        this.service = service;
     }
 
     public void Initialize()

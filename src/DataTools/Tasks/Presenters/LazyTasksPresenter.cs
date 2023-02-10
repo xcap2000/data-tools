@@ -16,8 +16,9 @@ public class LazyTasksPresenter : ITasksPresenter
         );
     }
 
-    public async Task InitializeAsync()
+    // TODO - Maybe this is  good pattern to avoid ConfigureAwait(false) because it delegates to the real presenter
+    public Task InitializeAsync()
     {
-        await presenterLazy.Value.InitializeAsync();
+        return presenterLazy.Value.InitializeAsync();
     }
 }

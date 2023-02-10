@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using CarpeDiem.DataTools.Tasks.Models;
 
 namespace CarpeDiem.DataTools.Tasks.Views;
 
@@ -10,6 +9,9 @@ public partial class TasksView : Form, ITasksView
         InitializeComponent();
     }
 
-    // TODO - Review implementation.
-    public ITasksModel Model { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public void Bind()
+    {
+        // TODO - Implement.
+        throw new NotImplementedException();
+    }
 }

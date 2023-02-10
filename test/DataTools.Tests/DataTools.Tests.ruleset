@@ -1,5 +1,5 @@
 <RuleSet Name="Rules" Description="Rules for this project" ToolsVersion="15.0">
    <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
-     <!--<Rule Id="RULE_ID" Action="ACTION" />-->
+     <Rule Id="RCS1090" Action="None" />
    </Rules>
 </RuleSet>

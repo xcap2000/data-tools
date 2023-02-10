@@ -1,6 +1,6 @@
 using CarpeDiem.DataTools.Common;
 
-namespace CarpeDiem.DataTools.Calculator;
+namespace CarpeDiem.DataTools.Calculator.Services;
 
 public class CalculatorFixture : IDisposable
 {

@@ -1,6 +1,6 @@
 using CarpeDiem.DataTools.Calculator.Responses;
 
-namespace CarpeDiem.DataTools.Calculator;
+namespace CarpeDiem.DataTools.Calculator.Presenters;
 
 public static partial class CalculatorPresenterFacts
 {

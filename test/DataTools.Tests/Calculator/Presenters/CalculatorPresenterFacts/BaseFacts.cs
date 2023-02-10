@@ -2,7 +2,7 @@ using CarpeDiem.DataTools.Calculator.Mappers;
 using CarpeDiem.DataTools.Calculator.Models;
 using CarpeDiem.DataTools.Calculator.Services;
 
-namespace CarpeDiem.DataTools.Calculator;
+namespace CarpeDiem.DataTools.Calculator.Presenters;
 
 public static partial class CalculatorPresenterFacts
 {

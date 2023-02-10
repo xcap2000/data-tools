@@ -1,4 +1,4 @@
-namespace CarpeDiem.DataTools.Calculator;
+namespace CarpeDiem.DataTools.Calculator.Services;
 
 [CollectionDefinition(NAME)]
 public class CalculatorCollection : ICollectionFixture<CalculatorFixture>

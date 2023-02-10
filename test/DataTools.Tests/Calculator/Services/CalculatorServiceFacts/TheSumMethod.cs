@@ -1,4 +1,4 @@
-namespace CarpeDiem.DataTools.Calculator;
+namespace CarpeDiem.DataTools.Calculator.Services;
 
 public static partial class CalculatorServiceFacts
 {

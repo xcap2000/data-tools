@@ -11,8 +11,14 @@ public class TasksModule : Module
     protected override void Load(ContainerBuilder builder)
     {
         builder
+            // builder.RegisterModule<CommandsModule>();
+            // builder.RegisterModule<FactoriesModule>();
+            // builder.RegisterModule<MappersModule>();
+            // builder.RegisterModule<ModelsModule>();
             .RegisterModule<PresentersModule>()
             .RegisterModule<RepositoriesModule>()
+            // builder.RegisterModule<RequestsModule>();
+            // builder.RegisterModule<ResponsesModule>();
             .RegisterModule<ServicesModule>()
             .RegisterModule<ViewsModule>();
     }

@@ -48,7 +48,7 @@
             this.messageLabel.ForeColor = System.Drawing.Color.Red;
             this.messageLabel.Location = new System.Drawing.Point(12, 135);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(410, 23);
+            this.messageLabel.Size = new System.Drawing.Size(760, 23);
             this.messageLabel.TabIndex = 15;
             this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -56,7 +56,7 @@
             // 
             this.sumButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sumButton.AutoSize = true;
-            this.sumButton.Location = new System.Drawing.Point(347, 226);
+            this.sumButton.Location = new System.Drawing.Point(697, 526);
             this.sumButton.Name = "sumButton";
             this.sumButton.Size = new System.Drawing.Size(75, 25);
             this.sumButton.TabIndex = 14;
@@ -69,7 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.resultLabel.Location = new System.Drawing.Point(12, 112);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(410, 23);
+            this.resultLabel.Size = new System.Drawing.Size(760, 23);
             this.resultLabel.TabIndex = 13;
             this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -80,7 +80,7 @@
             this.value2TextBox.Location = new System.Drawing.Point(12, 71);
             this.value2TextBox.Name = "value2TextBox";
             this.value2TextBox.PlaceholderText = "Enter Value 2";
-            this.value2TextBox.Size = new System.Drawing.Size(410, 23);
+            this.value2TextBox.Size = new System.Drawing.Size(760, 23);
             this.value2TextBox.TabIndex = 12;
             // 
             // value1TextBox
@@ -90,7 +90,7 @@
             this.value1TextBox.Location = new System.Drawing.Point(12, 27);
             this.value1TextBox.Name = "value1TextBox";
             this.value1TextBox.PlaceholderText = "Enter Value 1";
-            this.value1TextBox.Size = new System.Drawing.Size(410, 23);
+            this.value1TextBox.Size = new System.Drawing.Size(760, 23);
             this.value1TextBox.TabIndex = 11;
             // 
             // label3
@@ -131,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(434, 261);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.sumButton);
             this.Controls.Add(this.resultLabel);
@@ -140,7 +140,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(450, 300);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "CalculatorView";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Calculator";

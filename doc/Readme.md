@@ -231,3 +231,6 @@ textBox.DataBindings.Add(bind);
 
 
 For the tool query test the query before running ir for real, to test run it with a limit 1 or something like that, use grammar validation to validate the query too if possible. https://www.antlr.org/
+
+
+Make the modules be lazy load, I mean, allow the modules to be enabled but not downloaded and download/activate on demand, this way saving up disk space, not sure this is valuable/viable. The idea is to work similar do one drive i.e.

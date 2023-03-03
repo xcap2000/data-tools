@@ -234,3 +234,8 @@ For the tool query test the query before running ir for real, to test run it wit
 
 
 Make the modules be lazy load, I mean, allow the modules to be enabled but not downloaded and download/activate on demand, this way saving up disk space, not sure this is valuable/viable. The idea is to work similar do one drive i.e.
+
+It turn out to be that it is not ideal having a producer reading and a consumer 
+processing and writing as in data-streamer as writing can be very slow on AWS and JNJ machine probably have encrypted disk.
+For this it is better to have a producer reading a consumer/producer processing and producing data for the next consumer that
+will only write to disk saving time.

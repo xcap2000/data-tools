@@ -6,5 +6,5 @@ namespace CarpeDiem.DataTools.Tasks.Services;
 
 public interface ITaskService
 {
-    Task<IListTaskResponse> ListAsync(IListTaskRequest request);
+    Task<IListResponse> ListAsync(IListRequest request);
 }

@@ -1,5 +1,3 @@
-using Autofac;
-
 namespace CarpeDiem.DataTools.Common.Resolvers;
 
 public class ResolversModule : Module

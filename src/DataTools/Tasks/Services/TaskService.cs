@@ -14,8 +14,18 @@ public class TaskService : ITaskService
         this.repository = repository;
     }
 
-    public Task<IListTaskResponse> ListAsync(IListTaskRequest listTaskRequest)
+    public async Task<IListResponse> ListAsync(IListRequest request)
     {
-        throw new NotImplementedException();
+        var tasks = await repository.ListAsync(request.Page, request.PageSize);
+
+        var taskResponses = new List<ITaskResponse>();
+
+        // TODO - Create mapper.
+        foreach (var task in tasks)
+        {
+            taskResponses.Add(new TaskResponse());
+        }
+
+        return new ListResponse(taskResponses);
     }
 }

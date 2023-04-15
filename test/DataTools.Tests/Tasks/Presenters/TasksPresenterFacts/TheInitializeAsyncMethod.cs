@@ -11,12 +11,12 @@ public static partial class TasksPresenterFacts
         [Trait("Category", "Unit")]
         public async void BindsAndHidratesModel()
         {
-            var request = For<IListTaskRequest>();
+            var request = For<IListRequest>();
 
             listTaskRequestMapper.Map(model)
                 .Returns(request);
 
-            var response = For<IListTaskResponse>();
+            var response = For<IListResponse>();
 
             service.ListAsync(request)
                 .Returns(response);

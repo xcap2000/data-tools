@@ -1,5 +1,3 @@
-using Autofac;
-
 namespace CarpeDiem.DataTools.Tasks.Services;
 
 public class ServicesModule : Module

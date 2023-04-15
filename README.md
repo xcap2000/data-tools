@@ -93,6 +93,7 @@ $ dotnet add src/DataTools/DataTools.csproj package Microsoft.CodeAnalysis.CShar
 $ dotnet add src/DataTools/DataTools.csproj package Autofac --version 6.3.0
 $ dotnet add src/DataTools/DataTools.csproj package Roslynator.Analyzers --version 3.2.2
 $ dotnet add src/DataTools/DataTools.csproj package Prism.Core --version 8.1.97
+$ dotnet add src/DataTools/DataTools.csproj package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.16
 ```
 
 Edit src/DataTools/DataTools.csproj to configure it as following:
@@ -142,7 +143,8 @@ $ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package coverlet.msbuil
 $ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package Roslynator.Analyzers --version 3.2.2
 $ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package NSubstitute --version 4.2.2
 $ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package NSubstitute.Analyzers.CSharp --version 1.0.15
-$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.0
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.16
+$ dotnet add test/DataTools.Tests/DataTools.Tests.csproj package MockQueryable.NSubstitute --version 6.0.1
 ```
 
 Edit src/DataTools.Tests/DataTools.Tests.csproj to configure it as following:

@@ -6,5 +6,5 @@ namespace CarpeDiem.DataTools.Tasks;
 // TODO - Implement.
 public interface IListTaskRequestMapper
 {
-    IListTaskRequest Map(ITasksModel model);
+    IListRequest Map(ITasksModel model);
 }

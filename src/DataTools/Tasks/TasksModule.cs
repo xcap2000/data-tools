@@ -1,4 +1,3 @@
-using Autofac;
 using CarpeDiem.DataTools.Tasks.Presenters;
 using CarpeDiem.DataTools.Tasks.Repositories;
 using CarpeDiem.DataTools.Tasks.Services;

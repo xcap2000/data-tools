@@ -1,5 +1,3 @@
-using Autofac;
-
 namespace CarpeDiem.DataTools.Tasks.Views;
 
 public class ViewsModule : Module

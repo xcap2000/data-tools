@@ -132,7 +132,7 @@
             closeButton.TabIndex = 16;
             closeButton.Text = "Close";
             closeButton.UseVisualStyleBackColor = true;
-            closeButton.Click += closeButton_Click;
+            closeButton.Click += CloseButton_Click;
             // 
             // CalculatorView
             // 

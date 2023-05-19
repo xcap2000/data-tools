@@ -1,6 +1,6 @@
-﻿using CarpeDiem.DataTools.Calculator.Models;
+﻿using System.Windows.Forms;
+using CarpeDiem.DataTools.Calculator.Models;
 using CarpeDiem.DataTools.Calculator.Presenters;
-using System.Windows.Forms;
 
 namespace CarpeDiem.DataTools.Calculator.Views;
 
@@ -64,8 +64,8 @@ public partial class CalculatorView : Form, ICalculatorView
         }
     }
 
-    private void closeButton_Click(object sender, EventArgs e)
+    private void CloseButton_Click(object sender, EventArgs e)
     {
-        this.Close();
+        Close();
     }
 }

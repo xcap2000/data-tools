@@ -1,7 +1,8 @@
-using CarpeDiem.DataTools.Tasks.Responses;
-
-namespace CarpeDiem.DataTools.Tasks.Services;
+namespace CarpeDiem.DataTools.Tasks.Responses;
 
 public class TaskResponse : ITaskResponse
 {
+    public TaskResponse()
+    {
+    }
 }

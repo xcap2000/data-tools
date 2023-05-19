@@ -42,10 +42,17 @@ public static partial class TaskServiceFacts
         [Trait("Category", "Unit")]
         public async void ListsFirstPage()
         {
+            var idTask1 = Guid.NewGuid();
+            var idTask2 = Guid.NewGuid();
+            var idTask3 = Guid.NewGuid();
+            var idTask4 = Guid.NewGuid();
+
             var tasks = new List<Task>
             {
-                new Task(),
-                new Task()
+                new Task(idTask1),
+                new Task(idTask2),
+                new Task(idTask3),
+                new Task(idTask4)
             };
 
             var tasksDbSet = tasks
@@ -65,6 +72,46 @@ public static partial class TaskServiceFacts
             var response = await service.ListAsync(request);
 
             Equal(2, response.Tasks.Count());
+            Equal(idTask1, response.Tasks.ElementAt(0).Id);
+            Equal(idTask2, response.Tasks.ElementAt(1).Id);
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public async void ListsSecondPage()
+        {
+            var idTask1 = Guid.NewGuid();
+            var idTask2 = Guid.NewGuid();
+            var idTask3 = Guid.NewGuid();
+            var idTask4 = Guid.NewGuid();
+
+            var tasks = new List<Task>
+            {
+                new Task(idTask1),
+                new Task(idTask2),
+                new Task(idTask3),
+                new Task(idTask4)
+            };
+
+            var tasksDbSet = tasks
+                .AsQueryable()
+                .BuildMockDbSet();
+
+            context
+                .Tasks
+                .Returns(tasksDbSet);
+
+            var request = new ListRequest
+            (
+                page: 1,
+                pageSize: 2
+            );
+
+            var response = await service.ListAsync(request);
+
+            Equal(2, response.Tasks.Count());
+            Equal(idTask3, response.Tasks.ElementAt(0).Id);
+            Equal(idTask4, response.Tasks.ElementAt(1).Id);
         }
     }
 }

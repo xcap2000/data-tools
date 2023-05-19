@@ -71,9 +71,9 @@ public static partial class TaskServiceFacts
 
             var response = await service.ListAsync(request);
 
-            Equal(2, response.Tasks.Count());
-            Equal(idTask1, response.Tasks.ElementAt(0).Id);
-            Equal(idTask2, response.Tasks.ElementAt(1).Id);
+            Equal(2, response.Tasks.Count);
+            Equal(idTask1, response.Tasks[0].Id);
+            Equal(idTask2, response.Tasks[1].Id);
         }
 
         [Fact]
@@ -109,9 +109,9 @@ public static partial class TaskServiceFacts
 
             var response = await service.ListAsync(request);
 
-            Equal(2, response.Tasks.Count());
-            Equal(idTask3, response.Tasks.ElementAt(0).Id);
-            Equal(idTask4, response.Tasks.ElementAt(1).Id);
+            Equal(2, response.Tasks.Count);
+            Equal(idTask3, response.Tasks[0].Id);
+            Equal(idTask4, response.Tasks[1].Id);
         }
     }
 }

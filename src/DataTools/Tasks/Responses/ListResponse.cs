@@ -2,10 +2,10 @@ namespace CarpeDiem.DataTools.Tasks.Responses;
 
 public class ListResponse : IListResponse
 {
-    public ListResponse(IEnumerable<ITaskResponse> tasks)
+    public ListResponse(IReadOnlyList<ITaskResponse> tasks)
     {
         Tasks = tasks;
     }
 
-    public IEnumerable<ITaskResponse> Tasks { get; }
+    public IReadOnlyList<ITaskResponse> Tasks { get; }
 }

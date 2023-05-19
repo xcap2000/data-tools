@@ -2,5 +2,5 @@ namespace CarpeDiem.DataTools.Tasks.Responses;
 
 public interface IListResponse
 {
-    IEnumerable<ITaskResponse> Tasks { get; }
+    IReadOnlyList<ITaskResponse> Tasks { get; }
 }

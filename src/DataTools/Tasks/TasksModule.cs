@@ -1,3 +1,4 @@
+using CarpeDiem.DataTools.Tasks.Contexts;
 using CarpeDiem.DataTools.Tasks.Mappers;
 using CarpeDiem.DataTools.Tasks.Presenters;
 using CarpeDiem.DataTools.Tasks.Repositories;
@@ -11,6 +12,7 @@ public class TasksModule : Module
     protected override void Load(ContainerBuilder builder)
     {
         builder
+            .RegisterModule<ContextsModule>()
             // .RegisterModule<CommandsModule>()
             // .RegisterModule<FactoriesModule>()
             .RegisterModule<MappersModule>()

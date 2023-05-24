@@ -1,4 +1,4 @@
-namespace CarpeDiem.DataTools.Common.Entities;
+namespace CarpeDiem.DataTools.Tasks.Entities;
 
 public class Task : ITask
 {

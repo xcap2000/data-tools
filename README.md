@@ -93,6 +93,7 @@ $ dotnet add src/DataTools/DataTools.csproj package Microsoft.CodeAnalysis.CShar
 $ dotnet add src/DataTools/DataTools.csproj package Autofac --version 6.3.0
 $ dotnet add src/DataTools/DataTools.csproj package Roslynator.Analyzers --version 3.2.2
 $ dotnet add src/DataTools/DataTools.csproj package Prism.Core --version 8.1.97
+$ dotnet add src/DataTools/DataTools.csproj package Microsoft.EntityFrameworkCore.Design --version 6.0.16
 $ dotnet add src/DataTools/DataTools.csproj package Microsoft.EntityFrameworkCore.Sqlite --version 6.0.16
 ```
 
@@ -762,6 +763,41 @@ To remove Stryker:
 $ dotnet tool uninstall dotnet-stryker
 ```
 
+#### Adding EF Tool
+
+To add EF Tool locally:
+
+```bash
+$ dotnet new tool-manifest
+$ dotnet tool install dotnet-ef --version 6.0.16
+```
+
+To update EF Tool:
+
+```bash
+$ dotnet tool update dotnet-stryker
+```
+
+To restore EF Tool:
+
+```bash
+$ dotnet tool restore
+```
+
+To run EF Tool:
+
+```bash
+$ dotnet tool run dotnet-ef
+# or 
+$ dotnet dotnet-ef
+```
+
+To remove EF Tool:
+
+```bash
+$ dotnet tool uninstall dotnet-ef
+```
+
 #### VSCode Extensions
 
 Go to extensions, filter by recommended and install all workspace recommendations if not installed. Disable all of them and enable just for the workspace.
@@ -795,7 +831,18 @@ $ dotnet-trace collect --format Chromium -p `pidof data-tools` # Open on chrome 
 $ dotnet-trace collect --format SpeedScope -p `pidof data-tools` # Open on SpeedScope (https://www.speedscope.app/)
 ```
 
+#### Entity Framework
+
+```bash
+$ dotnet ef migrations add Initial --context TasksContext --output-dir Tasks/Contexts/Migrations/Sqlite # in project folder
+$ dotnet ef database update --context TasksContext
+```
+
+
 #### Links
 
 ```
+https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
+https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.ilistsource?view=net-7.0&viewFallbackFrom=windowsdesktop-7.0
+https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.ibindinglist?view=net-7.0&viewFallbackFrom=windowsdesktop-7.0
 ```

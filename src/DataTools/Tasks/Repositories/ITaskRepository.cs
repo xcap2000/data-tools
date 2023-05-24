@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using CarpeDiem.DataTools.Common.Entities;
+using CarpeDiem.DataTools.Tasks.Entities;
 
 namespace CarpeDiem.DataTools.Tasks.Repositories;
 

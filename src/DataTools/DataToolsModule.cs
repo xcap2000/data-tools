@@ -1,5 +1,6 @@
 using CarpeDiem.DataTools.Calculator;
 using CarpeDiem.DataTools.Common;
+using CarpeDiem.DataTools.Tasks;
 using CarpeDiem.DataTools.Workbench;
 using Prism.Events;
 
@@ -12,6 +13,7 @@ public class DataToolsModule : Module
         builder.RegisterModule<CommonModule>();
         builder.RegisterModule<WorkbenchModule>();
         builder.RegisterModule<CalculatorModule>();
+        builder.RegisterModule<TasksModule>();
         builder
             .RegisterType<EventAggregator>()
             .As<IEventAggregator>()

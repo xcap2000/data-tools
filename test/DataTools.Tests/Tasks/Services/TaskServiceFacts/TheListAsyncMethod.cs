@@ -1,4 +1,4 @@
-using CarpeDiem.DataTools.Common.Entities;
+using CarpeDiem.DataTools.Tasks.Entities;
 using CarpeDiem.DataTools.Tasks.Requests;
 using MockQueryable.NSubstitute;
 

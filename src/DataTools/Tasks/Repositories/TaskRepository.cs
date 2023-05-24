@@ -1,15 +1,15 @@
 using System.Threading.Tasks;
-using CarpeDiem.DataTools.Common.Contexts;
-using CarpeDiem.DataTools.Common.Entities;
+using CarpeDiem.DataTools.Tasks.Contexts;
+using CarpeDiem.DataTools.Tasks.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarpeDiem.DataTools.Tasks.Repositories;
 
 public class TaskRepository : ITaskRepository
 {
-    private readonly IContext context;
+    private readonly ITasksContext context;
 
-    public TaskRepository(IContext context)
+    public TaskRepository(ITasksContext context)
     {
         this.context = context;
     }

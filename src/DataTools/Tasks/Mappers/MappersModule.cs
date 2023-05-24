@@ -13,5 +13,10 @@ public class MappersModule : Module
             .RegisterType<ListResponseMapper>()
             .As<IListResponseMapper>()
             .SingleInstance();
+
+        builder
+            .RegisterType<TasksModelMapper>()
+            .As<ITasksModelMapper>()
+            .SingleInstance();
     }
 }

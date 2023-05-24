@@ -1,5 +1,5 @@
 using CarpeDiem.DataTools.Common;
-using CarpeDiem.DataTools.Common.Contexts;
+using CarpeDiem.DataTools.Tasks.Contexts;
 
 namespace CarpeDiem.DataTools.Tasks.Services;
 
@@ -12,7 +12,7 @@ public class TasksFixture : IDisposable
         var builder = new ContainerBuilder();
         builder.RegisterModule<CommonModule>();
         builder.RegisterModule<TasksModule>();
-        builder.RegisterInstance(For<IContext>());
+        builder.RegisterInstance(For<ITasksContext>());
         Container = builder.Build();
     }
 

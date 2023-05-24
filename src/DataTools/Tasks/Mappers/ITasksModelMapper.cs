@@ -3,8 +3,7 @@ using CarpeDiem.DataTools.Tasks.Responses;
 
 namespace CarpeDiem.DataTools.Tasks.Mappers;
 
-// TODO - Implement.
 public interface ITasksModelMapper
 {
-    void Map(ITasksModel model, IListResponse reponse);
+    void Map(ITasksModel model, IListResponse response);
 }

@@ -12,8 +12,8 @@ public class ListResponseMapper : IListResponseMapper
         this.mapper = mapper;
     }
 
-    public IListResponse Map(IEnumerable<ITask> tasks)
+    public IListResponse Map(int total, IEnumerable<ITask> tasks)
     {
-        return new ListResponse(mapper.Map(tasks));
+        return new ListResponse(total, mapper.Map(tasks));
     }
 }

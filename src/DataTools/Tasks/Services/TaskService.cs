@@ -23,8 +23,10 @@ public class TaskService : ITaskService
 
     public async Task<IListResponse> ListAsync(IListRequest request)
     {
+        var total = await repository.CountAsync();
+
         var tasks = await repository.ListAsync(request.Page, request.PageSize);
 
-        return listResponseMapper.Map(tasks);
+        return listResponseMapper.Map(total, tasks);
     }
 }

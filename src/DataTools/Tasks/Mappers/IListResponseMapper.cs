@@ -5,5 +5,5 @@ namespace CarpeDiem.DataTools.Tasks.Mappers;
 
 public interface IListResponseMapper
 {
-    IListResponse Map(IEnumerable<ITask> tasks);
+    IListResponse Map(int total, IEnumerable<ITask> tasks);
 }

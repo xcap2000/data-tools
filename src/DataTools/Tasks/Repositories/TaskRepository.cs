@@ -14,6 +14,11 @@ public class TaskRepository : ITaskRepository
         this.context = context;
     }
 
+    public async Task<int> CountAsync()
+    {
+        return await context.Tasks.CountAsync();
+    }
+
     public async Task<IEnumerable<ITask>> ListAsync(int page, int pageSize)
     {
         return await context.Tasks

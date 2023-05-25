@@ -1,4 +1,5 @@
 using CarpeDiem.DataTools.Tasks.Configurations;
+using CarpeDiem.DataTools.Tasks.Seeds;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
@@ -24,13 +25,16 @@ public class ContextsModule : Module
                     var convention = SqliteConventionSetBuilder.Build();
                     var modelBuilder = new ModelBuilder(convention);
 
-                    // modelBuilder.HasDefaultSchema()
-
                     modelBuilder.ApplyConfiguration(new TaskConfiguration());
 
+                    modelBuilder.ApplyConfiguration(new TasksSeed());
+
                     var builder = new DbContextOptionsBuilder<TasksContext>();
-                    // TODO - Check migration schema table.
-                    builder.UseSqlite(c.Resolve<SqliteConnection>(), sqliteOptionsAction => sqliteOptionsAction.MigrationsHistoryTable("_Tasks"));
+                    builder.UseSqlite
+                    (
+                        c.Resolve<SqliteConnection>(),
+                        sqliteOptionsAction => sqliteOptionsAction.MigrationsHistoryTable("_Tasks")
+                    );
                     builder.UseModel(modelBuilder.FinalizeModel());
 
                     return builder.Options;

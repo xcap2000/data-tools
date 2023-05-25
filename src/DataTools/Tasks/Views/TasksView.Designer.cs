@@ -35,6 +35,7 @@
             button1 = new System.Windows.Forms.Button();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             taskDataGridView = new System.Windows.Forms.DataGridView();
+            idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)taskDataGridView).BeginInit();
             SuspendLayout();
@@ -103,12 +104,26 @@
             // 
             // taskDataGridView
             // 
+            taskDataGridView.AllowUserToAddRows = false;
+            taskDataGridView.AllowUserToDeleteRows = false;
+            taskDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            taskDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             taskDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            taskDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idColumn });
             taskDataGridView.Location = new System.Drawing.Point(12, 92);
             taskDataGridView.Name = "taskDataGridView";
+            taskDataGridView.ReadOnly = true;
             taskDataGridView.RowTemplate.Height = 25;
-            taskDataGridView.Size = new System.Drawing.Size(760, 150);
+            taskDataGridView.Size = new System.Drawing.Size(760, 457);
             taskDataGridView.TabIndex = 7;
+            // 
+            // idColumn
+            // 
+            idColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            idColumn.DataPropertyName = "Id";
+            idColumn.HeaderText = "ID";
+            idColumn.Name = "idColumn";
+            idColumn.ReadOnly = true;
             // 
             // TasksView
             // 
@@ -120,6 +135,7 @@
             MinimumSize = new System.Drawing.Size(800, 600);
             Name = "TasksView";
             Text = "Tasks";
+            Load += TasksView_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)taskDataGridView).EndInit();
@@ -135,5 +151,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView taskDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
     }
 }

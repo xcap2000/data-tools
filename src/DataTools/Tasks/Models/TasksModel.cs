@@ -11,4 +11,7 @@ public class TasksModel : BindingList<ITaskModel>, ITasksModel
         AllowRemove = false;
         RaiseListChangedEvents = false;
     }
+
+    public int Page { get; } = 0;
+    public int PageSize { get; } = 10;
 }

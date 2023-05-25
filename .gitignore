@@ -5,3 +5,4 @@ obj
 lcov.info
 StrykerOutput
 sqltools*
+DataTools.db

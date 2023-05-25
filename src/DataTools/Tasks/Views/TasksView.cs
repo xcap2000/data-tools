@@ -7,17 +7,26 @@ namespace CarpeDiem.DataTools.Tasks.Views;
 public partial class TasksView : Form, ITasksView
 {
     private readonly ITasksModel model;
+    private readonly ITasksPresenter presenter;
 
-    public TasksView(ITasksModel model)
+    public TasksView
+    (
+        ITasksModel model,
+        ITasksPresenter presenter
+    )
     {
         InitializeComponent();
         this.model = model;
+        this.presenter = presenter;
     }
 
     public void Bind()
     {
-        taskDataGridView.ColumnCount = 1;
-        taskDataGridView.Columns[0].Name = "ID";
         taskDataGridView.DataSource = model;
+    }
+
+    private async void TasksView_Load(object sender, EventArgs e)
+    {
+        await presenter.InitializeAsync();
     }
 }

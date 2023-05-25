@@ -6,4 +6,6 @@ namespace CarpeDiem.DataTools.Tasks.Contexts;
 public interface ITasksContext
 {
     DbSet<Task> Tasks { get; }
+
+    void InitializeDatabase();
 }

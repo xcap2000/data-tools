@@ -10,5 +10,10 @@ public class TasksContext : DbContext, ITasksContext
     {
     }
 
-    DbSet<Task> ITasksContext.Tasks => Set<Task>();
+    public DbSet<Task> Tasks => Set<Task>();
+
+    public void InitializeDatabase()
+    {
+        Database.Migrate();
+    }
 }

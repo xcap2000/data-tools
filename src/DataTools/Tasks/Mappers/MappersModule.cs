@@ -5,13 +5,18 @@ public class MappersModule : Module
     protected override void Load(ContainerBuilder builder)
     {
         builder
-            .RegisterType<TaskResponseMapper>()
-            .As<ITaskResponseMapper>()
+            .RegisterType<ListResponseMapper>()
+            .As<IListResponseMapper>()
             .SingleInstance();
 
         builder
-            .RegisterType<ListResponseMapper>()
-            .As<IListResponseMapper>()
+            .RegisterType<ListTaskRequestMapper>()
+            .As<IListTaskRequestMapper>()
+            .SingleInstance();
+
+        builder
+            .RegisterType<TaskResponseMapper>()
+            .As<ITaskResponseMapper>()
             .SingleInstance();
 
         builder

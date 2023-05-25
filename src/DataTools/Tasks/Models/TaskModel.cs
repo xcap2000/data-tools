@@ -1,6 +1,8 @@
+using CarpeDiem.DataTools.Common.Models;
+
 namespace CarpeDiem.DataTools.Tasks.Models;
 
-public class TaskModel : ITaskModel
+public class TaskModel : BaseModel, ITaskModel
 {
     public TaskModel(Guid id)
     {

@@ -358,7 +358,8 @@ Create a file named settings.json in the .vscode folder with the following conte
         "**/.config": true,
         "**/sqltools*": true,
         "**/**csproj.user": true,
-        "**/stryker-config.json": true
+        "**/stryker-config*.json": true,
+        "**/DataTools.db": true
     }
 }
 ```

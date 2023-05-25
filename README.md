@@ -846,4 +846,7 @@ $ dotnet ef database update --context TasksContext
 https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
 https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.ilistsource?view=net-7.0&viewFallbackFrom=windowsdesktop-7.0
 https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.ibindinglist?view=net-7.0&viewFallbackFrom=windowsdesktop-7.0
+https://stackoverflow.com/questions/30883237/how-to-run-commands-on-ssh-server-in-c
+https://www.thecodebuzz.com/c-sharp-send-ssh-command-net-core-example/
+https://ourcodeworld.com/articles/read/369/how-to-access-a-sftp-server-using-ssh-net-sync-and-async-with-c-in-winforms
 ```

@@ -9,7 +9,7 @@ public class TasksModelMapper : ITasksModelMapper
     {
         foreach (var task in response.Tasks)
         {
-            model.Add(new TaskModel(task.Id));
+            model.Tasks.Add(new TaskModel(task.Id));
         }
     }
 }

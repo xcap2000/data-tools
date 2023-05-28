@@ -28,18 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
+            idLabel = new System.Windows.Forms.Label();
+            idDisplayLabel = new System.Windows.Forms.Label();
+            SuspendLayout();
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(3, 3);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(18, 15);
+            idLabel.TabIndex = 0;
+            idLabel.Text = "ID";
+            // 
+            // idDisplayLabel
+            // 
+            idDisplayLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            idDisplayLabel.Location = new System.Drawing.Point(3, 18);
+            idDisplayLabel.Name = "idDisplayLabel";
+            idDisplayLabel.Size = new System.Drawing.Size(250, 23);
+            idDisplayLabel.TabIndex = 1;
+            idDisplayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TaskView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "TaskView";
-            this.Size = new System.Drawing.Size(800, 150);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            Controls.Add(idDisplayLabel);
+            Controls.Add(idLabel);
+            Name = "TaskView";
+            Size = new System.Drawing.Size(256, 41);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.Label idDisplayLabel;
     }
 }

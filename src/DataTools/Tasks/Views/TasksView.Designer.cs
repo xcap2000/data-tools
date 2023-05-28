@@ -34,10 +34,8 @@
             textBox1 = new System.Windows.Forms.TextBox();
             button1 = new System.Windows.Forms.Button();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            taskDataGridView = new System.Windows.Forms.DataGridView();
-            idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            taskListView = new TaskListView();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)taskDataGridView).BeginInit();
             SuspendLayout();
             // 
             // idLabel
@@ -102,35 +100,21 @@
             tableLayoutPanel1.Size = new System.Drawing.Size(760, 74);
             tableLayoutPanel1.TabIndex = 6;
             // 
-            // taskDataGridView
+            // taskListView
             // 
-            taskDataGridView.AllowUserToAddRows = false;
-            taskDataGridView.AllowUserToDeleteRows = false;
-            taskDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            taskDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            taskDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            taskDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { idColumn });
-            taskDataGridView.Location = new System.Drawing.Point(12, 92);
-            taskDataGridView.Name = "taskDataGridView";
-            taskDataGridView.ReadOnly = true;
-            taskDataGridView.RowTemplate.Height = 25;
-            taskDataGridView.Size = new System.Drawing.Size(760, 457);
-            taskDataGridView.TabIndex = 7;
-            // 
-            // idColumn
-            // 
-            idColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            idColumn.DataPropertyName = "Id";
-            idColumn.HeaderText = "ID";
-            idColumn.Name = "idColumn";
-            idColumn.ReadOnly = true;
+            taskListView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            taskListView.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            taskListView.Location = new System.Drawing.Point(12, 92);
+            taskListView.Name = "taskListView";
+            taskListView.Size = new System.Drawing.Size(760, 457);
+            taskListView.TabIndex = 7;
             // 
             // TasksView
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(784, 561);
-            Controls.Add(taskDataGridView);
+            Controls.Add(taskListView);
             Controls.Add(tableLayoutPanel1);
             MinimumSize = new System.Drawing.Size(800, 600);
             Name = "TasksView";
@@ -138,7 +122,6 @@
             Load += TasksView_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)taskDataGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -150,7 +133,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView taskDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
+        private TaskListView taskListView;
     }
 }

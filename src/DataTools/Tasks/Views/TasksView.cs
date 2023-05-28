@@ -22,7 +22,7 @@ public partial class TasksView : Form, ITasksView
 
     public void Bind()
     {
-        taskDataGridView.DataSource = model;
+        taskListView.DataSource = model;
     }
 
     private async void TasksView_Load(object sender, EventArgs e)

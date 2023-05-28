@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.SuspendLayout();
+            tasksPanel = new System.Windows.Forms.Panel();
+            SuspendLayout();
             // 
-            // panel1
+            // tasksPanel
             // 
-            this.panel1.AutoSize = true;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.MinimumSize = new System.Drawing.Size(0, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 10);
-            this.panel1.TabIndex = 0;
+            tasksPanel.AutoSize = true;
+            tasksPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            tasksPanel.Location = new System.Drawing.Point(0, 0);
+            tasksPanel.MinimumSize = new System.Drawing.Size(0, 10);
+            tasksPanel.Name = "tasksPanel";
+            tasksPanel.Size = new System.Drawing.Size(800, 10);
+            tasksPanel.TabIndex = 0;
             // 
             // TaskListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.panel1);
-            this.Name = "TaskListView";
-            this.Size = new System.Drawing.Size(800, 600);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoScroll = true;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            Controls.Add(tasksPanel);
+            Name = "TaskListView";
+            Size = new System.Drawing.Size(800, 600);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel tasksPanel;
     }
 }

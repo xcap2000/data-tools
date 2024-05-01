@@ -320,7 +320,7 @@ Create a file named launch.json in the .vscode folder with the following content
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "all: build",
-            "program": "${workspaceFolder}/src/DataTools/bin/Debug/net6.0-windows/data-tools.dll",
+            "program": "${workspaceFolder}/src/DataTools/bin/Debug/net8.0-windows/data-tools.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/DataTools",
             "stopAtEntry": false,
@@ -722,7 +722,7 @@ Create a file named tasks.json in the .vscode folder with the following contents
             },
             "problemMatcher": "$msCompile",
             "windows": {
-                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Debug -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\net6.0-windows\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true"
+                "command": "dotnet publish src\\DataTools\\DataTools.csproj -c Debug -r win10-x64 --self-contained -o src\\DataTools\\bin\\Release\\net8.0-windows\\win10-x64\\ /p:UseAppHost=true /p:PublishSingleFile=true"
             }
         }
     ]

@@ -15,7 +15,7 @@ public static class Program
         context.InitializeDatabase();
 
         var application = container.Resolve<IApplicationAdapter>();
-        application.Run(() => container.Resolve<IWorkbenchView>());
+        application.Run(container.Resolve<IWorkbenchView>);
     }
 
     public static IContainer GetContainer()

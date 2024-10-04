@@ -12,6 +12,7 @@
         "ms-mssql.mssql",
         "ms-azuretools.vscode-docker",
         "oderwat.indent-rainbow",
-        "alefragnani.Bookmarks"
+        "alefragnani.Bookmarks",
+        "ms-dotnettools.csdevkit"
     ]
 }

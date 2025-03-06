@@ -1,0 +1,22 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Autofac" Version="6.5.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.13.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.13" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.13" />
+    <PackageVersion Include="Prism.Core" Version="8.1.97" />
+    <PackageVersion Include="Roslynator.Analyzers" Version="4.13.1" />
+    <PackageVersion Include="System.IO.Compression.ZipFile" Version="4.3.0" />
+    <PackageVersion Include="coverlet.msbuild" Version="3.1.2" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.0.2" />
+    <PackageVersion Include="MockQueryable.NSubstitute" Version="6.0.1" />
+    <PackageVersion Include="NSubstitute" Version="4.4.0" />
+    <PackageVersion Include="NSubstitute.Analyzers.CSharp" Version="1.0.17" />
+    <PackageVersion Include="xunit" Version="2.4.2" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.4.5" />
+    <PackageVersion Include="coverlet.collector" Version="3.1.2" />
+  </ItemGroup>
+</Project>
